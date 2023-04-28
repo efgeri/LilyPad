@@ -10,6 +10,11 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
         setPostComment(e.target.value)
     }
 
+    // const handlePictureUpload = (e) => {
+    //     console.log(e);
+    //     setPostPicture(e.target.file)
+    // }
+
     const handlePictureChange = (e) => {
         setPostPicture(e.target.value)
     }
@@ -24,7 +29,6 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
                 original: postComment
             }
         })
-        console.log(e);
     }
 
     return ( 
@@ -42,7 +46,13 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
                 />
                     <br/>
                 {/* <label htmlFor='picture'></label>
-                <input type='file' id='picture' name='picture' value={postData.image_url} onChange={handlePostChange} /> */}
+                <input 
+                    type='file' 
+                    id='picture' 
+                    name='picture' 
+                    value={postPicture} 
+                    onChange={handlePictureUpload} />
+                <br/> */}
                 <label htmlFor='comment'></label>
                 <textarea 
                     id='comment' 

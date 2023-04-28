@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import FrogList from '../components/FrogList/FrogList'
+import { getFrogs } from '../services/FrogServices'
 
 const LilyPad = () => {
 
@@ -7,9 +9,15 @@ const LilyPad = () => {
     const [selectedFrog, setSelectedFrog] = useState(null)
     const [posts, setPosts] = useState([])
 
+    useEffect(() => {
+        getFrogs().then((data) => setFrogs(data));
+      }, []);
+
     return ( 
         <>
             <h1>LilyPad Container</h1>
+            <FrogList frogs={frogs}/>
+
         </>
      );
 }

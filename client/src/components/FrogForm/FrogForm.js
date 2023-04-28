@@ -13,13 +13,22 @@ function FrogForm() {
     setImage(e.target.files[0]);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("image", image);
-    setFriends([]); 
-  };
+
+
+  const handleSubmit = ev => {
+    ev.preventDefault();
+    addFrog({
+      name: name,
+      image: image,
+      friends: friends
+    });
+    setName("");
+    setImage(null);
+    setFriends([]);
+  }
+
+  
+  
 
   return (
     <form onSubmit={handleSubmit}>

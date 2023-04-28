@@ -17,7 +17,7 @@ function App() {
         >
           Learn React
         </a>
-        <h1>WELCOME TO LILYPAD 1</h1>
+        <h1>WELCOME TO LILYPAD 12</h1>
       </header>
     </div>
   );

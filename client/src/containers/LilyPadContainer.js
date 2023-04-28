@@ -8,12 +8,15 @@ const LilyPad = () => {
     const [selectedFrog, setSelectedFrog] = useState(null)
     const [posts, setPosts] = useState([])
 
-    
+    const addPost = (OriginalPost) => {
+        console.log('hello world');
+        setPosts([...posts, OriginalPost])
+    }    
 
     return ( 
         <>
             <h1>LilyPad Container</h1>
-            <PostForm selectedFrog={selectedFrog} loggedFrog={loggedFrog} />
+            <PostForm selectedFrog={selectedFrog} loggedFrog={loggedFrog} addPost={addPost}/>
         </>
      );
 }

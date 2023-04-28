@@ -1,50 +1,79 @@
 import { useState } from 'react';
 import styled from 'styled-components'
 
-const PostForm = ({selectedFrog, loggedFrog}) => {
+const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
 
-    const [postData, setPostData] = useState({
-        poster: "",
-        receiver: "",
-        image_url: "",
-        comment: {
-            original: ""
-        }
-    }) 
+    const [postPicture, setPostPicture] = useState("")
+    const [postComment, setPostComment] = useState("")
 
-    const handlePostChange = (e) => {
-        console.log(e)
+    const handleCommentChange = (e) => {
+        setPostComment(e.target.value)
+    }
+
+    const handlePictureChange = (e) => {
+        setPostPicture(e.target.value)
+    }
+
+    const handleSubmitPost = (e) => {
+        e.preventDefault()
+        addPost({
+            poster: loggedFrog,
+            receiver: selectedFrog,
+            image_url: postPicture,
+            comment: {
+                original: postComment
+            }
+        })
+        console.log(e);
     }
 
     return ( 
         <>
             <h2>Post Form</h2>
-            <form>
+            <form onSubmit={handleSubmitPost} >
                 <label htmlFor='picture'></label>
                 <input 
                     type='text' 
                     id='picture' 
                     name='picture' 
-                    value={postData.image_url} 
-                    onChange={handlePostChange} 
+                    value={postPicture} 
+                    onChange={handlePictureChange} 
                     placeholder='Enter an image Url'
-                    required
                 />
                     <br/>
                 {/* <label htmlFor='picture'></label>
                 <input type='file' id='picture' name='picture' value={postData.image_url} onChange={handlePostChange} /> */}
                 <label htmlFor='comment'></label>
-                <input 
+                <textarea 
                     id='comment' 
                     name='comment' 
-                    value={postData.comment.original} 
-                    onChange={handlePostChange} 
+                    rows="4"
+                    cols="50"
+                    placeholder='Share your ribbits!'
+                    value={postComment} 
+                    onChange={handleCommentChange} 
                 />
                 <br/>
-                <button>Post</button>
+                {postPicture || postComment ? <button>Post</button> : null}
             </form>
         </>
      );
 }
  
 export default PostForm;
+
+    // const [postData, setPostData] = useState({
+    //     poster: "loggedFrog",
+    //     receiver: "selectedFrog",
+    //     image_url: "",
+    //     comment: {
+    //         original: ""
+    //     }
+    // }) 
+
+    // const handlePostChange = (e) => {
+    //     const newPost = {...postData}
+    //     console.log(e)
+    //     newPost[e.target.name] = e.target.value
+    //     setPostData(newPost)
+    // }

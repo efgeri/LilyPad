@@ -2,8 +2,15 @@ import { useState } from 'react'
 import styled from 'styled-components';
 import { FontImport, GlobalStyles } from '../GlobalStyles';
 import PostList from '../components/Posts/PostList';
+import { useState, useEffect } from 'react'
+import FrogList from '../components/FrogList/FrogList'
+import { getFrogs } from '../services/FrogServices'
 
 const LilyPadContainer = () => {
+
+    useEffect(() => {
+        getFrogs().then((data) => setFrogs(data));
+      }, []);
 
     const [frogs, setFrogs] = useState([])
     const [loggedFrog, setLoggedFrog] = useState(null)
@@ -23,6 +30,7 @@ const LilyPadContainer = () => {
         <GlobalStyles />
             <StyledHeader>LILYPAD CONTAINER</StyledHeader>
             <PostList posts={posts}/>
+            <FrogList frogs={frogs}/>
         </>
      );
 }

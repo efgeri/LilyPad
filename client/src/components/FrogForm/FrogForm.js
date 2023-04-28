@@ -18,8 +18,24 @@ function FrogForm() {
     const formData = new FormData();
     formData.append("name", name);
     formData.append("image", image);
-    setFriends([]); 
+    formData.append("friends", friends);
+    console.log(formData);
   };
+
+//   const handleSubmit = ev => {
+//     ev.preventDefault();
+//     addFrog({
+//       name: name,
+//       image: image,
+//       friends: friends
+//     });
+//     setName("");
+//     setImage(null);
+//     setFriends([]);
+//   }
+
+  
+  
 
   return (
     <form onSubmit={handleSubmit}>

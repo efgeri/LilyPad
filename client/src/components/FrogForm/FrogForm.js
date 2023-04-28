@@ -3,6 +3,7 @@ import React, { useState } from "react";
 function FrogForm() {
   const [name, setName] = useState("");
   const [image, setImage] = useState(null);
+  const [friends, setFriends] = useState([]);
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -17,8 +18,7 @@ function FrogForm() {
     const formData = new FormData();
     formData.append("name", name);
     formData.append("image", image);
-    // setFriends(["Frog 1", "Frog 2", "Frog 3"]);
-
+    setFriends([]); 
   };
 
   return (

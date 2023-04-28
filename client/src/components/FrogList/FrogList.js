@@ -1,4 +1,5 @@
 import FrogElement from "./FrogElement";
+import styled from "styled-components"
 
 const FrogList = ({ frogs }) => {
     const allFrogs = frogs.map((frog) => {
@@ -11,11 +12,16 @@ const FrogList = ({ frogs }) => {
       });
     return (
         <section>
-            <ul>
+            <StyledList>
                 {allFrogs}
-            </ul>
+            </StyledList>
         </section>
       );
 }
+
+const StyledList = styled.ul`
+list-style: none;
+width: 33.33%
+`
  
 export default FrogList;

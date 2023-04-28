@@ -21,5 +21,10 @@ db.frogs.insertMany([
     "name": "Hot Toady",
     "image_url": "placeholder",
     "friends": []
-  }
+  },
+  {
+      "name": "Bully the Frog",
+      "image_url": "placeholder",
+      "friends": []
+    }
 ])

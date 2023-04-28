@@ -1,16 +1,16 @@
-const baseURL = "http://localhost:9000/api/posts"
+const baseURL = "http://localhost:9000/api/posts/"
 
-export const createPost = (payload) => {
+export const createPost = (originalPost) => {
     return fetch(baseURL, {
         method: 'POST',
-        body: payload,
+        body: JSON.stringify(originalPost),
         headers: { 'Content-Type': 'application/json'}
     })
         .then(res => res.json())
         .then(data => {
             return {
                 ...data,
-                ...payload
+                ...originalPost
                 }
         })
 }

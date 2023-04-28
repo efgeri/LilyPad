@@ -29,6 +29,8 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
                 original: postComment
             }
         })
+        setPostPicture("")
+        setPostComment("")
     }
 
     return ( 

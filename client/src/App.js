@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import LilyPadContainer from './containers/LilyPadContainer';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         </a>
         <h1>WELCOME TO LILYPAD 12345678</h1>
       </header>
+      <LilyPadContainer />
     </div>
   );
 }

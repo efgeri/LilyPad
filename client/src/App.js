@@ -3,6 +3,7 @@ import './App.css';
 import LilyPadContainer from './containers/LilyPadContainer';
 import "./App.css";
 import LilyPad from "./containers/LilyPadContainer";
+import LilyPadContainer from './containers/LilyPadContainer';
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
     <section>
       <LilyPad />
     </section>
+    <>
+      <LilyPadContainer/>
+    </>
   );
 }
 

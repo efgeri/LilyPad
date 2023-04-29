@@ -1,12 +1,18 @@
 import styled from "styled-components";
 
-const PostElement = ({post}) => {
+const PostElement = ({post, frogs}) => {
+
+  const posterFilter = frogs.filter((posterFrog) => {
+    if (post.poster === posterFrog._id)
+    return posterFrog
+  })
+
+  const posterName = posterFilter[0].name
 
   return (
     <> 
-    <p>Hi</p>
     <PostCard>
-          {post.poster}
+          {posterName}
       <img src={post.image_url} alt="" width="100" height="100"/>
       <p>{post.comment.original}</p>
       </PostCard>
@@ -20,6 +26,8 @@ const PostCard = styled.section`
   justify-content: center;
   align-items: center;
   color: white;
+  display: flex;
+  flex-direction: column;
 `;
 
 

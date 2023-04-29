@@ -1,9 +1,9 @@
-  import { useState, useEffect } from 'react'
-  import FrogList from '../components/FrogList/FrogList'
-  import PostList from '../components/Posts/PostList';
-  import { getFrogs } from '../services/FrogServices'
-  import { getPosts } from '../services/PostServices'
-  import styled from 'styled-components';
+import { useState, useEffect } from 'react'
+import FrogList from '../components/FrogList/FrogList'
+import PostList from '../components/Posts/PostList';
+import { getFrogs } from '../services/FrogServices'
+import { getPosts } from '../services/PostServices'
+import styled from 'styled-components';
 import PostForm from '../components/PostForm/PostForm'
 import { createPost } from '../services/PostServices'
 import FrogForm from '../components/FrogForm/FrogForm'
@@ -44,7 +44,7 @@ import { createFrog } from '../services/FrogServices'
                 <NavigationBarElement>Frog-In</NavigationBarElement>
               </NavigationBar>
               <BodyContainer>
-              <PostList posts={posts}/>
+              <PostList posts={posts} frogs={frogs}/>
               <FrogList frogs={frogs}/>
               </BodyContainer>
               <PostForm selectedFrog={selectedFrog} loggedFrog={loggedFrog} addPost={addPost}/>

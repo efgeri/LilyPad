@@ -46,7 +46,6 @@ const LilyPadContainer = () => {
     setSelectedFrog(frog);
   };
   
-  console.log(selectedFrog)
 
   return (
     <>

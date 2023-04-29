@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import FrogList from '../components/FrogList/FrogList'
+import { getFrogs } from '../services/FrogServices'
 import PostForm from '../components/PostForm/PostForm'
 import { createPost } from '../services/PostServices'
 
@@ -9,6 +11,10 @@ const LilyPad = () => {
     const [selectedFrog, setSelectedFrog] = useState(null)
     const [posts, setPosts] = useState([])
 
+    useEffect(() => {
+        getFrogs().then((data) => setFrogs(data));
+      }, []);
+
     const addPost = (originalPost) => {
         createPost(originalPost)
         .then(savedPost => setPosts([...posts, savedPost])
@@ -17,6 +23,8 @@ const LilyPad = () => {
     return ( 
         <>
             <h1>LilyPad Container</h1>
+            <FrogList frogs={frogs}/>
+
             <PostForm selectedFrog={selectedFrog} loggedFrog={loggedFrog} addPost={addPost}/>
         </>
      );

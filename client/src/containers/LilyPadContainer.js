@@ -66,7 +66,6 @@ const LilyPadContainer = () => {
             <NavigationBarElement>Frog-In</NavigationBarElement>
           </Link>
         </NavigationBar>
-        <BodyContainer>
           <Routes>
             <Route
               path="/"
@@ -90,7 +89,6 @@ const LilyPadContainer = () => {
             />
             <Route path="/frogdetails" element={<FrogDetails />} />
           </Routes>
-        </BodyContainer>
       </Router>
     </>
   );
@@ -102,7 +100,7 @@ const StyledHeader = styled.div`
   padding-bottom: 0.5rem;
   font-size: 2.75rem;
   text-align: center;
-  font-family: "Monoton", cursive;
+  font-family: "Bungee", cursive;
 `;
 
 const NavigationBar = styled.div`
@@ -114,18 +112,18 @@ const NavigationBar = styled.div`
   text-align: center;
   justify-content: space-between;
   padding-inline: 10rem;
+  font-family: "Bungee", cursive;
+  text-transform: uppercase;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 
 const NavigationBarElement = styled.div`
-  color: red;
+  color: #fc0000;
 `;
 
-const BodyContainer = styled.section`
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  
-`;
 
 export default LilyPadContainer;

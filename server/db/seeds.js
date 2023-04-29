@@ -41,7 +41,7 @@ db.posts.insertOne(
         "receiver": throgId,
         "image_url": "https://images.unsplash.com/photo-1622268002940-4a58833ec8f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
         "comment": {
-            "original": ""
+            "original": "This is a comment"
         }
     },
 )

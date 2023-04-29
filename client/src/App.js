@@ -1,12 +1,10 @@
-import "./App.css";
-import LilyPad from "./containers/LilyPadContainer";
+import LilyPadContainer from './containers/LilyPadContainer';
 
 function App() {
   return (
-
-    <section>
-      <LilyPad />
-    </section>
+    <>
+      <LilyPadContainer/>
+    </>
   );
 }
 

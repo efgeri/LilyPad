@@ -33,15 +33,46 @@ const insertFrogResult = db.frogs.insertMany(frogs)
 
 const kermittId = insertFrogResult.insertedIds[0]
 const throgId = insertFrogResult.insertedIds[1]
+const bogarielId = insertFrogResult.insertedIds[2]
+const hotToadyId = insertFrogResult.insertedIds[3]
+const bullyId = insertFrogResult.insertedIds[4]
 
+const posts = [
+  {
+    "poster": kermittId,
+    "receiver": throgId,
+    "image_url": "https://images.unsplash.com/photo-1622268002940-4a58833ec8f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
+    "comment": {
+        "original": "This is a comment"
+    }
+  },
+  {
+    "poster": hotToadyId,
+    "receiver": kermittId,
+    "image_url": "https://images.unsplash.com/photo-1622268002940-4a58833ec8f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
+    "comment": {
+        "original": "This is not a comment"
+    }
+  },
+  {
+    "poster": bullyId,
+    "receiver": bogarielId,
+    "image_url": "",
+    "comment": {
+        "original": "This could be a comment, but without an image"
+    }
+  },
+]
 
-db.posts.insertOne(
-    {
-        "poster": kermittId,
-        "receiver": throgId,
-        "image_url": "https://images.unsplash.com/photo-1622268002940-4a58833ec8f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
-        "comment": {
-            "original": "This is a comment"
-        }
-    },
-)
+const insertPostResult = db.posts.insertMany(posts)
+
+// db.posts.insertOne(
+//     {
+//         "poster": kermittId,
+//         "receiver": throgId,
+//         "image_url": "https://images.unsplash.com/photo-1622268002940-4a58833ec8f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
+//         "comment": {
+//             "original": "This is a comment"
+//         }
+//     },
+// )

@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 
 const FrogElement = ({ frog, selectFrog }) => {
+  console.log(frog)
   const handleSelect = () => {
     selectFrog(frog)
   }

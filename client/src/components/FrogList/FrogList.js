@@ -1,10 +1,11 @@
 import FrogElement from "./FrogElement";
 import styled from "styled-components"
 
-const FrogList = ({ frogs }) => {
+const FrogList = ({ frogs, selectFrog }) => {
     const allFrogs = frogs.map((frog) => {
         return (
           <FrogElement
+          selectFrog={selectFrog}
             frog={frog}
             key={frog._id}
           />

@@ -1,9 +1,14 @@
 import styled from "styled-components"
 
-const FrogElement = ({ frog }) => {
+
+
+const FrogElement = ({ frog, selectFrog }) => {
+  const handleSelect = () => {
+    selectFrog(frog)
+  }
   return (
     <StyledList>
-      <p><strong>{frog.name}</strong></p>
+      <p onClick={handleSelect}><strong>{frog.name}</strong></p>
       <StyledImage src={`${frog.image_url}`} alt={`${frog.name}'s profile picture`} />
     </StyledList>
   );

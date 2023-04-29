@@ -11,6 +11,7 @@ const FrogForm = ({addFrog}) => {
 
   const handleImageChange = (e) => {
     setImage(e.target.value);
+    
   };
 
 
@@ -20,7 +21,7 @@ const FrogForm = ({addFrog}) => {
     
     addFrog({
       name: name,
-      image: image,
+      image_url: image,
       friends: friends
     });
     setName("");

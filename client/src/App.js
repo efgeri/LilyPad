@@ -4,7 +4,7 @@ import LilyPadContainer from './containers/LilyPadContainer';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <LilyPadContainer />
     </div>
 

@@ -23,7 +23,6 @@ const PostList = ({posts, frogs}) => {
 
 const ListContainer = styled.section`
   justify-content: center;
-  align-items: center;
   display: flex;
   flex-direction: column;
   color: red;

@@ -122,9 +122,10 @@ const NavigationBarElement = styled.div`
 
 const BodyContainer = styled.section`
   justify-content: center;
-  align-items: center;
   display: flex;
+  align-items: center;
   flex-direction: column;
+  
 `;
 
 export default LilyPadContainer;

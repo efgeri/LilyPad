@@ -28,6 +28,7 @@ const PostCard = styled.section`
   color: white;
   display: flex;
   flex-direction: column;
+  margin-block: 1rem;
 `;
 
 

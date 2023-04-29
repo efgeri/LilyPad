@@ -6,6 +6,8 @@
   import styled from 'styled-components';
 import PostForm from '../components/PostForm/PostForm'
 import { createPost } from '../services/PostServices'
+import FrogForm from '../components/FrogForm/FrogForm'
+import { createFrog } from '../services/FrogServices'
 
   const LilyPadContainer = () => {
 
@@ -27,6 +29,11 @@ import { createPost } from '../services/PostServices'
         .then(savedPost => setPosts([...posts, savedPost])
        )}    
 
+    const addFrog = (newFrog) => {
+        createFrog(newFrog)
+        .then(savedFrog => setFrogs([...frogs, savedFrog]))
+    }
+
     return ( 
           <>
               <StyledHeader>LILYPAD CONTAINER</StyledHeader>
@@ -41,6 +48,7 @@ import { createPost } from '../services/PostServices'
               <FrogList frogs={frogs}/>
               </BodyContainer>
               <PostForm selectedFrog={selectedFrog} loggedFrog={loggedFrog} addPost={addPost}/>
+            <FrogForm addFrog={addFrog} />
         </>
       );
 

@@ -15,8 +15,9 @@ function FrogForm() {
 
 
 
-  const handleSubmit = ev => {
-    ev.preventDefault();
+  const handleSubmit = e => {
+    e.preventDefault();
+    
     addFrog({
       name: name,
       image: image,

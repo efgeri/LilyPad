@@ -1,13 +1,17 @@
-import { useState, useEffect } from 'react'
-import FrogList from '../components/FrogList/FrogList'
-import PostList from '../components/Posts/PostList';
-import { getFrogs } from '../services/FrogServices'
-import { getPosts } from '../services/PostServices'
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import PostForm from '../components/PostForm/PostForm'
-import { createPost } from '../services/PostServices'
-import FrogForm from '../components/FrogForm/FrogForm'
-import { createFrog } from '../services/FrogServices'
+import {BrowserRouter as Router, Routes, Route, HashRouter, Link} from 'react-router-dom'
+import FrogList from '../components/FrogList/FrogList';
+import PostList from '../components/Posts/PostList';
+import { getFrogs } from '../services/FrogServices';
+import { getPosts } from '../services/PostServices';
+import PostForm from '../components/PostForm/PostForm';
+import FrogForm from '../components/FrogForm/FrogForm';
+import { createPost } from '../services/PostServices';
+import { createFrog } from '../services/FrogServices';
+import HomePage from '../components/FrogHome/HomePage';
+import SignLog from '../components/SignLog/SignLog';
+import FrogDetails from '../components/FrogDetails/FrogDetails';
 
   const LilyPadContainer = () => {
 
@@ -37,18 +41,22 @@ import { createFrog } from '../services/FrogServices'
     return ( 
           <>
               <StyledHeader>LILYPAD CONTAINER</StyledHeader>
+              <Router>
               <NavigationBar>
-                <NavigationBarElement>Home</NavigationBarElement>
-                <NavigationBarElement>Frogs</NavigationBarElement>
-                <NavigationBarElement>Profile</NavigationBarElement>
-                <NavigationBarElement>Frog-In</NavigationBarElement>
+                <Link to="/"><NavigationBarElement>Home</NavigationBarElement></Link>
+                <Link to="/frogs"><NavigationBarElement>Frogs</NavigationBarElement></Link>
+                <Link to="/frogdetails"><NavigationBarElement>Profile</NavigationBarElement></Link>
+                <Link to="/signlog"><NavigationBarElement>Frog-In</NavigationBarElement></Link>
               </NavigationBar>
               <BodyContainer>
-              <PostList posts={posts} frogs={frogs}/>
-              <FrogList frogs={frogs}/>
+              <Routes>
+              <Route path="/" element={<HomePage selectedFrog={selectedFrog} loggedFrog={loggedFrog} addPost={addPost} posts={posts} frogs={frogs}/>}/>
+              <Route path="/frogs" element={<FrogList frogs={frogs}/>}/>
+              <Route path="/signlog" element={<SignLog addFrog={addFrog} frogs={frogs}/>}/>
+              <Route path="/frogdetails" element={<FrogDetails />}/>
+            </Routes>
               </BodyContainer>
-              <PostForm selectedFrog={selectedFrog} loggedFrog={loggedFrog} addPost={addPost}/>
-            <FrogForm addFrog={addFrog} />
+            </Router>
         </>
       );
 

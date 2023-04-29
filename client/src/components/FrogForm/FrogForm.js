@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-function FrogForm() {
+const FrogForm = ({addFrog}) => {
   const [name, setName] = useState("");
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState("");
   const [friends, setFriends] = useState([]);
 
   const handleNameChange = (e) => {
@@ -10,7 +10,7 @@ function FrogForm() {
   };
 
   const handleImageChange = (e) => {
-    setImage(e.target.files[0]);
+    setImage(e.target.value);
   };
 
 
@@ -24,7 +24,7 @@ function FrogForm() {
       friends: friends
     });
     setName("");
-    setImage(null);
+    setImage("");
     setFriends([]);
   }
 
@@ -47,14 +47,15 @@ function FrogForm() {
       <div>
         <label htmlFor="image">Profile Picture:</label>
         <input
-          type="file"
-          id="image"
-          name="image"
-          accept="image/*"
-          onChange={handleImageChange}
-          required
-        />
-      </div>
+        type="text"
+        id="image"
+        name="image"
+        value={image}
+        onChange={handleImageChange}
+        required
+  />
+</div>
+
       <button type="submit">Create Account</button>
     </form>
   );

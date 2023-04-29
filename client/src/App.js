@@ -1,10 +1,13 @@
+import './App.css';
 import LilyPadContainer from './containers/LilyPadContainer';
+
 
 function App() {
   return (
-    <>
-      <LilyPadContainer/>
-    </>
+    <div className="App">
+      <LilyPadContainer />
+    </div>
+
   );
 }
 

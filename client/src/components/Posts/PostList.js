@@ -1,12 +1,13 @@
 import PostElement from "./PostElement";
 import styled from "styled-components";
 
-const PostList = ({posts}) => {
+const PostList = ({posts, frogs}) => {
 
   const allPosts = posts.map((post) => {
     return <PostElement
       post={post}
       key={post._id}
+      frogs={frogs}
       />
   })
 

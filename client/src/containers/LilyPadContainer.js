@@ -18,6 +18,7 @@ import { createFrog } from "../services/FrogServices";
 import HomePage from "../components/FrogHome/HomePage";
 import SignLog from "../components/SignLog/SignLog";
 import FrogDetails from "../components/FrogDetails/FrogDetails";
+import FrogProfile from "../components/FrogProfile/FrogProfile";
 
 const LilyPadContainer = () => {
   const [frogs, setFrogs] = useState([]);
@@ -45,6 +46,10 @@ const LilyPadContainer = () => {
   const selectFrog = (frog) => {
     setSelectedFrog(frog);
   };
+
+  const selectLoggedFrog = (frog) => {
+    setSelectedFrog(frog);
+  }
   
 
   return (
@@ -58,7 +63,7 @@ const LilyPadContainer = () => {
           <Link to="/frogs">
             <NavigationBarElement>Frogs</NavigationBarElement>
           </Link>
-          <Link to="/frogdetails">
+          <Link to="/profile">
             <NavigationBarElement>Profile</NavigationBarElement>
           </Link>
           <Link to="/signlog">
@@ -86,7 +91,7 @@ const LilyPadContainer = () => {
               path="/signlog"
               element={<SignLog addFrog={addFrog} frogs={frogs} />}
             />
-            <Route path="/frogdetails" element={<FrogDetails />} />
+            <Route path="/profile" element={<FrogProfile loggedFrog={loggedFrog} selectedFrog={selectedFrog} selectLoggedFrog={selectLoggedFrog} />} />
           </Routes>
       </Router>
     </>

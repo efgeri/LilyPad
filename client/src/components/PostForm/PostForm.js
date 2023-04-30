@@ -32,7 +32,7 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
         <>
             <h2>Share your Froughts</h2>
             <PostFormStyled onSubmit={handleSubmitPost} >
-                <label htmlFor='picture'>Add an image: </label>
+                <label htmlFor='picture'>Post your picture: </label>
                 <input 
                     type='text' 
                     id='picture' 
@@ -43,7 +43,7 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
                 />
                     <br/>
                 <label htmlFor='comment'>What's hopping on your mind? </label><br/>
-                <textarea 
+                <PostTextArea 
                     id='comment' 
                     name='comment' 
                     rows="4"
@@ -63,6 +63,14 @@ const PostFormStyled = styled.form`
     border: 2px solid black;
     text-align: center;
     padding: 10px;
+    width: 33.33%;
+    min-width: 300px;
+    align-items: center;
+`
+
+const PostTextArea = styled.textarea`
+    width: 95%;
+    resize: horizontal;
 `
 
 export default PostForm;

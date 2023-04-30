@@ -1,12 +1,19 @@
 import FrogList from "../FrogList/FrogList";
+import styled from "styled-components";
 
 const Login = ({frogs, selectLoggedinFrog}) => {
   return ( 
-    <section>
-      <p>Login</p>
+    <StyledSection>
+      <h2>Login</h2>
       <FrogList frogs={frogs} selectFrog={selectLoggedinFrog}/>
-      </section>
+      </StyledSection>
    );
 }
+
+const StyledSection = styled.section`
+display: flex;
+flex-direction: column;
+align-items: center;
+`
  
 export default Login;

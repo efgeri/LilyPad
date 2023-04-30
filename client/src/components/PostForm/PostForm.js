@@ -35,9 +35,9 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
 
     return ( 
         <>
-            <h2>Post Form</h2>
+            <h2>Share your Froughts</h2>
             <form onSubmit={handleSubmitPost} >
-                <label htmlFor='picture'></label>
+                <label htmlFor='picture'>Add an image: </label>
                 <input 
                     type='text' 
                     id='picture' 
@@ -55,7 +55,7 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
                     value={postPicture} 
                     onChange={handlePictureUpload} />
                 <br/> */}
-                <label htmlFor='comment'></label>
+                <label htmlFor='comment'>What's hopping on your mind? </label>
                 <textarea 
                     id='comment' 
                     name='comment' 

@@ -85,7 +85,7 @@ const LilyPadContainer = () => {
               path="/signlog"
               element={<SignLog addFrog={addFrog} frogs={frogs} selectLoggedinFrog={selectLoggedinFrog}/>}
             />
-            <Route path="/profile" element={<FrogProfile loggedFrog={loggedFrog} selectedFrog={selectedFrog} setToOwnProfile={setToOwnProfile} />} />
+            <Route path="/profile" element={<FrogProfile loggedFrog={loggedFrog} selectedFrog={selectedFrog} setToOwnProfile={setToOwnProfile} addPost={addPost}/>} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
       </Router>

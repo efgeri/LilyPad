@@ -17,8 +17,8 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
     const handleSubmitPost = (e) => {
         e.preventDefault()
         addPost({
-            poster: loggedFrog,
-            receiver: selectedFrog,
+            poster: loggedFrog._id,
+            receiver: selectedFrog._id,
             image_url: postPicture,
             comment: {
                 original: postComment

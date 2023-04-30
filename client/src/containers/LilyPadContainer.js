@@ -18,6 +18,7 @@ import { createFrog } from "../services/FrogServices";
 import HomePage from "../components/FrogHome/HomePage";
 import SignLog from "../components/SignLog/SignLog";
 import FrogDetails from "../components/FrogDetails/FrogDetails";
+import NavBar from "../components/NavBar/NavBar";
 
 const LilyPadContainer = () => {
   const [frogs, setFrogs] = useState([]);
@@ -51,20 +52,7 @@ const LilyPadContainer = () => {
     <>
       <StyledHeader>LILYPAD CONTAINER</StyledHeader>
       <Router>
-        <NavigationBar>
-          <Link to="/">
-            <NavigationBarElement>Home</NavigationBarElement>
-          </Link>
-          <Link to="/frogs">
-            <NavigationBarElement>Frogs</NavigationBarElement>
-          </Link>
-          <Link to="/frogdetails">
-            <NavigationBarElement>Profile</NavigationBarElement>
-          </Link>
-          <Link to="/signlog">
-            <NavigationBarElement>Frog-In</NavigationBarElement>
-          </Link>
-        </NavigationBar>
+       <NavBar />
           <Routes>
             <Route
               path="/"
@@ -100,28 +88,6 @@ const StyledHeader = styled.div`
   font-size: 2.75rem;
   text-align: center;
   font-family: "Bungee", cursive;
-`;
-
-const NavigationBar = styled.div`
-  display: flex;
-  flex-direction: row;
-  background-color: #84db2c;
-  padding-bottom: 0.5rem;
-  font-size: 2rem;
-  text-align: center;
-  justify-content: space-between;
-  padding-inline: 10rem;
-  font-family: "Bungee", cursive;
-  text-transform: uppercase;
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-`;
-
-const NavigationBarElement = styled.div`
-  color: #fc0000;
 `;
 
 

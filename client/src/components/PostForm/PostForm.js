@@ -10,11 +10,6 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
         setPostComment(e.target.value)
     }
 
-    // const handlePictureUpload = (e) => {
-    //     console.log(e);
-    //     setPostPicture(e.target.file)
-    // }
-
     const handlePictureChange = (e) => {
         setPostPicture(e.target.value)
     }
@@ -36,7 +31,7 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
     return ( 
         <>
             <h2>Share your Froughts</h2>
-            <form onSubmit={handleSubmitPost} >
+            <PostFormStyled onSubmit={handleSubmitPost} >
                 <label htmlFor='picture'>Add an image: </label>
                 <input 
                     type='text' 
@@ -47,15 +42,7 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
                     placeholder='Enter an image Url'
                 />
                     <br/>
-                {/* <label htmlFor='picture'></label>
-                <input 
-                    type='file' 
-                    id='picture' 
-                    name='picture' 
-                    value={postPicture} 
-                    onChange={handlePictureUpload} />
-                <br/> */}
-                <label htmlFor='comment'>What's hopping on your mind? </label>
+                <label htmlFor='comment'>What's hopping on your mind? </label><br/>
                 <textarea 
                     id='comment' 
                     name='comment' 
@@ -67,25 +54,16 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
                 />
                 <br/>
                 {postPicture || postComment ? <button>Post</button> : null}
-            </form>
+            </PostFormStyled>
         </>
      );
 }
  
+const PostFormStyled = styled.form`
+    border: 2px solid black;
+    text-align: center;
+    padding: 10px;
+`
+
 export default PostForm;
 
-    // const [postData, setPostData] = useState({
-    //     poster: "loggedFrog",
-    //     receiver: "selectedFrog",
-    //     image_url: "",
-    //     comment: {
-    //         original: ""
-    //     }
-    // }) 
-
-    // const handlePostChange = (e) => {
-    //     const newPost = {...postData}
-    //     console.log(e)
-    //     newPost[e.target.name] = e.target.value
-    //     setPostData(newPost)
-    // }

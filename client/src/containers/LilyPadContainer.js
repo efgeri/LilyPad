@@ -94,7 +94,7 @@ const LilyPadContainer = () => {
 const StyledHeader = styled.div`
   background-color: #84db2c;
   color: white;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
   font-size: 2.75rem;
   text-align: center;
   font-family: "Bungee", cursive;

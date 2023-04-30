@@ -34,6 +34,8 @@ const NavigationBarElement = styled.div`
   flex-direction: column;
   align-items: center;
   font-size: 20px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 `;
 
 const ProfileIconWrapper = styled.div`

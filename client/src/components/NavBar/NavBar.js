@@ -2,7 +2,26 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const NavBar = () => {
+const NavBar = ({loggedFrog}) => {
+
+  const redirectToSignIn = () => {
+    if (loggedFrog === null) {
+      return (
+        <Link to="/signlog">
+          <NavigationBarElement>Profile</NavigationBarElement>
+        </Link>
+      )
+    } else {
+      return (
+        <Link to="/profile">
+          <NavigationBarElement>Profile</NavigationBarElement>
+        </Link>
+      )
+    }
+  }
+  
+  const profileLink = redirectToSignIn()
+
   return ( 
     <NavigationBar>
           <Link to="/">
@@ -11,9 +30,7 @@ const NavBar = () => {
           <Link to="/frogs">
             <NavigationBarElement>Frogs</NavigationBarElement>
           </Link>
-          <Link to="/profile">
-            <NavigationBarElement>Profile</NavigationBarElement>
-          </Link>
+          {profileLink}
           <Link to="/signlog">
             <NavigationBarElement>Frog-In</NavigationBarElement>
           </Link>

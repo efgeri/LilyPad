@@ -10,11 +10,6 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
         setPostComment(e.target.value)
     }
 
-    // const handlePictureUpload = (e) => {
-    //     console.log(e);
-    //     setPostPicture(e.target.file)
-    // }
-
     const handlePictureChange = (e) => {
         setPostPicture(e.target.value)
     }
@@ -36,8 +31,8 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
     return ( 
         <>
             <h2>Share your Froughts</h2>
-            <form onSubmit={handleSubmitPost} >
-                <label htmlFor='picture'>Add an image: </label>
+            <PostFormStyled onSubmit={handleSubmitPost} >
+                <label htmlFor='picture'>Post your picture: </label>
                 <input 
                     type='text' 
                     id='picture' 
@@ -47,16 +42,8 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
                     placeholder='Enter an image Url'
                 />
                     <br/>
-                {/* <label htmlFor='picture'></label>
-                <input 
-                    type='file' 
-                    id='picture' 
-                    name='picture' 
-                    value={postPicture} 
-                    onChange={handlePictureUpload} />
-                <br/> */}
-                <label htmlFor='comment'>What's hopping on your mind? </label>
-                <textarea 
+                <label htmlFor='comment'>What's hopping on your mind? </label><br/>
+                <PostTextArea 
                     id='comment' 
                     name='comment' 
                     rows="4"
@@ -67,25 +54,24 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
                 />
                 <br/>
                 {postPicture || postComment ? <button>Post</button> : null}
-            </form>
+            </PostFormStyled>
         </>
      );
 }
  
+const PostFormStyled = styled.form`
+    border: 2px solid black;
+    text-align: center;
+    padding: 10px;
+    width: 33.33%;
+    min-width: 300px;
+    align-items: center;
+`
+
+const PostTextArea = styled.textarea`
+    width: 95%;
+    resize: horizontal;
+`
+
 export default PostForm;
 
-    // const [postData, setPostData] = useState({
-    //     poster: "loggedFrog",
-    //     receiver: "selectedFrog",
-    //     image_url: "",
-    //     comment: {
-    //         original: ""
-    //     }
-    // }) 
-
-    // const handlePostChange = (e) => {
-    //     const newPost = {...postData}
-    //     console.log(e)
-    //     newPost[e.target.name] = e.target.value
-    //     setPostData(newPost)
-    // }

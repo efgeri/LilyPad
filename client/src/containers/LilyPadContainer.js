@@ -19,6 +19,7 @@ import HomePage from "../components/FrogHome/HomePage";
 import SignLog from "../components/SignLog/SignLog";
 import FrogDetails from "../components/FrogDetails/FrogDetails";
 import NavBar from "../components/NavBar/NavBar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const LilyPadContainer = () => {
   const [frogs, setFrogs] = useState([]);
@@ -46,7 +47,11 @@ const LilyPadContainer = () => {
   const selectFrog = (frog) => {
     setSelectedFrog(frog);
   };
-  
+
+  const selectLoggedinFrog = (frog) => {
+    setLoggedFrog(frog);
+  };
+
 
   return (
     <>

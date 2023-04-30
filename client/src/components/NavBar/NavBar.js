@@ -1,12 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faLeaf } from '@fortawesome/free-solid-svg-icons';
 
 const NavBar = () => {
   return ( 
     <NavigationBar>
           <Link to="/">
-            <NavigationBarElement>Home</NavigationBarElement>
+            <NavigationBarElement>
+              <HomeIconWrapper>
+              <FontAwesomeIcon icon={faLeaf} />
+            </HomeIconWrapper>
+          <HomeText>Home</HomeText>
+          </NavigationBarElement>
           </Link>
           <Link to="/frogs">
             <NavigationBarElement>Frogs</NavigationBarElement>
@@ -37,16 +44,56 @@ const NavigationBar = styled.div`
     text-decoration: none;
     color: inherit;
   }
-
-    @media (max-width: 768px) {
-    flex-direction: column;
-    padding-inline: 1rem;
-    font-size: 1.5rem;
-  }
 `;
 
 const NavigationBarElement = styled.div`
   color: #fc0000;
+`;
+
+const HomeIconWrapper = styled.div`
+  display: none;
+  width: 24px;
+  height: 24px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 768px) {
+    display: inline;
+  }
+`;
+
+const HomeText = styled.span`
+  display: inline;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const FrogsIconWrapper = styled.div`
+  display: none;
+  width: 24px;
+  height: 24px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 768px) {
+    display: inline;
+  }
+`;
+
+const FrogsText = styled.span`
+  display: inline;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export default NavBar;

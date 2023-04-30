@@ -20,6 +20,7 @@ import SignLog from "../components/SignLog/SignLog";
 import FrogDetails from "../components/FrogDetails/FrogDetails";
 import NavBar from "../components/NavBar/NavBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import FrogProfile from "../components/FrogProfile/FrogProfile";
 
 const LilyPadContainer = () => {
   const [frogs, setFrogs] = useState([]);
@@ -52,6 +53,10 @@ const LilyPadContainer = () => {
     setLoggedFrog(frog);
   };
 
+  const setToOwnProfile = (forg) => {
+    setSelectedFrog(forg);
+  }
+
 
   return (
     <>
@@ -77,9 +82,9 @@ const LilyPadContainer = () => {
             />
             <Route
               path="/signlog"
-              element={<SignLog addFrog={addFrog} frogs={frogs} />}
+              element={<SignLog addFrog={addFrog} frogs={frogs} selectLoggedinFrog={selectLoggedinFrog}/>}
             />
-            <Route path="/frogdetails" element={<FrogDetails />} />
+            <Route path="/profile" element={<FrogProfile loggedFrog={loggedFrog} selectedFrog={selectedFrog} setToOwnProfile={setToOwnProfile} />} />
           </Routes>
       </Router>
     </>

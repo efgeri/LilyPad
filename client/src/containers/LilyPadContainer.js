@@ -95,17 +95,5 @@ const StyledHeader = styled.div`
   font-family: "Bungee", cursive;
 `;
 
-const DropdownButton = styled.button`
-  background-color: red;
-  font-size: inherit;
-  border: none;
-  outline: none;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-  &:hover {
-    color: white;
-  }
-`;
 
 export default LilyPadContainer;

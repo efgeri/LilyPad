@@ -11,7 +11,7 @@ const NavBar = () => {
           <Link to="/frogs">
             <NavigationBarElement>Frogs</NavigationBarElement>
           </Link>
-          <Link to="/frogdetails">
+          <Link to="/profile">
             <NavigationBarElement>Profile</NavigationBarElement>
           </Link>
           <Link to="/signlog">

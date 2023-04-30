@@ -53,6 +53,10 @@ const LilyPadContainer = () => {
     setLoggedFrog(frog);
   };
 
+  const setToOwnProfile = (forg) => {
+    setSelectedFrog(forg);
+  }
+
 
   return (
     <>
@@ -78,9 +82,9 @@ const LilyPadContainer = () => {
             />
             <Route
               path="/signlog"
-              element={<SignLog addFrog={addFrog} frogs={frogs} />}
+              element={<SignLog addFrog={addFrog} frogs={frogs} selectLoggedinFrog={selectLoggedinFrog}/>}
             />
-            <Route path="/profile" element={<FrogProfile loggedFrog={loggedFrog} selectedFrog={selectedFrog} selectLoggedFrog={selectLoggedFrog} />} />
+            <Route path="/profile" element={<FrogProfile loggedFrog={loggedFrog} selectedFrog={selectedFrog} setToOwnProfile={setToOwnProfile} />} />
           </Routes>
       </Router>
     </>

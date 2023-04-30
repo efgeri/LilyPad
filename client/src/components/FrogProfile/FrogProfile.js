@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import PostForm from "../PostForm/PostForm";
 
-const FrogProfile = ({loggedFrog, selectedFrog, addPost, selectLoggedFrog}) => {
+const FrogProfile = ({loggedFrog, selectedFrog, addPost, setToOwnProfile}) => {
 
     useEffect(() => {
-        selectLoggedFrog(loggedFrog)
+        setToOwnProfile(loggedFrog)
     }, [])
 
     return ( 

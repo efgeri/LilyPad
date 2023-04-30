@@ -62,7 +62,7 @@ const LilyPadContainer = () => {
     <>
       <StyledHeader>LILYPAD CONTAINER</StyledHeader>
       <Router>
-       <NavBar />
+       <NavBar loggedFrog={loggedFrog} />
           <Routes>
             <Route
               path="/"

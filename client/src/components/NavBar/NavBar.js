@@ -4,7 +4,18 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faLeaf, faClover, faFrog, faImagePortrait, faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 
-const NavBar = () => {
+const NavBar = ({loggedFrog}) => {
+
+  const redirectToSignIn = () => {
+    if (loggedFrog === null) {
+      return "/signlog"
+    } else {
+      return "/profile"
+    }
+  }
+  
+  const profileLink = redirectToSignIn()
+
   return ( 
     <NavigationBar>
           <Link to="/">
@@ -33,7 +44,7 @@ const NavBar = () => {
             <FrogsText>Frogs</FrogsText>
             </NavigationBarElement>
           </Link>
-          <Link to="/profile">
+          <Link to={profileLink}>
             <NavigationBarElement>
             <ProfileIconWrapper>
             <FontAwesomeIcon icon={faFrog}></FontAwesomeIcon>

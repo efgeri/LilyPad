@@ -21,6 +21,7 @@ import FrogDetails from "../components/FrogDetails/FrogDetails";
 import NavBar from "../components/NavBar/NavBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FrogProfile from "../components/FrogProfile/FrogProfile";
+import PageNotFound from "../components/PageNotFound/PageNotFound";
 
 const LilyPadContainer = () => {
   const [frogs, setFrogs] = useState([]);
@@ -85,6 +86,7 @@ const LilyPadContainer = () => {
               element={<SignLog addFrog={addFrog} frogs={frogs} selectLoggedinFrog={selectLoggedinFrog}/>}
             />
             <Route path="/profile" element={<FrogProfile loggedFrog={loggedFrog} selectedFrog={selectedFrog} setToOwnProfile={setToOwnProfile} />} />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
       </Router>
     </>

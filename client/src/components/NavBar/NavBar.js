@@ -6,17 +6,9 @@ const NavBar = ({loggedFrog}) => {
 
   const redirectToSignIn = () => {
     if (loggedFrog === null) {
-      return (
-        <Link to="/signlog">
-          <NavigationBarElement>Profile</NavigationBarElement>
-        </Link>
-      )
+      return "/signlog"
     } else {
-      return (
-        <Link to="/profile">
-          <NavigationBarElement>Profile</NavigationBarElement>
-        </Link>
-      )
+      return "/profile"
     }
   }
   
@@ -30,7 +22,9 @@ const NavBar = ({loggedFrog}) => {
           <Link to="/frogs">
             <NavigationBarElement>Frogs</NavigationBarElement>
           </Link>
-          {profileLink}
+          <Link to={profileLink}>
+            <NavigationBarElement>Profile</NavigationBarElement>
+          </Link>
           <Link to="/signlog">
             <NavigationBarElement>Frog-In</NavigationBarElement>
           </Link>

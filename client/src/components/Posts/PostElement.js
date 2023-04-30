@@ -7,12 +7,12 @@ const PostElement = ({post, frogs}) => {
     return posterFrog
   })
 
-  const posterName = posterFilter[0].name
+  const posterName = posterFilter.length ? posterFilter[0].name : null
 
   return (
     <> 
       <PostCard>
-      <p>{posterName}</p>
+      {posterName ? <p>{posterName}</p> : <p>User left the plantform</p>}
         <br />
         {post.image_url ? 
           <img src={post.image_url} alt="" width="100" height="100"/> : null}

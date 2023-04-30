@@ -3,8 +3,13 @@ import FrogElement from "./FrogElement";
 import styled from "styled-components";
 
 const FrogList = ({ frogs, selectFrog }) => {
-  const [searchTerm, setSearchTerm] = useState("");
 
+  const [searchTerm, setSearchTerm] = useState("");
+  
+  if (!frogs.length) {
+    return <p>Oh, oh! We could not load the users information. Please try again later.</p>
+  }
+  
   const lowerSearch = searchTerm.toLowerCase();
   const filteredFrogs = frogs.filter((frog) => {
     return frog.name.toLowerCase().indexOf(lowerSearch) > -1;

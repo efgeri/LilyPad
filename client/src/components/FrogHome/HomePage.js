@@ -1,13 +1,25 @@
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 import PostForm from "../PostForm/PostForm";
 import PostList from "../Posts/PostList";
-import styled from "styled-components";
 
 const HomePage = ({selectedFrog, loggedFrog, addPost, posts, frogs}) => {
+
+  const displayPostFormGuard = () => {
+    if (loggedFrog === null) {
+      return <Link to="/signlog">Sign in to add your ribbits!</Link>
+    } else {
+      return <PostForm selectedFrog={selectedFrog} loggedFrog={loggedFrog} addPost={addPost}/>
+    }
+  }
+
+  const postFormDisplay = displayPostFormGuard()
+
   return ( 
     <BodyContainer>
-    <PostForm selectedFrog={selectedFrog} loggedFrog={loggedFrog} addPost={addPost}/>
-    <PostList posts={posts} frogs={frogs}/>
-            </BodyContainer>
+      {postFormDisplay}
+      {posts.length ? <PostList posts={posts} frogs={frogs}/> : <p>Oh, oh! We are having issues retrieving post information. Please try again later.</p>}
+    </BodyContainer>
    );
 }
  

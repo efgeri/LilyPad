@@ -12,10 +12,10 @@ const PostElement = ({post, frogs}) => {
   return (
     <> 
       <PostCard>
-      <h2>{posterName}</h2>
+      <p>{posterName}</p>
         <br />
         {post.image_url ? 
-          <img src={post.image_url} alt="" width="100" height="100"/> : <p>There is no image</p>}
+          <img src={post.image_url} alt="" width="100" height="100"/> : null}
         <p>{post.comment.original}</p>
       </PostCard>
     </>

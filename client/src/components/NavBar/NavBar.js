@@ -38,6 +38,7 @@ const NavigationBar = styled.div`
     color: inherit;
   }
 
+  /* Comment */
   // Add this media query for mobile devices
   @media (max-width: 768px) {
     position: fixed;

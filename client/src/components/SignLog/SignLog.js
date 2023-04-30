@@ -1,11 +1,12 @@
 import FrogForm from "../FrogForm/FrogForm";
 import Login from "./Login"
 
-const SignLog = ({addFrog, frogs}) => {
+const SignLog = ({addFrog, frogs, selectLoggedinFrog}) => {
+
   return ( 
     <>
     <FrogForm addFrog={addFrog} />
-    <Login />
+    <Login frogs={frogs} selectLoggedinFrog={selectLoggedinFrog}/>
     </>
    );
 }

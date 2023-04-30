@@ -61,7 +61,7 @@ const LilyPadContainer = () => {
 
   return (
     <>
-      <StyledHeader>LILYPAD CONTAINER</StyledHeader>
+      <StyledHeader>Lilypad</StyledHeader>
       <Router>
        <NavBar loggedFrog={loggedFrog} />
           <Routes>
@@ -100,6 +100,8 @@ const StyledHeader = styled.div`
   font-size: 2.75rem;
   text-align: center;
   font-family: "Bungee", cursive;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 `;
 
 

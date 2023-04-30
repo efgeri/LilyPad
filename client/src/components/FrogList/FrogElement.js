@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 
 const FrogElement = ({ frog, selectFrog }) => {
-  console.log(frog)
+
   const handleSelect = () => {
     selectFrog(frog)
   }
@@ -15,12 +15,14 @@ const FrogElement = ({ frog, selectFrog }) => {
   );
 };
 
+
+
 const StyledImage = styled.img`
 width: 100%;
 border-radius: 5%;
 `
 const StyledList = styled.li`
-/* flex: 0 1 20; */
+
 width: 20%;
 font-family: "Raleway", sans-serif;
 text-align: center;

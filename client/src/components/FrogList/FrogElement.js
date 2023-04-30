@@ -41,7 +41,7 @@ box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   box-shadow: 0 12px 24px 0 rgba(0,0,0,0.2);
   cursor: pointer;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
   width: 90%;
 }
 

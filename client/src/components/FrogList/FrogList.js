@@ -21,8 +21,8 @@ const FrogList = ({ frogs, selectFrog }) => {
 }
 
 const StyledList = styled.ul`
+display: flex;
 list-style: none;
-width: 33.33%
 `
  
 export default FrogList;

@@ -2,6 +2,8 @@ import PostElement from "./PostElement";
 import styled from "styled-components";
 
 const PostList = ({posts, frogs}) => {
+  console.log(frogs)
+  console.log(posts)
 
   const allPosts = posts.map((post) => {
     return <PostElement

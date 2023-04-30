@@ -21,8 +21,8 @@ import FrogDetails from "../components/FrogDetails/FrogDetails";
 
 const LilyPadContainer = () => {
   const [frogs, setFrogs] = useState([]);
-  const [loggedFrog, setLoggedFrog] = useState(null);
-  const [selectedFrog, setSelectedFrog] = useState(null);
+  const [loggedFrog, setLoggedFrog] = useState({_id:"644d3e279c846df72497cddc", name: "Dale"});
+  const [selectedFrog, setSelectedFrog] = useState({_id:"644d3e279c846df72497cddc", name: "Dale"});
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -86,8 +86,19 @@ const LilyPadContainer = () => {
               path="/signlog"
               element={<SignLog addFrog={addFrog} frogs={frogs} />}
             />
-            <Route path="/frogdetails" element={<FrogDetails />} />
-          </Routes>
+            <Route 
+            path="/frogdetails" 
+            element={
+            <FrogDetails
+            selectedFrog={selectedFrog}
+            loggedFrog={loggedFrog}
+            posts={posts}
+            frogs={frogs}
+             />
+              } 
+                />
+
+          </Routes> 
       </Router>
     </>
   );

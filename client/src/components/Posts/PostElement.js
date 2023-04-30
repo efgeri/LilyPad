@@ -3,10 +3,13 @@ import styled from "styled-components";
 const PostElement = ({post, frogs}) => {
 
   const posterFilter = frogs.filter((posterFrog) => {
+
+    console.log(posterFrog)
     if (post.poster === posterFrog._id)
     return posterFrog
   })
-
+console.log(posterFilter)
+console.log(post)
   const posterName = posterFilter[0].name
 
   return (

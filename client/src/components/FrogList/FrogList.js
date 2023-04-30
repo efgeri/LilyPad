@@ -23,6 +23,12 @@ const FrogList = ({ frogs, selectFrog }) => {
 const StyledList = styled.ul`
 display: flex;
 list-style: none;
+flex-wrap: wrap;
+@media screen and (max-width: 800px) {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+}
 `
  
 export default FrogList;

@@ -28,6 +28,8 @@ const ListContainer = styled.section`
   display: flex;
   flex-direction: column;
   color: red;
+  align-items: center;
+  padding-bottom: 50px;
 `;
 
 

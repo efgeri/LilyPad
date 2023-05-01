@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRightLong } from '@fortawesome/free-solid-svg-icons';
 
 const PostElement = ({post, frogs}) => {
 
@@ -7,8 +9,15 @@ const PostElement = ({post, frogs}) => {
     return posterFrog
   })
 
+  const receiverFilter = frogs.filter((receiverFrog) => {
+    if (post.receiver === receiverFrog._id)
+    return receiverFrog
+  })
+
   const posterName = posterFilter.length ? posterFilter[0].name : null
   const posterPicture = posterFilter[0].image_url
+  const receiverName = receiverFilter.length ? receiverFilter[0].name : null
+  const receiverPicture = receiverFilter[0].image_url
 
   return (
     <> 
@@ -16,8 +25,13 @@ const PostElement = ({post, frogs}) => {
         {post.image_url ? 
           <PostImage src={post.image_url} alt=""/> : null}
           <PosterCard>
+          <PosterReceiver>
           <PosterImage src={posterPicture} alt=""/>
           {posterName ? <PosterName>{posterName}</PosterName> : <PosterName>User has hopped off for good</PosterName>}
+          <FontAwesomeIcon icon={faRightLong} size="2xl"/>
+          <PosterImage src={receiverPicture} alt=""/>
+          {receiverName ? <PosterName>{receiverName}</PosterName> : <PosterName>User has hopped off for good</PosterName>}
+          </PosterReceiver>
         </PosterCard>
         <PostText>{post.comment.original}</PostText>
       </PostCard>
@@ -53,11 +67,16 @@ const PosterCard = styled.div`
   display: flex;
   align-items: center;
   align-self: flex-start;
+  width: 100%;
+  div {
+    justify-content: space-evenly;
+  }
 `
 
 const PosterImage = styled.img`
   width: 40px;
   height: 40px;
+  
   border: 2px double white;
   border-radius: 50%; // Set border-radius to 50% to create a circle
   object-fit: cover; // Add object-fit to maintain the aspect ratio
@@ -84,6 +103,11 @@ const PostImage = styled.img`
 const PostText = styled.p`
   align-items: center;
   align-self: flex-start;
+`
+const PosterReceiver = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
 `
 
  

@@ -7,8 +7,6 @@ import FrogPostList from "../FrogDetails/FrogPostList";
 
 const FrogProfile = ({ loggedFrog, selectedFrog, addPost, handleProfileRender, posts, frogs }) => {
   
-  console.log('hello')
-
   useEffect(() => {
     getSelectedFrog(id).then((data) => {
       return handleProfileRender(data);
@@ -19,7 +17,7 @@ const FrogProfile = ({ loggedFrog, selectedFrog, addPost, handleProfileRender, p
 
 const displayStyleCard = () => {
   if (selectedFrog === null) {
-    return <p>Retrieving details, please wait</p>
+    return <p>This hopper does not exist</p>
   } else {
     return (<StyledCard>
         <p>

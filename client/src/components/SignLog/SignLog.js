@@ -1,14 +1,20 @@
 import FrogForm from "../FrogForm/FrogForm";
-import Login from "./Login"
+import Login from "./Login";
 
-const SignLog = ({addFrog, frogs, selectLoggedinFrog}) => {
+const SignLog = ({ addFrog, frogs, selectLoggedinFrog, logOut }) => {
 
-  return ( 
+  const handleLogOut = () => {
+    console.log('peace out breaches');
+    // logOut()
+  }
+
+  return (
     <>
-    <FrogForm addFrog={addFrog} />
-    <Login frogs={frogs} selectLoggedinFrog={selectLoggedinFrog}/>
+      <button onClick={() => handleLogOut}>Peace out</button>
+      <FrogForm addFrog={addFrog} />
+      <Login frogs={frogs} selectLoggedinFrog={selectLoggedinFrog} />
     </>
-   );
-}
- 
+  );
+};
+
 export default SignLog;

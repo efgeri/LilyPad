@@ -145,6 +145,7 @@ const StyledButton = styled.button`
 
     &:hover {
     background: red;
+    cursor: pointer;
     }
 `
 

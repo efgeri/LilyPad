@@ -42,7 +42,7 @@ const PostElement = ({post, frogs}) => {
 // #84db2d
 
 const PostCard = styled.section`
-  background-color: #84db2d;
+  background-color: #84db2c;
   justify-content: center;
   align-items: center;
   color: white;

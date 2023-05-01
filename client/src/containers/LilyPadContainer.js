@@ -58,6 +58,8 @@ const LilyPadContainer = () => {
     setSelectedFrog(fgro);
   };
 
+  const postsReversed = [...posts].reverse();
+
   const logOut = () => {
     setLoggedFrog(null)
   }
@@ -75,7 +77,7 @@ const LilyPadContainer = () => {
                 selectedFrog={selectedFrog}
                 loggedFrog={loggedFrog}
                 addPost={addPost}
-                posts={posts}
+                posts={postsReversed}
                 frogs={frogs}
               />
             }

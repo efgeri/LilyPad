@@ -139,6 +139,7 @@ const StyledHeader = styled.div`
 
   &:hover {
     color: red;
+    cursor: pointer;
     }
 `;
 

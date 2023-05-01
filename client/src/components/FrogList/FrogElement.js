@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
 const FrogElement = ({ frog, selectFrog }) => {
   const handleSelect = () => {
@@ -10,7 +10,7 @@ const FrogElement = ({ frog, selectFrog }) => {
     <Link to={`/${frog._id}/profile`}>
       <StyledList onClick={handleSelect}>
         <p>
-          <strong>{frog.name}</strong>
+          {frog.name}
         </p>
         <StyledImage
           src={`${frog.image_url}`}
@@ -22,31 +22,46 @@ const FrogElement = ({ frog, selectFrog }) => {
 };
 
 const StyledImage = styled.img`
-  width: 100%;
-  border-radius: 5%;
+  max-width: 20rem;
+  border: 2px double white;
+  border-radius: 5px;
+  @media screen and (max-width: 800px) {
+  max-width: 100%;
+  }
 `;
+
 const StyledList = styled.li`
-  width: 20%;
   font-family: "Raleway", sans-serif;
   text-align: center;
-  font-size: 2rem;
-  padding: 10px;
-  margin: 15px;
-  margin-bottom: 25px;
-  border-radius: 5%;
-  background-color: #c0ffbb;
+  border: 2px double white;
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: #84db2c;
+  text-decoration: none;
+  margin: 1rem;
+  font-family: "Bungee", cursive;
+  color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+
   p {
     margin: 0.5em;
+    text-decoration: none;
   }
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   &:hover {
-    box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     cursor: pointer;
+    color: red;
   }
   @media screen and (max-width: 768px) {
     width: 90%;
   }
+
+`;
+
+const Link = styled(RouterLink)`
+  text-decoration: none;
 `;
 
 export default FrogElement;

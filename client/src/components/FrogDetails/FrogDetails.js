@@ -12,7 +12,7 @@ const FrogDetails = ({ frog }) => {
 
 const StyledImage = styled.img`
   width: 100%;
-  border-radius: 5%;
+  border-radius: 5%;p 
 `;
 
 export default FrogDetails;

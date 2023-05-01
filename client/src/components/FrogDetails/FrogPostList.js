@@ -2,15 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import FrogPost from "./FrogPost";
 
-const FrogPostList = ({ posts }) => {
-  return (
-    <PostListContainer>
-      {posts.map((post) => (
-        <FrogPost key={post._id} post={post} />
-      ))}
-    </PostListContainer>
-  );
-};
+const FrogPostList = ({ posts, frogs }) => {
+    return (
+      <PostListContainer>
+        {posts.map((post) => (
+          <FrogPost key={post._id} post={post} frogs={frogs} />
+        ))}
+      </PostListContainer>
+    );
+  };
+  
 
 const PostListContainer = styled.div`
   display: flex;

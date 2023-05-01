@@ -1,31 +1,40 @@
 import React from "react";
 import styled from "styled-components";
 
-const FrogPost = ({ post }) => {
+const FrogPost = ({ post, frogs }) => {
+  console.log("frogs:", frogs);
   return (
-    <PostContainer>
+    <PostCard>
       <PostImage src={post.image_url} alt="Frog post" />
       <PostComment>{post.comment.original}</PostComment>
-    </PostContainer>
+    </PostCard>
   );
 };
 
-const PostContainer = styled.div`
+
+
+const PostCard = styled.section`
+  background-color: #84db2d;
+  justify-content: center;
+  align-items: center;
+  color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 300px;
-  margin: 10px;
-  padding: 15px;
-  background-color: #f0f8ff;
+  margin-block: 1rem;
   border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  padding: 1rem;
+  border: 2px double white;
 `;
 
 const PostImage = styled.img`
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
+  max-width: 400px;
+  max-height: 400px;
+  border-radius: 4px;
+  border: 2px double white;
+  object-fit: cover; // Add object-fit to maintain the aspect ratio
+  object-position: center; // Add object-position to position the image correctly
 `;
 
 const PostComment = styled.p`

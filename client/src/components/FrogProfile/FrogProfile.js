@@ -6,6 +6,7 @@ import FrogPostList from "../FrogDetails/FrogPostList";
 
 const FrogProfile = ({ loggedFrog, selectedFrog, addPost, setToOwnProfile }) => {
   const [posts, setPosts] = useState([]);
+  
 
   useEffect(() => {
     setToOwnProfile(loggedFrog);

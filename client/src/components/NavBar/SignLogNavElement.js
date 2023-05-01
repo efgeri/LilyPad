@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
@@ -17,6 +17,18 @@ const SignLogNavElement = () => {
   );
 };
 
+const bounce = keyframes`
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+`;
+
 const NavigationBarElement = styled.div`
   color: #fc0000;
   display: flex;
@@ -33,6 +45,11 @@ const NavigationBarElement = styled.div`
   // Add this media query for non-mobile devices
   @media (min-width: 769px) {
 
+  }
+
+  &:hover {
+    color: white;
+    animation: ${bounce} 1s;
   }
 `;
 

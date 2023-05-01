@@ -4,6 +4,9 @@ export const getFrogs = () => {
   return fetch(baseURL).then((res) => res.json());
 };
 
+export const getSelectedFrog = (id) => {
+  return fetch(baseURL + id).then(res => res.json())
+}
 
 export const updateFrog = (id, payload) => {
   return fetch(baseURL + id, {

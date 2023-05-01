@@ -1,6 +1,11 @@
+import { useState } from "react";
+
 const EditFrog = ({ loggedFrog, selectedFrog }) => {
 
-  console.log("EditFrog was rendered");
+  const [updatedName, setUpdatedName] = useState("");
+  const [updatedImage, setUpdatedImage] = useState("");
+
+
 
   const handleEditFrog = (e) => {
             console.log(e)

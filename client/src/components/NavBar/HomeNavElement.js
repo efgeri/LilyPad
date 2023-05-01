@@ -23,6 +23,14 @@ const NavigationBarElement = styled.div`
   font-size: 20px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
+  
+  @media (max-width: 768px) {
+padding-top: 1.5px;
+  }
+  // Add this media query for non-mobile devices
+  @media (min-width: 769px) {
+
+  }
 `;
 
 

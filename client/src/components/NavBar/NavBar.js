@@ -37,6 +37,7 @@ const NavigationBar = styled.div`
     text-decoration: none;
     color: inherit;
   }
+  
 
   /* Comment */
   // Add this media query for mobile devices
@@ -55,6 +56,7 @@ const NavigationBar = styled.div`
     position: static;
     padding-inline: 10rem;
   }
+
 
 `;
 

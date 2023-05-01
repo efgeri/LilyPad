@@ -13,13 +13,13 @@ const PostElement = ({post, frogs}) => {
   return (
     <> 
       <PostCard>
-        <PosterCard>
+
+        {post.image_url ? 
+          <PostImage src={post.image_url} alt=""/> : null}
+          <PosterCard>
           <PosterImage src={posterPicture} alt=""/>
           {posterName ? <PosterName>{posterName}</PosterName> : <PosterName>User left the platform</PosterName>}
         </PosterCard>
-        <br />
-        {post.image_url ? 
-          <PostImage src={post.image_url} alt=""/> : null}
         <p>{post.comment.original}</p>
       </PostCard>
     </>
@@ -47,7 +47,8 @@ const PosterCard = styled.div`
   margin-top: 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
+  justify-content: left;
 `
 
 const PosterImage = styled.img`

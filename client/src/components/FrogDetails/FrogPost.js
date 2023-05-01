@@ -2,8 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const FrogPost = ({ post, frogs }) => {
-  console.log("frogs:", frogs);
-  return (
+    return (
     <PostCard>
       <PostImage src={post.image_url} alt="Frog post" />
       <PostComment>{post.comment.original}</PostComment>

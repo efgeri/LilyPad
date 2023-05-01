@@ -54,40 +54,57 @@ const LilyPadContainer = () => {
     setLoggedFrog(frog);
   };
 
-  const setToOwnProfile = (forg) => {
-    setSelectedFrog(forg);
-  }
-
+  const handleProfileRender = (fgro) => {
+    setSelectedFrog(fgro);
+  };
 
   return (
     <>
       <StyledHeader>Lilypad</StyledHeader>
       <Router>
-       <NavBar loggedFrog={loggedFrog} />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <HomePage
-                  selectedFrog={selectedFrog}
-                  loggedFrog={loggedFrog}
-                  addPost={addPost}
-                  posts={posts}
-                  frogs={frogs}
-                />
-              }
-            />
-            <Route
-              path="/frogs"
-              element={<FrogList selectFrog={selectFrog} frogs={frogs} />}
-            />
-            <Route
-              path="/signlog"
-              element={<SignLog addFrog={addFrog} frogs={frogs} selectLoggedinFrog={selectLoggedinFrog}/>}
-            />
-            <Route path="/profile" element={<FrogProfile loggedFrog={loggedFrog} selectedFrog={selectedFrog} setToOwnProfile={setToOwnProfile} addPost={addPost}/>} />
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
+        <NavBar loggedFrog={loggedFrog} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage
+                selectedFrog={selectedFrog}
+                loggedFrog={loggedFrog}
+                addPost={addPost}
+                posts={posts}
+                frogs={frogs}
+              />
+            }
+          />
+          <Route
+            path="/frogs"
+            element={<FrogList selectFrog={selectFrog} frogs={frogs} />}
+          />
+          <Route
+            path="/signlog"
+            element={
+              <SignLog
+                addFrog={addFrog}
+                frogs={frogs}
+                selectLoggedinFrog={selectLoggedinFrog}
+              />
+            }
+          />
+          <Route
+            path=":id/profile"
+            element={
+              <FrogProfile
+                loggedFrog={loggedFrog}
+                selectedFrog={selectedFrog}
+                handleProfileRender={handleProfileRender}
+                addPost={addPost}
+                posts={posts}
+                frogs={frogs}
+              />
+            }
+          />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
       </Router>
     </>
   );
@@ -103,6 +120,5 @@ const StyledHeader = styled.div`
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 `;
-
 
 export default LilyPadContainer;

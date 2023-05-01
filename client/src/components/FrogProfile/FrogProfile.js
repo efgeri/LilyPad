@@ -1,44 +1,45 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { getSelectedFrog } from "../../services/FrogServices";
 import PostForm from "../PostForm/PostForm";
 import FrogPostList from "../FrogDetails/FrogPostList";
 
-const FrogProfile = ({ loggedFrog, selectedFrog, addPost, setToOwnProfile }) => {
-  const [posts, setPosts] = useState([]);
+const FrogProfile = ({ loggedFrog, selectedFrog, addPost, handleProfileRender, posts, frogs }) => {
   
+  console.log('hello')
 
   useEffect(() => {
-    setToOwnProfile(loggedFrog);
+    getSelectedFrog(id).then((data) => {
+      return handleProfileRender(data);
+    })
   }, []);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await fetch("http://localhost:9000/api/posts");
-        const data = await response.json();
-        const filteredPosts = data.filter((post) => post.poster === selectedFrog._id);
-        setPosts(filteredPosts);
-      } catch (error) {
-        console.error("Failed to fetch posts:", error);
-      }
-    };
+  const { id }  = useParams()
 
-    fetchPosts();
-  }, [selectedFrog]);
+const displayStyleCard = () => {
+  if (selectedFrog === null) {
+    return <p>Retrieving details, please wait</p>
+  } else {
+    return (<StyledCard>
+        <p>
+          <strong>{selectedFrog.name}</strong>
+        </p>
+        <StyledImage
+          src={`${selectedFrog.image_url}`}
+          alt={`${selectedFrog.name}'s profile picture`}
+        />
+      </StyledCard>
+    )
+  }
+}
+
+  const styleCardDirector = displayStyleCard()
 
   return (
     <>
-      <StyledCard>
-        <p>
-          <strong>{loggedFrog.name}</strong>
-        </p>
-        <StyledImage
-          src={`${loggedFrog.image_url}`}
-          alt={`${loggedFrog.name}'s profile picture`}
-        />
-      </StyledCard>
-      <FrogPostList posts={posts} />
+      {styleCardDirector}
+      <FrogPostList posts={posts} frogs={frogs}/>
       <PostForm
         selectedFrog={selectedFrog}
         loggedFrog={loggedFrog}

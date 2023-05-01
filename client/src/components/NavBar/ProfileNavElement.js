@@ -10,7 +10,7 @@ const ProfileNavElement = ({loggedFrog}) => {
     if (loggedFrog === null) {
       return "/signlog"
     } else {
-      return "/profile"
+      return `/${loggedFrog._id}/profile`
     }
   }
   

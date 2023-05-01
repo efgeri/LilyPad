@@ -22,6 +22,8 @@ import NavBar from "../components/NavBar/NavBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FrogProfile from "../components/FrogProfile/FrogProfile";
 import PageNotFound from "../components/PageNotFound/PageNotFound";
+import { likeComment } from "../services/PostServices";
+import { unlikeComment } from "../services/PostServices";
 
 const LilyPadContainer = () => {
   const [frogs, setFrogs] = useState([]);
@@ -58,6 +60,31 @@ const LilyPadContainer = () => {
     setSelectedFrog(forg);
   }
 
+  const handleLikeComment = (postId) => {
+    const likerId = loggedFrog._id;
+    likeComment(postId, likerId).then((updatedPost) => {
+      setPosts(
+        posts.map((post) =>
+          post._id === updatedPost._id ? updatedPost : post
+        )
+      );
+    });
+  };
+  
+  const handleUnlikeComment = (postId) => {
+    const likerId = loggedFrog._id;
+    unlikeComment(postId, likerId).then((updatedPost) => {
+      setPosts(
+        posts.map((post) =>
+          post._id === updatedPost._id ? updatedPost : post
+        )
+      );
+    });
+  };
+  
+  
+  
+
 
   return (
     <>
@@ -74,6 +101,8 @@ const LilyPadContainer = () => {
                   addPost={addPost}
                   posts={posts}
                   frogs={frogs}
+                  onLikeComment={handleLikeComment}
+                  onUnlikeComment={handleUnlikeComment}
                 />
               }
             />

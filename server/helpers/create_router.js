@@ -69,6 +69,30 @@ const createRouter = function (collection) {
       });
   })
 
+  router.put('/:id/like', (req, res) => {
+    const id = req.params.id;
+    collection
+      .updateOne(
+        { _id: new ObjectId(id) },
+        { $inc: { 'comment.likes': 1 } }
+      )
+      .then(result => res.json(result))
+      .catch(handleError(res));
+  });
+
+  router.put('/:id/unlike', (req, res) => {
+    const id = req.params.id;
+    collection
+      .updateOne(
+        { _id: new ObjectId(id), 'comment.likes': { $gt: 0 } },
+        { $inc: { 'comment.likes': -1 } }
+      )
+      .then(result => res.json(result))
+      .catch(handleError(res));
+  });
+  
+  
+
   
   
   return router;

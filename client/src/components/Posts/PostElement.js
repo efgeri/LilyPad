@@ -1,32 +1,51 @@
 import styled from "styled-components";
 
-const PostElement = ({post, frogs}) => {
-
+const PostElement = ({ post, frogs, onLikeComment, onUnlikeComment }) => {
   const posterFilter = frogs.filter((posterFrog) => {
-    if (post.poster === posterFrog._id)
-    return posterFrog
-  })
+    if (post.poster === posterFrog._id) return posterFrog;
+  });
 
-  const posterName = posterFilter.length ? posterFilter[0].name : null
-  const posterPicture = posterFilter[0].image_url
+  const posterName = posterFilter.length ? posterFilter[0].name : null;
+  const posterPicture = posterFilter[0].image_url;
+
+  const handleLikeClick = () => {
+    console.log('postId:', post._id);
+
+    onLikeComment(post._id)
+  };
+  
+  const handleUnlikeClick = () => {
+    console.log('postId:', post._id);
+    
+    onUnlikeComment(post._id)
+  };
+  
+  
 
   return (
-    <> 
+    <>
       <PostCard>
-
-        {post.image_url ? 
-          <PostImage src={post.image_url} alt=""/> : null}
-          <PosterCard>
-          <PosterImage src={posterPicture} alt=""/>
-          {posterName ? <PosterName>{posterName}</PosterName> : <PosterName>User left the platform</PosterName>}
+        {post.image_url ? (
+          <PostImage src={post.image_url} alt="" />
+        ) : null}
+        <PosterCard>
+          <PosterImage src={posterPicture} alt="" />
+          {posterName ? (
+            <PosterName>{posterName}</PosterName>
+          ) : (
+            <PosterName>User left the platform</PosterName>
+          )}
         </PosterCard>
         <p>{post.comment.original}</p>
+        <ButtonContainer>
+          <button onClick={handleLikeClick}>Like</button>
+          <button onClick={handleUnlikeClick}>Unlike</button>
+        </ButtonContainer>
+        <p>Likes: {post.comment.likes.length}</p>
       </PostCard>
     </>
   );
-}
-
-// #84db2d
+};
 
 const PostCard = styled.section`
   background-color: #84db2d;
@@ -73,6 +92,11 @@ const PostImage = styled.img`
   object-fit: cover; // Add object-fit to maintain the aspect ratio
   object-position: center; // Add object-position to position the image correctly
 `
+const ButtonContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+`;
 
  
 export default PostElement;

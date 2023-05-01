@@ -17,3 +17,29 @@ export const createPost = (originalPost) => {
                 }
         })
 }
+
+export const likeComment = async (postId, likerId) => {
+    const res = await fetch(`${baseURL}/posts/${postId}/like`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ liker_id: likerId }),
+    });
+    const data = await res.json();
+    return data;
+  };
+  
+  export const unlikeComment = async (postId, likerId) => {
+    const res = await fetch(`${baseURL}/posts/${postId}/unlike`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ liker_id: likerId }),
+    });
+    const data = await res.json();
+    return data;
+  };
+  
+  

@@ -1,13 +1,15 @@
 import PostElement from "./PostElement";
 import styled from "styled-components";
 
-const PostList = ({posts, frogs}) => {
+const PostList = ({posts, frogs, onLikeComment, onUnlikeComment}) => {
 
   const allPosts = posts.map((post) => {
     return <PostElement
       post={post}
       key={post._id}
       frogs={frogs}
+      onLikeComment={onLikeComment}
+      onUnlikeComment={onUnlikeComment}
       />
   })
 

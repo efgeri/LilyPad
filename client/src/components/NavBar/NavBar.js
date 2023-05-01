@@ -47,6 +47,7 @@ const NavigationBar = styled.div`
     bottom: 0;
     padding-inline: 2.75rem;
     padding-top: 1.25rem;
+    border-top: 2px solid white;
   }
 
   // Add this media query for non-mobile devices
@@ -54,14 +55,15 @@ const NavigationBar = styled.div`
     position: static;
     padding-inline: 10rem;
   }
+
 `;
 
-const NavigationBarElement = styled.div`
-  color: #fc0000;
-  display: flex; // Add this line
-  flex-direction: column; // Add this line
-  align-items: center; // Add this line
-  font-size: 20px;
-`;
+// const NavigationBarElement = styled.div`
+//   color: #fc0000;
+//   display: flex; // Add this line
+//   flex-direction: column; // Add this line
+//   align-items: center; // Add this line
+//   font-size: 20px;
+// `;
 
 export default NavBar;

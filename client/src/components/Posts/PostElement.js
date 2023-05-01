@@ -13,14 +13,13 @@ const PostElement = ({post, frogs}) => {
   return (
     <> 
       <PostCard>
-
         {post.image_url ? 
           <PostImage src={post.image_url} alt=""/> : null}
           <PosterCard>
           <PosterImage src={posterPicture} alt=""/>
           {posterName ? <PosterName>{posterName}</PosterName> : <PosterName>User left the platform</PosterName>}
         </PosterCard>
-        <p>{post.comment.original}</p>
+        <PostText>{post.comment.original}</PostText>
       </PostCard>
     </>
   );
@@ -41,14 +40,19 @@ const PostCard = styled.section`
   -webkit-text-stroke-color: black;
   padding: 1rem;
   border: 2px double white;
+  width: 100%; // Set the initial width to 100%
+  max-width: 800px; // Limit the maximum width
+
+  @media (max-width: 768px) {
+    width: 90%; // Set the width to 90% for smaller screens
+  }
 `;
 
 const PosterCard = styled.div`
   margin-top: 10px;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
-  justify-content: left;
+  align-self: flex-start;
 `
 
 const PosterImage = styled.img`
@@ -58,6 +62,7 @@ const PosterImage = styled.img`
   border-radius: 50%; // Set border-radius to 50% to create a circle
   object-fit: cover; // Add object-fit to maintain the aspect ratio
   object-position: center; // Add object-position to position the image correctly
+  align-items: left;
 `
 
 const PosterName = styled.p`
@@ -66,12 +71,19 @@ const PosterName = styled.p`
 `;
 
 const PostImage = styled.img`
-  max-width: 400px;
-  max-height: 400px;
+  width: 100%; // Set the initial width to 100%
+  max-width: 500px; // Limit the maximum width
+  max-height: 500px;
   border-radius: 4px;
   border: 2px double white;
-  object-fit: cover; // Add object-fit to maintain the aspect ratio
-  object-position: center; // Add object-position to position the image correctly
+  object-fit: cover;
+  object-position: center;
+  align-items: center;
+`
+
+const PostText = styled.p`
+  align-items: center;
+  align-self: flex-start;
 `
 
  

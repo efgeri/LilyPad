@@ -30,11 +30,15 @@ const LilyPadContainer = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
+    fetchData()
+  }, []);
+
+  const fetchData = () =>{
     Promise.all([getFrogs(), getPosts()]).then(([frogsData, postsData]) => {
       setFrogs(frogsData);
       setPosts(postsData);
     });
-  }, []);
+  }
 
   const addPost = (originalPost) => {
     createPost(originalPost).then((savedPost) =>
@@ -95,6 +99,7 @@ const LilyPadContainer = () => {
                 selectLoggedinFrog={selectLoggedinFrog}
                 logOut={logOut}
                 loggedFrog={loggedFrog}
+                fetchData={fetchData}
               />
             }
           />

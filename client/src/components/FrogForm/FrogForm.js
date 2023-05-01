@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const FrogForm = ({addFrog}) => {
+const FrogForm = ({addFrog, fetchData}) => {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [friends, setFriends] = useState([]);
@@ -28,6 +28,7 @@ const FrogForm = ({addFrog}) => {
     setName("");
     setImage("");
     setFriends([]);
+    fetchData()    
   }
 
   

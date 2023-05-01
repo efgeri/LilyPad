@@ -2,8 +2,8 @@ import PostElement from "./PostElement";
 import styled from "styled-components";
 
 const PostList = ({posts, frogs}) => {
-
-  const allPosts = posts.map((post) => {
+  const limitedPosts = [...posts].slice(0, 5)
+  const allPosts = limitedPosts.map((post) => {
     return <PostElement
       post={post}
       key={post._id}

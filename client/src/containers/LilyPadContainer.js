@@ -22,6 +22,7 @@ import NavBar from "../components/NavBar/NavBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FrogProfile from "../components/FrogProfile/FrogProfile";
 import PageNotFound from "../components/PageNotFound/PageNotFound";
+import GetID from "../components/GetID";
 
 const LilyPadContainer = () => {
   const [frogs, setFrogs] = useState([]);
@@ -35,6 +36,13 @@ const LilyPadContainer = () => {
       setPosts(postsData);
     });
   }, []);
+
+  // Generaljunk egy listat az elerheto frogcimekkel
+  // <Route path={`/:${frog._id}`} element={<PageNotFound />} />
+  // const allFrogPaths = frogs.map((frog) => {
+  //   return ;
+  // });
+
 
   const addPost = (originalPost) => {
     createPost(originalPost).then((savedPost) =>
@@ -87,6 +95,7 @@ const LilyPadContainer = () => {
             />
             <Route path="/profile" element={<FrogProfile loggedFrog={loggedFrog} selectedFrog={selectedFrog} setToOwnProfile={setToOwnProfile} addPost={addPost}/>} />
             <Route path="*" element={<PageNotFound />} />
+            <Route path=":squirrel/profile" element={<GetID />} />
           </Routes>
       </Router>
     </>

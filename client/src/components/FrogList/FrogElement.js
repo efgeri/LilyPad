@@ -1,6 +1,5 @@
 import styled from "styled-components"
-
-
+import { Link } from "react-router-dom";
 
 const FrogElement = ({ frog, selectFrog }) => {
 
@@ -8,10 +7,13 @@ const FrogElement = ({ frog, selectFrog }) => {
     selectFrog(frog)
   }
   return (
+    <>
+    <Link to={`/${frog._id}/profile`}>
     <StyledList onClick={handleSelect}>
       <p><strong>{frog.name}</strong></p>
       <StyledImage src={`${frog.image_url}`} alt={`${frog.name}'s profile picture`} />
-    </StyledList>
+    </StyledList></Link>
+    </>
   );
 };
 

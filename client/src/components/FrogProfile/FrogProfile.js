@@ -19,15 +19,18 @@ const displayStyleCard = () => {
   if (selectedFrog === null) {
     return <p>This hopper does not exist</p>
   } else {
-    return (<StyledCard>
+    return (<StyledSection><StyledCard>
         <p>
           <strong>{selectedFrog.name}</strong>
         </p>
+        <StyledImageDiv>
         <StyledImage
           src={`${selectedFrog.image_url}`}
           alt={`${selectedFrog.name}'s profile picture`}
         />
+        </StyledImageDiv>
       </StyledCard>
+      </StyledSection>
     )
   }
 }
@@ -47,28 +50,60 @@ const displayStyleCard = () => {
   );
 };
 
+const StyledSection = styled.section`
+display: flex;
+justify-content: center;
+`
+
 const StyledImage = styled.img`
-  width: 100%;
-  border-radius: 5%;
+  border-radius: 5px;
+  border: 2px double white;
+  max-width: 25rem;
+  display: flex;
+justify-content: center;
+width: 80%;
+
+  @media (max-width: 778px) {
+    width: 80%;
+  }
 `;
 
+const StyledImageDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5%;
+`
+
 const StyledCard = styled.section`
-  width: 20%;
-  font-family: "Raleway", sans-serif;
+  font-family: "Bungee", cursive;
+  color: white;
+  -webkit-text-stroke-width: 0.75px;
+  -webkit-text-stroke-color: black;
   text-align: center;
   font-size: 2rem;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 5%;
-  background-color: #c0ffbb;
+  border: 2px double white;
+  border-radius: 5px;
+  margin-top: 1%;
+  background-color: #84db2c;
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  padding-bottom: 1%;
+
+  @media (max-width: 768px) {
+    font-size: 100%;
+  }
+
   p {
     margin: 0.5em;
   }
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   &:hover {
-    box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    color: red;
+    cursor: pointer;
   }
 `;
+
 
 export default FrogProfile;

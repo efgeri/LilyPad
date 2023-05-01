@@ -61,7 +61,7 @@ const LilyPadContainer = () => {
 
   return (
     <>
-      <StyledHeader>LILYPAD CONTAINER</StyledHeader>
+      <StyledHeader>Lilypad</StyledHeader>
       <Router>
        <NavBar loggedFrog={loggedFrog} />
           <Routes>
@@ -85,7 +85,7 @@ const LilyPadContainer = () => {
               path="/signlog"
               element={<SignLog addFrog={addFrog} frogs={frogs} selectLoggedinFrog={selectLoggedinFrog}/>}
             />
-            <Route path="/profile" element={<FrogProfile loggedFrog={loggedFrog} selectedFrog={selectedFrog} setToOwnProfile={setToOwnProfile} />} />
+            <Route path="/profile" element={<FrogProfile loggedFrog={loggedFrog} selectedFrog={selectedFrog} setToOwnProfile={setToOwnProfile} addPost={addPost}/>} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
       </Router>
@@ -100,6 +100,8 @@ const StyledHeader = styled.div`
   font-size: 2.75rem;
   text-align: center;
   font-family: "Bungee", cursive;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 `;
 
 

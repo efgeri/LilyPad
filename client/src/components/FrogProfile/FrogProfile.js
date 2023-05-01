@@ -4,40 +4,62 @@ import styled from "styled-components";
 import { getSelectedFrog } from "../../services/FrogServices";
 import PostForm from "../PostForm/PostForm";
 import FrogPostList from "../FrogDetails/FrogPostList";
+import EditFrog from "./EditFrog";
 
-const FrogProfile = ({ loggedFrog, selectedFrog, addPost, handleProfileRender, posts, frogs }) => {
-  
+const FrogProfile = ({
+  loggedFrog,
+  selectedFrog,
+  addPost,
+  handleProfileRender,
+  posts,
+  frogs,
+}) => {
   useEffect(() => {
     getSelectedFrog(id).then((data) => {
       return handleProfileRender(data);
-    })
+    });
   }, []);
 
-  const { id }  = useParams()
+  const { id } = useParams();
 
-const displayStyleCard = () => {
-  if (selectedFrog === null) {
-    return <p>This hopper does not exist</p>
-  } else {
-    return (<StyledCard>
-        <p>
-          <strong>{selectedFrog.name}</strong>
-        </p>
-        <StyledImage
-          src={`${selectedFrog.image_url}`}
-          alt={`${selectedFrog.name}'s profile picture`}
-        />
-      </StyledCard>
-    )
+  const displayStyleCard = () => {
+    if (selectedFrog === null) {
+      return <p>We could not find this hopper</p>;
+    } else {
+      return (
+        <StyledCard>
+          <p>
+            <strong>{selectedFrog.name}</strong>
+          </p>
+          <StyledImage
+            src={`${selectedFrog.image_url}`}
+            alt={`${selectedFrog.name}'s profile picture`}
+          />
+        </StyledCard>
+      );
+    }
+  };
+  const styleCardDirector = displayStyleCard();
+
+  const editProfileDirector = () => {
+    if (loggedFrog && selectedFrog && loggedFrog._id === selectedFrog._id) {
+      return (
+        <EditFrog loggedFrog={loggedFrog} selectedFrog={selectedFrog}/>
+      )
+    } else {
+      return null;
+    }
   }
-}
-
-  const styleCardDirector = displayStyleCard()
+  // const editProfileDisplay = editProfileDirector()
 
   return (
     <>
+      {editProfileDirector()}
+      {/* {loggedFrog && selectedFrog && loggedFrog._id === selectedFrog._id ? (
+        <EditFrog loggedFrog={loggedFrog} selectedFrog={selectedFrog} />
+      ) : null} */}
       {styleCardDirector}
-      <FrogPostList posts={posts} frogs={frogs}/>
+      <FrogPostList posts={posts} frogs={frogs} />
       <PostForm
         selectedFrog={selectedFrog}
         loggedFrog={loggedFrog}

@@ -17,7 +17,7 @@ const PostElement = ({post, frogs}) => {
           <PostImage src={post.image_url} alt=""/> : null}
           <PosterCard>
           <PosterImage src={posterPicture} alt=""/>
-          {posterName ? <PosterName>{posterName}</PosterName> : <PosterName>User has hopped off for good</PosterName>}
+          {posterName ? <PosterName>{posterName}</PosterName> : <PosterName>They played Frogger, and lost</PosterName>}
         </PosterCard>
         <PostText>{post.comment.original}</PostText>
       </PostCard>

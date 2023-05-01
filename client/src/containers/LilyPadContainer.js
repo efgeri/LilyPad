@@ -93,6 +93,10 @@ const LilyPadContainer = () => {
   );
 };
 
+const StyledBody = styled.body`
+  margin: 0;
+`
+
 const StyledHeader = styled.div`
   background-color: #84db2c;
   color: white;

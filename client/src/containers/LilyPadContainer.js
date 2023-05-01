@@ -128,10 +128,10 @@ const bounce = keyframes`
     transform: translateY(0);
   }
   40% {
-    transform: translateY(-5px);
+    transform: translateY(5px);
   }
   60% {
-    transform: translateY(-3px);
+    transform: translateY(3px);
   }
 `;
 

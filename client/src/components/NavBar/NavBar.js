@@ -25,6 +25,7 @@ const NavigationBar = styled.div`
   flex-direction: row;
   background-color: #84db2c;
   padding-bottom: 0.5rem;
+  padding-top: 1rem;
   font-size: 20px;
   text-align: center;
   justify-content: space-between;

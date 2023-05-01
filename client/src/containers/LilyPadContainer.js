@@ -131,6 +131,10 @@ const StyledHeader = styled.div`
   font-family: "Bungee", cursive;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
+
+  &:hover {
+    color: red;
+    }
 `;
 
 export default LilyPadContainer;

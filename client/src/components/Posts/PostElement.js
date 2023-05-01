@@ -40,11 +40,10 @@ const PostCard = styled.section`
   -webkit-text-stroke-color: black;
   padding: 1rem;
   border: 2px double white;
-  width: 100%; // Set the initial width to 100%
-  max-width: 800px; // Limit the maximum width
+  /* min-width: 60%;  */
 
   @media (max-width: 768px) {
-    width: 90%; // Set the width to 90% for smaller screens
+    width: 100%; 
   }
 `;
 
@@ -53,7 +52,9 @@ const PosterCard = styled.div`
   display: flex;
   align-items: center;
   align-self: flex-start;
+  padding-left: 0.25%;
 `
+
 
 const PosterImage = styled.img`
   width: 40px;
@@ -67,13 +68,11 @@ const PosterImage = styled.img`
 
 const PosterName = styled.p`
   margin: 0 1rem; // Add some horizontal margin for spacing
-  font-size: 20px;
+  font-size: 100%;
 `;
 
 const PostImage = styled.img`
   width: 100%; // Set the initial width to 100%
-  max-width: 500px; // Limit the maximum width
-  max-height: 500px;
   border-radius: 4px;
   border: 2px double white;
   object-fit: cover;
@@ -84,6 +83,7 @@ const PostImage = styled.img`
 const PostText = styled.p`
   align-items: center;
   align-self: flex-start;
+  padding-left: 0.25%;
 `
 
  

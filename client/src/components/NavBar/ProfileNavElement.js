@@ -20,7 +20,7 @@ const ProfileNavElement = ({loggedFrog}) => {
     <Link to={profileLink}>
       <NavigationBarElement>
         <ProfileIconWrapper>
-          <FontAwesomeIcon icon={faFrog} fa-2xl/>
+          <FontAwesomeIcon icon={faFrog}/>
         </ProfileIconWrapper>
         <ProfileText>Profile</ProfileText>
       </NavigationBarElement>

@@ -11,11 +11,13 @@ const PostList = ({posts, frogs}) => {
       />
   })
 
+  const postsReversed = allPosts.reverse();
+
   return ( 
     <>
     <h2>Post List</h2>
     <ListContainer>
-    {allPosts} 
+    {postsReversed} 
     </ListContainer>
     </>
    );

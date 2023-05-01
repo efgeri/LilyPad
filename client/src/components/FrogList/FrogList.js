@@ -67,22 +67,20 @@ form {
   width: 50%;
   padding: 10px;
   margin: 10px;
+  border: 2px double white;
   border-radius: 5px;
   background-color: #84db2c;
   padding: 20px;
-  
 }
 input {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 2px solid black;
+  border-radius: 2.5px;
   font-family: "Bungee", cursive;
 }
-
-
 `
 
 export default FrogList;

@@ -97,7 +97,7 @@ const PostTextAreaDiv = styled.div`
 const StyledTitle = styled.h2`
   text-align: center;
   color: red;
-  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-width: 0.75px;
   -webkit-text-stroke-color: black;
 `
 

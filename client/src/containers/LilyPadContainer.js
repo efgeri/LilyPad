@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from 'styled-components';
 import {
   BrowserRouter as Router,
   Routes,
@@ -123,22 +123,30 @@ const LilyPadContainer = () => {
   );
 };
 
-const StyledBody = styled.body`
-  margin: 0;
-`
+const bounce = keyframes`
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+`;
 
 const StyledHeader = styled.div`
   background-color: #84db2c;
-  color: white;
+  color: red;
   padding-bottom: 1rem;
   font-size: 2.75rem;
   text-align: center;
   font-family: "Bungee", cursive;
-  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-width: 1.5px;
   -webkit-text-stroke-color: black;
 
   &:hover {
-    color: red;
+    color: white;
     cursor: pointer;
     }
 `;

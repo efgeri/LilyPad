@@ -15,11 +15,17 @@ const StyledSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: "Bungee", cursive;
   a {
     text-decoration: none;
     &:visited {
       color: black;
     }
+  }
+  h2{
+  -webkit-text-stroke-width: 0.75px;
+  -webkit-text-stroke-color: black;
+  color: red;
   }
 `;
 

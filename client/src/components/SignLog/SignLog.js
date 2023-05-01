@@ -1,17 +1,16 @@
 import FrogForm from "../FrogForm/FrogForm";
 import Login from "./Login";
 
-const SignLog = ({ addFrog, frogs, selectLoggedinFrog, logOut }) => {
+const SignLog = ({ addFrog, frogs, selectLoggedinFrog, logOut, loggedFrog }) => {
 
   const handleLogOut = () => {
     console.log('peace out breaches');
-    // logOut()
+    logOut()
   }
 
   return (
     <>
-      <button onClick={() => handleLogOut}>Peace out</button>
-      <FrogForm addFrog={addFrog} />
+      {loggedFrog ? <button onClick={handleLogOut}>Peace out</button> : <FrogForm addFrog={addFrog} />}      
       <Login frogs={frogs} selectLoggedinFrog={selectLoggedinFrog} />
     </>
   );

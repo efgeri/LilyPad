@@ -94,6 +94,7 @@ const LilyPadContainer = () => {
                 frogs={frogs}
                 selectLoggedinFrog={selectLoggedinFrog}
                 logOut={logOut}
+                loggedFrog={loggedFrog}
               />
             }
           />

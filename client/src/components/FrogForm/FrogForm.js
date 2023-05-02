@@ -37,10 +37,11 @@ const FrogForm = ({addFrog, fetchData}) => {
   return (
     <StyledForm onSubmit={handleSubmit}>
     <StyledFields>
-    <h2>Create a new frog or log in</h2>
+    <h2>Create a new account or frog-in</h2>
       <div>
-        <label htmlFor="name">Name:</label>
-        <input
+        <label htmlFor="name">Name</label>
+        <br/>
+        <StyledInput
           type="text"
           id="name"
           name="name"
@@ -50,8 +51,9 @@ const FrogForm = ({addFrog, fetchData}) => {
         />
       </div>
       <div>
-        <label htmlFor="image">Profile Picture:</label>
-        <input
+        <label htmlFor="image">Profile Picture</label>
+        <br/>
+        <StyledInput
         type="text"
         id="image"
         name="image"
@@ -67,49 +69,54 @@ const FrogForm = ({addFrog, fetchData}) => {
   );
 }
 
-const StyledFields = styled.fieldset`
-background: white;
-  border: 0 none;
-  border-radius: 3px;
-  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-  padding: 20px 30px;
-  box-sizing: border-box;
-  width: 80%;
-  margin: 0 10%;
-`
-
 const StyledForm = styled.form`
- width: 33.3333%;
-  margin: 50px auto;
-  text-align: center;
-  position: relative;
-  input {
-    padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  width: 100%;
-  color: #2c3e50;
-  font-size: 13px;
-  }
+`
 
-`
-const StyledBtn = styled.button`
-   width: 33.33333%;
-  background: #27ae60;
-  font-weight: bold;
-  color: white;
-  border: 0 none;
-  border-radius: 1px;
-  cursor: pointer;
-  padding: 10px;
-  margin: 10px 5px;
-  text-decoration: none;
-  font-size: 14px;
-  &:hover {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #27ae60;
+const StyledFields = styled.fieldset`
+background-color: #84db2c;
+font-family: "Bungee", cursive;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+border: 2px double white;
+border-radius: 5px;
+margin-top: 2.5%;
+padding-bottom: 1.75%;
+
+
+  h2{
+    color: red;
+    -webkit-text-stroke-width: 0.75px;
+    -webkit-text-stroke-color: black;
   }
-`
+`;
+
+const StyledInput = styled.input`
+  width: 100%;
+  font-family: "Bungee", cursive;
+  margin-top: 1%;
+  border: 2px solid black;
+  border-radius: 2.5px;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+`;
+
+const StyledBtn = styled.button`
+    background: white;
+    font-family: "Bungee", cursive;
+    color: black;
+    border: 2px solid black;
+    border-radius: 2.5px;
+    margin-top: 0.5%;
+
+    &:hover {
+    background: red;
+    cursor: pointer;
+    }
+`;
+
+
 
 export default FrogForm;

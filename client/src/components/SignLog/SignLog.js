@@ -20,10 +20,9 @@ const SignLog = ({ addFrog, frogs, selectLoggedinFrog, logOut, loggedFrog, fetch
 };
 
 const StyledDiv = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-margin-top: 1%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1%;
 `
 
 const StyledButton = styled.button`

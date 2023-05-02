@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styled from "styled-components";
 
 const EditFrog = ({ loggedFrog, updateFrogProfile }) => {
 
@@ -13,8 +14,6 @@ const EditFrog = ({ loggedFrog, updateFrogProfile }) => {
     setUpdatedImage(e.target.value);
   };
 
-
-
   const handleEditFrog = (e) => {
     e.preventDefault()
     const payload = {
@@ -27,15 +26,51 @@ const EditFrog = ({ loggedFrog, updateFrogProfile }) => {
 
   return (
     <>
-      <form onSubmit={handleEditFrog}>
-        <label htmlFor="name">Update your name: </label>
-        <input type="text" id="name" name="name" value={updatedName} onChange={handleNameChange}/>
-        <label htmlFor="picture">Make your photo unfrogetable: </label>
-        <input type="text" id="picture" name="picture" value={updatedImage} onChange={handleImageChange}/>
-        <button>Submit changes</button>
-      </form>
+      <StyledForm onSubmit={handleEditFrog}>
+        <label htmlFor="name">Update your name</label>
+        <br/>
+        <StyledInput type="text" id="name" name="name" value={updatedName} onChange={handleNameChange}/>
+        <br/>
+        <label htmlFor="picture">Make your photo unfrogetable</label>
+        <br/>
+        <StyledInput type="text" id="picture" name="picture" value={updatedImage} onChange={handleImageChange}/>
+        <br/>
+        <StyledButton>Submit changes</StyledButton>
+        <br/>
+      </StyledForm>
     </>
   );
 };
 
+const StyledForm = styled.form`
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+font-family: "Bungee", cursive;
+text-align: center;
+`
+
+const StyledInput = styled.input`
+font-family: "Bungee", cursive;
+`
+
+const StyledButton = styled.button`
+    background: red;
+    font-family: "Bungee", cursive;
+    color: black;
+    border: 3px double black;
+    border-radius: 4px;
+    width: 7.5rem;
+
+    transition: 0.3s;
+    &:hover {
+    background: black;
+    color: #84db2c;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border: 3px solid red;
+    border-radius: 4px;
+    }
+`
 export default EditFrog;

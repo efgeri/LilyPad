@@ -14,9 +14,13 @@ const FrogPostList = ({ posts, frogs }) => {
 };
 
 const PostListContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 60%;
+    min-width: 60%;
+    margin-inline: auto;
+    flex-direction: column;
 `;
 
 export default FrogPostList;

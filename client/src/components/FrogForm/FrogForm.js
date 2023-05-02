@@ -15,8 +15,6 @@ const FrogForm = ({addFrog, fetchData}) => {
     
   };
 
-
-
   const handleSubmit = e => {
     e.preventDefault();
     
@@ -29,10 +27,7 @@ const FrogForm = ({addFrog, fetchData}) => {
     setImage("");
     setFriends([]);
     fetchData()    
-  }
-
-  
-  
+  };
 
   return (
     <StyledForm onSubmit={handleSubmit}>
@@ -70,6 +65,12 @@ const FrogForm = ({addFrog, fetchData}) => {
 }
 
 const StyledForm = styled.form`
+width: 50%;
+margin-inline: auto;
+
+@media screen and (max-width: 768px) {
+    width: 90%;
+  }
 `
 
 const StyledFields = styled.fieldset`
@@ -91,6 +92,7 @@ padding-bottom: 1.75%;
     -webkit-text-stroke-width: 0.75px;
     -webkit-text-stroke-color: black;
   }
+
 `;
 
 const StyledInput = styled.input`

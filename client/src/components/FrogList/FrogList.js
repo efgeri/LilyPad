@@ -29,53 +29,69 @@ const FrogList = ({ frogs, selectFrog }) => {
   }
 
   return (
-    <StyledSection>
-     <form onSubmit={handleSubmit}>
+    <>
+    <SearchContainer>
+     <StyledForm onSubmit={handleSubmit}>
       <input
         onChange={changeSearchTerm}
         type="text"
         name="searchTerm"
         placeholder="Filter Frogs"
         value={searchTerm} />
-    </form>
+    </StyledForm>
+    </SearchContainer>
+    <StyledSection>
       <StyledList>{allFrogs}</StyledList>
     </StyledSection>
+    </>
   );
 };
 
+const StyledSection = styled.section`
+  width: 100%;
+`
+
 const StyledList = styled.ul`
-    display: flex;
     list-style: none;
     text-decoration: none;
+    display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
     
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 768px) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 `;
 
-const StyledSection = styled.section`
-display: flex;
-flex-direction: column;
-align-items: center;
-margin-top: 0.5%;
-form {
-  width: 50%;
+const SearchContainer = styled.div`
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5%;
+  /* width: 60%; */
+  margin-inline: auto;
+
+  @media screen and (max-width: 768px) {
+    width: 90%;
+  }
+`
+
+const StyledForm = styled.form`
+
   padding: 10px;
   margin: 10px;
   border: 2px double white;
   border-radius: 5px;
   background-color: #84db2c;
-  padding: 20px;
-}
+  padding: 2 4rem;
+  
 input {
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
+  padding: 1 2rem;
   display: inline-block;
   border: 2px solid black;
   border-radius: 2.5px;

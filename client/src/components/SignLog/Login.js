@@ -6,7 +6,9 @@ const Login = ({ frogs, selectLoggedinFrog }) => {
   return (
     <StyledSection>
     <br/>
+    <StyledDiv>
       <h2>Login</h2>
+      </StyledDiv>
       <FrogList frogs={frogs} selectFrog={selectLoggedinFrog} />
     </StyledSection>
   );
@@ -29,5 +31,15 @@ const StyledSection = styled.section`
   color: red;
   }
 `;
+
+const StyledDiv = styled.div`
+    display: flex;
+    flex-direction: column; 
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (max-width: 768px) {
+  }
+`
 
 export default Login;

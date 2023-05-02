@@ -5,28 +5,55 @@ const FrogElement = ({ frog, selectFrog }) => {
   const handleSelect = () => {
     selectFrog(frog);
   };
-  
+
   return (
     <Link to={`/${frog._id}/profile`}>
       <StyledList onClick={handleSelect}>
-        <p>
-          {frog.name}
-        </p>
-        <StyledImage
-          src={`${frog.image_url}`}
-          alt={`${frog.name}'s profile picture`}
-        />
+        <p>{frog.name}</p>
+        <ImageContainer>
+          <StyledImage
+            src={`${frog.image_url}`}
+            alt={`${frog.name}'s profile picture`}
+          />
+        </ImageContainer>
       </StyledList>
     </Link>
   );
 };
 
-const StyledImage = styled.img`
+const ImageContainer = styled.div`
+  height: 10rem; // add this line
+  width: 20rem; // add this line
+  max-height: 10rem;
   max-width: 20rem;
-  border: 2px double white;
+  /* min-width: 20rem; */
   border-radius: 5px;
-  @media screen and (max-width: 800px) {
-  max-width: 100%;
+  border: 2px double white;
+  overflow: hidden;
+  margin: 0.5rem;
+  display: flex; // add this line
+  justify-content: center; // add this line
+  align-items: center; // add this line
+
+  @media screen and (max-width: 768px) {
+    width: 95%; // change this line
+    height: 95%; // change this line
+    /* border: none; */
+  }
+`;
+
+
+const StyledImage = styled.img`
+  width: 100%; // change this line
+  height: 100%; // change this line
+  box-sizing: border-box;
+  display: inline-block;
+  /* object-fit: cover; */
+
+  @media screen and (max-width: 768px) {
+    width: 100%; // change this line
+    height: 100%; // change this line
+
   }
 `;
 
@@ -34,10 +61,9 @@ const StyledList = styled.li`
   text-align: center;
   border: 2px double white;
   border-radius: 5px;
-  padding: 1rem;
   background-color: #84db2c;
   text-decoration: none;
-  margin: 1rem;
+  margin-block: 5px;
   font-family: "Bungee", cursive;
   color: white;
   -webkit-text-stroke-width: 1px;

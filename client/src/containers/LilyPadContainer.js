@@ -15,7 +15,7 @@ import { getPosts } from "../services/PostServices";
 import PostForm from "../components/PostForm/PostForm";
 import FrogForm from "../components/FrogForm/FrogForm";
 import { createPost } from "../services/PostServices";
-import { createFrog, deleteFrog } from "../services/FrogServices";
+import { createFrog, deleteFrog, updateFrog } from "../services/FrogServices";
 import HomePage from "../components/FrogHome/HomePage";
 import SignLog from "../components/SignLog/SignLog";
 import NavBar from "../components/NavBar/NavBar";
@@ -83,7 +83,18 @@ const LilyPadContainer = () => {
     } else {
       alert("Failed to delete your profile. Please try again.");
     }
+  }
 
+  const updateFrogProfile = async (id, updatedFrogProfile) => {
+    await updateFrog(id, updatedFrogProfile)
+    const frogToEdit = frogs.find((frog) => frog._id === id)
+    const frogIndex = frogs.indexOf(frogToEdit)
+    frogToEdit.name = updatedFrogProfile.name
+    frogToEdit.image_url = updatedFrogProfile.image_url
+    const newFrogArray = frogs.toSpliced(frogIndex, 1, frogToEdit)
+    setFrogs(newFrogArray)
+    setLoggedFrog(frogToEdit)
+    setSelectedFrog(frogToEdit)
   }
 
   return (
@@ -132,6 +143,7 @@ const LilyPadContainer = () => {
                 posts={posts}
                 frogs={frogs}
                 deleteFrogAccount={deleteFrogAccount}
+                updateFrogProfile={updateFrogProfile}
               />
             }
           />

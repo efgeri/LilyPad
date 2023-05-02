@@ -103,9 +103,12 @@ const LilyPadContainer = () => {
   return (
     <>
     <PageBreaker>
+    <HeaderContainer>
       <StyledHeader>Lilypad</StyledHeader>
+      </HeaderContainer>
       <Router>
         <NavBar loggedFrog={loggedFrog} />
+        <Aligner>
         <Routes>
           <Route
             path="/"
@@ -154,6 +157,7 @@ const LilyPadContainer = () => {
           <Route path="/profile-deleted" element={<ProfileDeleted />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
+        </Aligner>
       </Router>
       </PageBreaker>
     </>
@@ -172,6 +176,13 @@ const bounce = keyframes`
   }
 `;
 
+const HeaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
+
 const StyledHeader = styled.div`
   background-color: #84db2c;
   color: red;
@@ -181,19 +192,32 @@ const StyledHeader = styled.div`
   font-family: "Bungee", cursive;
   -webkit-text-stroke-width: 1.5px;
   -webkit-text-stroke-color: black;
+  flex-shrink: 0;
+  width: 100%;
 
   &:hover {
     color: white;
     cursor: pointer;
-    }
+  }
 `;
 
 const PageBreaker = styled.div`
-  margin: 0px;
+  /* margin: 0px; */
 
   @media (max-width: 300px) {
-  display: none;
+  /* display: none; */
   }
+`
+
+const Aligner = styled.section`
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+
 `
 
 export default LilyPadContainer;

@@ -34,9 +34,9 @@ const NavigationBar = styled.div`
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-
+  border-bottom: 4px double white;
   background-color: #84db2c;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
   padding-top: 1rem;
   font-size: 20px;
   text-align: center;
@@ -59,6 +59,7 @@ const NavigationBar = styled.div`
     bottom: 0;
     padding-top: 1.25rem;
     border-top: 2px solid white;
+    border-bottom: none;
   }
 
   // Add this media query for non-mobile devices

@@ -11,9 +11,9 @@ const SignLog = ({ addFrog, frogs, selectLoggedinFrog, logOut, loggedFrog, fetch
   return (
     <>
     <StyledDiv>
-      {loggedFrog ? <StyledButton onClick={handleLogOut}>Hop off</StyledButton> : <FrogForm addFrog={addFrog} fetchData={fetchData}/>}      
+      {loggedFrog ? <StyledButton onClick={handleLogOut}>Hop off</StyledButton> : <FrogForm addFrog={addFrog} fetchData={fetchData}/>} 
+      </StyledDiv>    
       <Login frogs={frogs} selectLoggedinFrog={selectLoggedinFrog} />
-      </StyledDiv>
     </>
   );
 };
@@ -21,19 +21,31 @@ const SignLog = ({ addFrog, frogs, selectLoggedinFrog, logOut, loggedFrog, fetch
 const StyledDiv = styled.div`
     display: flex;
     flex-direction: column;
-    margin-top: 1%;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (max-width: 768px) {
+    /* width: 90%; */
+  }
 `
 
 const StyledButton = styled.button`
-    background: white;
+    background: #84db2c;
     font-family: "Bungee", cursive;
     color: black;
-    border: 2px solid black;
-    border-radius: 2.5px;
-
+    border: 3px double black;
+    border-radius: 4px;
+    height: 5rem;
+    width: 10rem;
+    color: red;
+    
+    transition: 0.3s;
     &:hover {
     background: red;
+    color: #84db2c;
     cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     }
 `
 

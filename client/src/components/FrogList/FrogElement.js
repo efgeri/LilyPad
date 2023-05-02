@@ -5,29 +5,41 @@ const FrogElement = ({ frog, selectFrog }) => {
   const handleSelect = () => {
     selectFrog(frog);
   };
-  
+
   return (
     <Link to={`/${frog._id}/profile`}>
       <StyledList onClick={handleSelect}>
-        <p>
-          {frog.name}
-        </p>
-        <StyledImage
-          src={`${frog.image_url}`}
-          alt={`${frog.name}'s profile picture`}
-        />
+        <p>{frog.name}</p>
+        <ImageContainer>
+          <StyledImage
+            src={`${frog.image_url}`}
+            alt={`${frog.name}'s profile picture`}
+          />
+        </ImageContainer>
       </StyledList>
     </Link>
   );
 };
 
-const StyledImage = styled.img`
+const ImageContainer = styled.div`
+  max-height: 10rem;
   max-width: 20rem;
+  min-width: 20rem;
   border: 2px double white;
   border-radius: 5px;
+  overflow: hidden;
+
   @media screen and (max-width: 800px) {
-  max-width: 100%;
+    max-width: 100%;
+    max-height: 100%;
   }
+`;
+
+
+const StyledImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 
 const StyledList = styled.li`

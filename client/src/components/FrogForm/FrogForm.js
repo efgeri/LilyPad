@@ -15,8 +15,6 @@ const FrogForm = ({addFrog, fetchData}) => {
     
   };
 
-
-
   const handleSubmit = e => {
     e.preventDefault();
     
@@ -29,10 +27,7 @@ const FrogForm = ({addFrog, fetchData}) => {
     setImage("");
     setFriends([]);
     fetchData()    
-  }
-
-  
-  
+  };
 
   return (
     <StyledForm onSubmit={handleSubmit}>

@@ -44,9 +44,9 @@ const FrogList = ({ frogs, selectFrog }) => {
 };
 
 const StyledList = styled.ul`
-    display: flex;
     list-style: none;
     text-decoration: none;
+    display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
@@ -71,6 +71,10 @@ form {
   border-radius: 5px;
   background-color: #84db2c;
   padding: 20px;
+
+  @media screen and (max-width: 768px) {
+    width: 90%;
+  }
 }
 input {
   width: 100%;

@@ -21,6 +21,7 @@ import NavBar from "../components/NavBar/NavBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FrogProfile from "../components/FrogProfile/FrogProfile";
 import PageNotFound from "../components/PageNotFound/PageNotFound";
+import dayjs from "dayjs";
 
 const LilyPadContainer = () => {
   const [frogs, setFrogs] = useState([]);
@@ -61,7 +62,9 @@ const LilyPadContainer = () => {
     setSelectedFrog(fgro);
   };
 
-  const postsReversed = [...posts].reverse();
+  const postsReversed = [...posts].sort((a, b) => dayjs(b.date).valueOf() - dayjs(a.date).valueOf());
+  console.log([postsReversed])
+
 
   const logOut = () => {
     setLoggedFrog(null)

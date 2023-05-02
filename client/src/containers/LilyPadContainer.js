@@ -66,8 +66,6 @@ const LilyPadContainer = () => {
   };
 
   const postsReversed = [...posts].sort((a, b) => dayjs(b.date).valueOf() - dayjs(a.date).valueOf());
-  console.log([postsReversed])
-
 
   const logOut = () => {
     setLoggedFrog(null)

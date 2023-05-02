@@ -21,9 +21,9 @@ const PostElement = ({post, frogs}) => {
   })
 
   const posterName = posterFilter.length ? posterFilter[0].name : null
-  const posterPicture = posterFilter[0].image_url
+  const posterPicture = posterFilter.length ? posterFilter[0].image_url : null
   const receiverName = receiverFilter.length ? receiverFilter[0].name : null
-  const receiverPicture = receiverFilter[0].image_url
+  const receiverPicture = receiverFilter.length ? receiverFilter[0].image_url : null
 
   const handleImageError = (e) => {
     e.target.style.border = 'none';
@@ -44,7 +44,7 @@ const PostElement = ({post, frogs}) => {
           <PosterCard>
           <CardPosterRecipientGrid>
             <div className="div1">
-              <PosterImage src={posterPicture} alt=""/>
+              <PosterImage src={posterPicture ? posterPicture : null } alt=""/>
             </div>
             <div className="div2">
               {posterName ? <PosterName>{posterName}</PosterName> : <PosterName>They played Frogger, and lost</PosterName>}
@@ -53,7 +53,7 @@ const PostElement = ({post, frogs}) => {
               {receiverName ? <ReceiverText> {receiverName} <StyledFontAwesomeIcon icon={faRightLong} /> </ReceiverText> : <PosterName>User has hopped off for good</PosterName>}
             </div>
             <div className="div4">
-              <PosterImage src={receiverPicture} alt=""/>
+              <PosterImage src={receiverPicture ? receiverPicture : null } alt=""/>
             </div>
           </CardPosterRecipientGrid>
         </PosterCard>

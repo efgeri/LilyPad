@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const Login = ({ frogs, selectLoggedinFrog }) => {
   return (
     <StyledSection>
+    <br/>
       <h2>Login</h2>
       <FrogList frogs={frogs} selectFrog={selectLoggedinFrog} />
     </StyledSection>

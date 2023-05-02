@@ -1,24 +1,35 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faLeaf, faClover, faFrog, faImagePortrait, faRightToBracket } from '@fortawesome/free-solid-svg-icons';
-import HomeNavElement from './HomeNavElement';
-import FrogsNavElement from './FrogsNavElement';
-import ProfileNavElement from './ProfileNavElement';
-import SignLogNavElement from './SignLogNavElement';
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faLeaf,
+  faClover,
+  faFrog,
+  faImagePortrait,
+  faRightToBracket,
+} from "@fortawesome/free-solid-svg-icons";
+import HomeNavElement from "./HomeNavElement";
+import FrogsNavElement from "./FrogsNavElement";
+import ProfileNavElement from "./ProfileNavElement";
+import SignLogNavElement from "./SignLogNavElement";
 
-const NavBar = ({loggedFrog}) => {
-
-  return ( 
+const NavBar = ({ loggedFrog, handleProfileClick }) => {
+  return (
     <NavigationBar>
-          <HomeNavElement />
-          <FrogsNavElement />
-          <ProfileNavElement loggedFrog={loggedFrog}/>
-          <SignLogNavElement />
-        </NavigationBar>
-   );
-}
+      <HomeNavElement />
+      <FrogsNavElement />
+      <div onClick={handleProfileClick}>
+        <ProfileNavElement
+          handleProfileClick={handleProfileClick}
+          loggedFrog={loggedFrog}
+        />
+      </div>
+      <SignLogNavElement />
+    </NavigationBar>
+  );
+};
 
 const NavigationBar = styled.div`
   display: flex;
@@ -38,7 +49,6 @@ const NavigationBar = styled.div`
     text-decoration: none;
     color: inherit;
   }
-  
 
   /* Comment */
   // Add this media query for mobile devices
@@ -57,8 +67,6 @@ const NavigationBar = styled.div`
     position: static;
     padding-inline: 10rem;
   }
-
-
 `;
 
 // const NavigationBarElement = styled.div`

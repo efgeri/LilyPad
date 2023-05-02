@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components'
+import dayjs from 'dayjs';
 
 const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
 
@@ -22,7 +23,8 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
             image_url: postPicture,
             comment: {
                 original: postComment
-            }
+            },
+            "date": dayjs().format()
         })
         setPostPicture("")
         setPostComment("")

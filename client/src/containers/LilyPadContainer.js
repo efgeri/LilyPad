@@ -23,6 +23,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FrogProfile from "../components/FrogProfile/FrogProfile";
 import PageNotFound from "../components/PageNotFound/PageNotFound";
 import ProfileDeleted from "../components/ProfileDeleted/ProfileDeleted";
+import dayjs from "dayjs";
 
 const LilyPadContainer = () => {
   const [frogs, setFrogs] = useState([]);
@@ -64,7 +65,9 @@ const LilyPadContainer = () => {
     setSelectedFrog(fgro);
   };
 
-  const postsReversed = [...posts].reverse();
+  const postsReversed = [...posts].sort((a, b) => dayjs(b.date).valueOf() - dayjs(a.date).valueOf());
+  console.log([postsReversed])
+
 
   const logOut = () => {
     setLoggedFrog(null)
@@ -99,6 +102,7 @@ const LilyPadContainer = () => {
 
   return (
     <>
+    <PageBreaker>
       <StyledHeader>Lilypad</StyledHeader>
       <Router>
         <NavBar loggedFrog={loggedFrog} />
@@ -151,6 +155,7 @@ const LilyPadContainer = () => {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Router>
+      </PageBreaker>
     </>
   );
 };
@@ -182,5 +187,13 @@ const StyledHeader = styled.div`
     cursor: pointer;
     }
 `;
+
+const PageBreaker = styled.div`
+  margin: 0px;
+
+  @media (max-width: 300px) {
+  display: none;
+  }
+`
 
 export default LilyPadContainer;

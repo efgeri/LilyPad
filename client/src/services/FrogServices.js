@@ -36,6 +36,4 @@ export const createFrog = (newFrog) => {
         ...newFrog
         }
     })
-
 }
-

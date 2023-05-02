@@ -12,24 +12,34 @@ const NavBar = ({loggedFrog}) => {
 
   return ( 
     <NavigationBar>
+          <div className="div1">
           <HomeNavElement />
+          </div>
+          <div className="div2">
           <FrogsNavElement />
+          </div>
+          <div className="div3">
           <ProfileNavElement loggedFrog={loggedFrog}/>
+          </div>
+          <div className="div4">
           <SignLogNavElement />
+          </div>
         </NavigationBar>
    );
 }
 
 const NavigationBar = styled.div`
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
   background-color: #84db2c;
   padding-bottom: 0.5rem;
   padding-top: 1rem;
   font-size: 20px;
   text-align: center;
-  justify-content: space-between;
-  padding-inline: 10rem;
   font-family: "Bungee", cursive;
   text-transform: uppercase;
   z-index: 100;
@@ -47,7 +57,6 @@ const NavigationBar = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    padding-inline: 2.75rem;
     padding-top: 1.25rem;
     border-top: 2px solid white;
   }
@@ -55,11 +64,21 @@ const NavigationBar = styled.div`
   // Add this media query for non-mobile devices
   @media (min-width: 769px) {
     position: static;
-    padding-inline: 10rem;
   }
-
-
 `;
+
+// .parent {
+//   display: grid;
+//   grid-template-columns: repeat(5, 1fr);
+//   grid-template-rows: repeat(5, 1fr);
+//   grid-column-gap: 0px;
+//   grid-row-gap: 0px;
+//   }
+  
+//   .div1 { grid-area: 1 / 1 / 2 / 2; }
+//   .div2 { grid-area: 1 / 2 / 2 / 3; }
+//   .div3 { grid-area: 1 / 3 / 2 / 4; }
+//   .div4 { grid-area: 1 / 4 / 2 / 5; }
 
 // const NavigationBarElement = styled.div`
 //   color: #fc0000;

@@ -57,7 +57,7 @@ const StyledList = styled.ul`
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     
   @media screen and (max-width: 768px) {
     flex-direction: column;

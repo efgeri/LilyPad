@@ -65,6 +65,7 @@ const PostElement = ({ post, frogs }) => {
           <></>
         )}
         <PosterCard>
+        <div>
           <CardPosterRecipientGrid>
             <div className="div1">
               <Link to={`${posterFilter[0]._id}/profile`}>
@@ -85,12 +86,13 @@ const PostElement = ({ post, frogs }) => {
             </div>
             {hideReceiver()}
           </CardPosterRecipientGrid>
-        </PosterCard>
-        <PostText>{post.comment.original}</PostText>
-        <DateText>
+          </div>
+          <DateText>
         <span>{dayjs(post.date).format("llll")}</span>
         <span>{dayjs(post.date).fromNow()}</span>
         </DateText>
+        </PosterCard>
+        <PostText>{post.comment.original}</PostText>
       </PostCard>
     </>
   );
@@ -118,10 +120,9 @@ const PostCard = styled.section`
 `;
 
 const PosterCard = styled.div`
-  margin-top: 10px;
   display: flex;
   align-items: center;
-  align-self: flex-start;
+  justify-content: space-between; // Add this line
   padding-left: 0.25%;
 `;
 
@@ -172,6 +173,7 @@ const PostImage = styled.img`
   object-fit: cover;
   object-position: center;
   align-items: center;
+  margin-bottom: 1%;
 `;
 
 const PostText = styled.p`
@@ -195,6 +197,7 @@ const DateText = styled.div`
     flex-wrap: wrap;
     flex-direction: column;
     align-items: flex-end;
+    justify-content: flex-end;
     font-size: 75%;
 `
 

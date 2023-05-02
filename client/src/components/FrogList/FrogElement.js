@@ -21,6 +21,39 @@ const FrogElement = ({ frog, selectFrog }) => {
   );
 };
 
+const StyledList = styled.li`
+  text-align: center;
+  border: 2px double white;
+  border-radius: 5px;
+  background-color: #84db2c;
+  text-decoration: none;
+  margin-block: 5px;
+  margin-inline: 5px;
+  font-family: "Bungee", cursive;
+  color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+
+  p {
+    margin: 0.5em;
+    text-decoration: none;
+  }
+  transition: 0.3s;
+  &:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    color: red;
+  }
+  @media screen and (max-width: 768px) {
+    width: 90%;
+  }
+
+`;
+
+const Link = styled(RouterLink)`
+  text-decoration: none;
+`;
+
 const ImageContainer = styled.div`
   height: 10rem; // add this line
   width: 20rem; // add this line
@@ -55,38 +88,6 @@ const StyledImage = styled.img`
     height: 100%; // change this line
 
   }
-`;
-
-const StyledList = styled.li`
-  text-align: center;
-  border: 2px double white;
-  border-radius: 5px;
-  background-color: #84db2c;
-  text-decoration: none;
-  margin-block: 5px;
-  font-family: "Bungee", cursive;
-  color: white;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
-
-  p {
-    margin: 0.5em;
-    text-decoration: none;
-  }
-  transition: 0.3s;
-  &:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    color: red;
-  }
-  @media screen and (max-width: 768px) {
-    width: 90%;
-  }
-
-`;
-
-const Link = styled(RouterLink)`
-  text-decoration: none;
 `;
 
 export default FrogElement;

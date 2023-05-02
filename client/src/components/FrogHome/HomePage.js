@@ -40,7 +40,6 @@ width: 60%;
 
 const FormTerneryStyler = styled.div`
   display: flex;
-  max-width: 95%;
   width: 100%;
   justify-content: center;
   align-items: center;

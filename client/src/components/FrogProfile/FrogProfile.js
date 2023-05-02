@@ -5,6 +5,7 @@ import { getSelectedFrog } from "../../services/FrogServices";
 import PostForm from "../PostForm/PostForm";
 import FrogPostList from "../FrogDetails/FrogPostList";
 import EditFrog from "./EditFrog";
+import DeleteFrog from "./DeleteFrog";
 
 const FrogProfile = ({
   loggedFrog,
@@ -13,6 +14,7 @@ const FrogProfile = ({
   handleProfileRender,
   posts,
   frogs,
+  deleteFrogAccount
 }) => {
   useEffect(() => {
     getSelectedFrog(id).then((data) => {
@@ -47,7 +49,11 @@ const FrogProfile = ({
   const editProfileDirector = () => {
     if (loggedFrog && selectedFrog && loggedFrog._id === selectedFrog._id) {
       return (
+        <>
         <EditFrog loggedFrog={loggedFrog} selectedFrog={selectedFrog}/>
+        <DeleteFrog loggedFrog={loggedFrog} deleteFrogAccount={deleteFrogAccount} />
+
+        </>
       )
     } else {
       return null;

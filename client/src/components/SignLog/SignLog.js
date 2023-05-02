@@ -5,7 +5,6 @@ import styled from 'styled-components'
 const SignLog = ({ addFrog, frogs, selectLoggedinFrog, logOut, loggedFrog, fetchData }) => {
 
   const handleLogOut = () => {
-    console.log('peace out breaches');
     logOut()
   }
 

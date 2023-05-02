@@ -17,7 +17,6 @@ import { createPost } from "../services/PostServices";
 import { createFrog } from "../services/FrogServices";
 import HomePage from "../components/FrogHome/HomePage";
 import SignLog from "../components/SignLog/SignLog";
-import FrogDetails from "../components/FrogDetails/FrogDetails";
 import NavBar from "../components/NavBar/NavBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FrogProfile from "../components/FrogProfile/FrogProfile";

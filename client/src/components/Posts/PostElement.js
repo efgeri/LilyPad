@@ -27,7 +27,7 @@ const PostElement = ({post, frogs}) => {
           <PosterCard>
           <PosterReceiver>
           <PosterImage src={posterPicture} alt=""/>
-          {posterName ? <PosterName>{posterName}</PosterName> : <PosterName>User has hopped off for good</PosterName>}
+          {posterName ? <PosterName>{posterName}</PosterName> : <PosterName>They played Frogger, and lost</PosterName>}
           <FontAwesomeIcon icon={faRightLong} size="2xl"/>
           <PosterImage src={receiverPicture} alt=""/>
           {receiverName ? <PosterName>{receiverName}</PosterName> : <PosterName>User has hopped off for good</PosterName>}

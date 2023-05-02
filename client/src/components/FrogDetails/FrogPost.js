@@ -10,8 +10,6 @@ const FrogPost = ({ post, frogs }) => {
   );
 };
 
-
-
 const PostCard = styled.section`
   background-color: #84db2d;
   justify-content: center;

@@ -30,6 +30,9 @@ const ListContainer = styled.section`
 
 const StyledTitle = styled.h2`
   text-align: center;
+  -webkit-text-stroke-width: 0.75px;
+  -webkit-text-stroke-color: black;
+  color: red;
 `
 
 

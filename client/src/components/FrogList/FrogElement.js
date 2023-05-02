@@ -31,7 +31,6 @@ const StyledImage = styled.img`
 `;
 
 const StyledList = styled.li`
-  font-family: "Raleway", sans-serif;
   text-align: center;
   border: 2px double white;
   border-radius: 5px;

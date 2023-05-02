@@ -14,7 +14,8 @@ const FrogProfile = ({
   handleProfileRender,
   posts,
   frogs,
-  deleteFrogAccount
+  deleteFrogAccount,
+  updateFrogProfile
 }) => {
   useEffect(() => {
     getSelectedFrog(id).then((data) => {
@@ -50,23 +51,18 @@ const FrogProfile = ({
     if (loggedFrog && selectedFrog && loggedFrog._id === selectedFrog._id) {
       return (
         <>
-        <EditFrog loggedFrog={loggedFrog} selectedFrog={selectedFrog}/>
+        <EditFrog loggedFrog={loggedFrog} updateFrogProfile={updateFrogProfile} />
         <DeleteFrog loggedFrog={loggedFrog} deleteFrogAccount={deleteFrogAccount} />
-
         </>
       )
     } else {
       return null;
     }
   }
-  // const editProfileDisplay = editProfileDirector()
 
   return (
     <>
       {editProfileDirector()}
-      {/* {loggedFrog && selectedFrog && loggedFrog._id === selectedFrog._id ? (
-        <EditFrog loggedFrog={loggedFrog} selectedFrog={selectedFrog} />
-      ) : null} */}
       {styleCardDirector}
       <FrogPostList posts={posts} frogs={frogs} />
       <PostForm

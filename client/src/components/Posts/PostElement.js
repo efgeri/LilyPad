@@ -37,11 +37,18 @@ const PostElement = ({ post, frogs }) => {
         <PosterCard>
           <CardPosterRecipientGrid>
             <div className="div1">
-            <Link to={`${posterFilter[0]._id}/profile`}><PosterImage src={posterPicture} alt="" /></Link>
+              <Link to={`${posterFilter[0]._id}/profile`}>
+                <PosterImage src={posterPicture} alt="" />
+              </Link>
             </div>
             <div className="div2">
               {posterName ? (
-                <PosterName>{posterName}</PosterName>
+                <PosterName>
+                  {" "}
+                  <Link to={`${posterFilter[0]._id}/profile`}>
+                    {posterName}
+                  </Link>
+                </PosterName>
               ) : (
                 <PosterName>They played Frogger, and lost</PosterName>
               )}
@@ -50,14 +57,17 @@ const PostElement = ({ post, frogs }) => {
               {receiverName ? (
                 <ReceiverText>
                   {" "}
-                  {receiverName} <StyledFontAwesomeIcon icon={faRightLong} />{" "}
+                  <Link to={`${receiverFilter[0]._id}/profile`}>{receiverName} </Link><StyledFontAwesomeIcon icon={faRightLong} />{" "}
                 </ReceiverText>
               ) : (
                 <PosterName>User has hopped off for good</PosterName>
               )}
             </div>
             <div className="div4">
-            <Link to={`${receiverFilter[0]._id}/profile`}> <PosterImage src={receiverPicture} alt="" /></Link>
+              <Link to={`${receiverFilter[0]._id}/profile`}>
+                {" "}
+                <PosterImage src={receiverPicture} alt="" />
+              </Link>
             </div>
           </CardPosterRecipientGrid>
         </PosterCard>
@@ -149,6 +159,15 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 
 const CardPosterRecipientGrid = styled.div`
   display: grid;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    &:visited {
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: black;
+    }
+  }
 
   .div1 {
     grid-area: 1 / 1 / 3 / 2;

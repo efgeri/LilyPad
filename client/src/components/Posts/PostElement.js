@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightLong } from "@fortawesome/free-solid-svg-icons";
 import dayjs from "dayjs";
 import { Link } from "react-router-dom";
+import PosterImageLink from "./PosterImageLink";
 const localizedFormat = require("dayjs/plugin/localizedFormat");
 dayjs.extend(localizedFormat);
 var relativeTime = require("dayjs/plugin/relativeTime");
@@ -17,10 +18,14 @@ const PostElement = ({ post, frogs }) => {
     if (post.receiver === receiverFrog._id) return receiverFrog;
   });
 
-  const posterName = posterFilter.length ? posterFilter[0].name : null
-  const posterPicture = posterFilter.length ? posterFilter[0].image_url : null
-  const receiverName = receiverFilter.length ? receiverFilter[0].name : null
-  const receiverPicture = receiverFilter.length ? receiverFilter[0].image_url : null
+  
+
+  const [posterName, posterPicture, posterID] = posterFilter.length ? [posterFilter[0].name, posterFilter[0].image_url, posterFilter[0]._id] : null
+  // const posterName = posterFilter.length ? posterFilter[0].name : null
+  // const posterPicture = posterFilter.length ? posterFilter[0].image_url : null
+  // const receiverName = receiverFilter.length ? receiverFilter[0].name : null
+  // const receiverPicture = receiverFilter.length ? receiverFilter[0].image_url : null
+  // const posterID = posterFilter[0]._id
 
   const handleImageError = (e) => {
     e.target.style.border = "none";
@@ -36,11 +41,7 @@ const PostElement = ({ post, frogs }) => {
         )}
         <PosterCard>
           <CardPosterRecipientGrid>
-            <div className="div1">
-              <Link to={`${posterFilter[0]._id}/profile`}>
-                <PosterImage src={posterPicture} alt="" />
-              </Link>
-            </div>
+            <PosterImageLink className="div1" />
             <div className="div2">
               {posterName ? (
                 <PosterName>
@@ -63,12 +64,12 @@ const PostElement = ({ post, frogs }) => {
                 <PosterName>User has hopped off for good</PosterName>
               )}
             </div>
-            <div className="div4">
+            {/* <div className="div4">
               <Link to={`${receiverFilter[0]._id}/profile`}>
                 {" "}
                 <PosterImage src={receiverPicture} alt="" />
-              </Link>
-            </div>
+              </Link> */}
+            {/* </div> */}
           </CardPosterRecipientGrid>
         </PosterCard>
         <PostText>{post.comment.original}</PostText>
@@ -110,16 +111,7 @@ const PosterCard = styled.div`
   padding-left: 0.25%;
 `;
 
-const PosterImage = styled.img`
-  width: 40px;
-  height: 40px;
 
-  border: 2px double white;
-  border-radius: 50%; // Set border-radius to 50% to create a circle
-  object-fit: cover; // Add object-fit to maintain the aspect ratio
-  object-position: center; // Add object-position to position the image correctly
-  align-items: left;
-`;
 
 const PosterName = styled.p`
   margin: 0 1rem; // Add some horizontal margin for spacing

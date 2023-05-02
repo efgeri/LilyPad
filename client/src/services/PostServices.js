@@ -17,3 +17,26 @@ export const createPost = (originalPost) => {
                 }
         })
 }
+
+// Like a post
+export const likePost = (postId, frogId) => {
+    return fetch(`${baseURL}${postId}/like`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ frogId }),
+    }).then((res) => res.json());
+  };
+  
+  // Unlike a post
+  export const unlikePost = (postId, frogId) => {
+    return fetch(`${baseURL}${postId}/unlike`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ frogId }),
+    }).then((res) => res.json());
+  };
+  

@@ -22,6 +22,7 @@ import NavBar from "../components/NavBar/NavBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FrogProfile from "../components/FrogProfile/FrogProfile";
 import PageNotFound from "../components/PageNotFound/PageNotFound";
+import ProfileDeleted from "../components/FrogProfile/ProfileDeleted";
 
 const LilyPadContainer = () => {
   const [frogs, setFrogs] = useState([]);
@@ -58,6 +59,15 @@ const LilyPadContainer = () => {
     setSelectedFrog(fgro);
   };
 
+  const removeFrog = (deletedFrogId) => {
+    setFrogs(frogs.filter((frog) => frog._id !== deletedFrogId));
+  };
+
+  // The removeFrog function takes the deleted frog's ID as an argument and updates the frogs state by 
+  // filtering out the frog with the specified ID. This way, the deleted frog is removed from the frogs state, 
+  // and the updated frog list will be reflected in the application.
+  
+  console.log("woo:",loggedFrog)
   return (
     <>
       <StyledHeader>Lilypad</StyledHeader>
@@ -100,10 +110,14 @@ const LilyPadContainer = () => {
                 addPost={addPost}
                 posts={posts}
                 frogs={frogs}
+                removeFrog={removeFrog}
               />
             }
           />
           <Route path="*" element={<PageNotFound />} />
+          <Route path="/profile-deleted" element={<ProfileDeleted />} />
+          {/* New path for profile-deleted which displays a new page telling the user
+          that they have succesfully deleted their profile */}
         </Routes>
       </Router>
     </>

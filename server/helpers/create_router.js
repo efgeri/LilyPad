@@ -69,6 +69,35 @@ const createRouter = function (collection) {
       });
   })
 
+  // Like a post
+router.put('/:id/like', (req, res) => {
+  const id = req.params.id;
+  const frogId = req.body.frogId;
+
+  collection
+    .updateOne(
+      { _id: new ObjectId(id) },
+      { $addToSet: { likes: frogId } }
+    )
+    .then(result => res.json(result))
+    .catch(handleError(res));
+});
+
+// Unlike a post
+router.put('/:id/unlike', (req, res) => {
+  const id = req.params.id;
+  const frogId = req.body.frogId;
+
+  collection
+    .updateOne(
+      { _id: new ObjectId(id) },
+      { $pull: { likes: frogId } }
+    )
+    .then(result => res.json(result))
+    .catch(handleError(res));
+});
+
+
   
   
   return router;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const FrogPost = ({ post, frogs }) => {
+const FrogPost = ({ post, frogs, frog }) => {
     return (
     <PostCard>
       <PostImage src={post.image_url} alt="Frog post" />

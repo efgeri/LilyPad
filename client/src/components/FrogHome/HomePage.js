@@ -4,6 +4,7 @@ import PostForm from "../PostForm/PostForm";
 import PostList from "../Posts/PostList";
 
 const HomePage = ({selectedFrog, loggedFrog, addPost, posts, frogs}) => {
+  console.log("homefrog", loggedFrog)
 
   const displayPostFormGuard = () => {
     if (loggedFrog === null) {
@@ -18,7 +19,7 @@ const HomePage = ({selectedFrog, loggedFrog, addPost, posts, frogs}) => {
   return ( 
     <BodyContainer>
       {postFormDisplay}
-      {posts.length ? <PostList posts={posts} frogs={frogs}/> : <p>Oh, oh! We are having issues retrieving post information. Please try again later.</p>}
+      {posts.length ? <PostList posts={posts} frogs={frogs} loggedFrog={loggedFrog}/> : <p>Oh, oh! We are having issues retrieving post information. Please try again later.</p>}
     </BodyContainer>
    );
 }

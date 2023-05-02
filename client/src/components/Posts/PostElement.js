@@ -26,6 +26,36 @@ const PostElement = ({ post, frogs }) => {
     e.target.style.border = "none";
   };
 
+  const hideReceiver = () => {
+    if (posterFilter[0]._id === receiverFilter[0]._id) {
+      return "";
+    } else {
+      return (
+        <>
+          <div className="div3">
+            {receiverName ? (
+              <ReceiverText>
+                {" "}
+                <Link to={`${receiverFilter[0]._id}/profile`}>
+                  {receiverName}{" "}
+                </Link>
+                <StyledFontAwesomeIcon icon={faRightLong} />{" "}
+              </ReceiverText>
+            ) : (
+              <PosterName>User has hopped off for good</PosterName>
+            )}
+          </div>
+          <div className="div4">
+            <Link to={`${receiverFilter[0]._id}/profile`}>
+              {" "}
+              <PosterImage src={receiverPicture} alt="" />
+            </Link>
+          </div>
+        </>
+      );
+    }
+  };
+
   return (
     <>
       <PostCard>
@@ -53,22 +83,7 @@ const PostElement = ({ post, frogs }) => {
                 <PosterName>They played Frogger, and lost</PosterName>
               )}
             </div>
-            <div className="div3">
-              {receiverName ? (
-                <ReceiverText>
-                  {" "}
-                  <Link to={`${receiverFilter[0]._id}/profile`}>{receiverName} </Link><StyledFontAwesomeIcon icon={faRightLong} />{" "}
-                </ReceiverText>
-              ) : (
-                <PosterName>User has hopped off for good</PosterName>
-              )}
-            </div>
-            <div className="div4">
-              <Link to={`${receiverFilter[0]._id}/profile`}>
-                {" "}
-                <PosterImage src={receiverPicture} alt="" />
-              </Link>
-            </div>
+            {hideReceiver()}
           </CardPosterRecipientGrid>
         </PosterCard>
         <PostText>{post.comment.original}</PostText>

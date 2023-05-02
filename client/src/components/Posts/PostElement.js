@@ -1,7 +1,12 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightLong } from '@fortawesome/free-solid-svg-icons';
-import { useRef } from 'react';
+import dayjs from 'dayjs';
+const localizedFormat = require('dayjs/plugin/localizedFormat')
+dayjs.extend(localizedFormat)
+var relativeTime = require('dayjs/plugin/relativeTime')
+dayjs.extend(relativeTime)
+
 
 const PostElement = ({post, frogs}) => {
 
@@ -53,6 +58,8 @@ const PostElement = ({post, frogs}) => {
           </CardPosterRecipientGrid>
         </PosterCard>
         <PostText>{post.comment.original}</PostText>
+        <span>{dayjs(post.date).format('llll')}</span>
+        <span>{dayjs(post.date).fromNow()}</span>
       </PostCard>
     </>
   );

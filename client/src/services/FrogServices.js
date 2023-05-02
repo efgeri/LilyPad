@@ -19,7 +19,8 @@ export const updateFrog = (id, payload) => {
 export const deleteFrog = (id) => {
   return fetch(baseURL + id, {
     method: "DELETE",
-  });
+  })
+  .then(res => res.json())
 };
 
 export const createFrog = (newFrog) => {

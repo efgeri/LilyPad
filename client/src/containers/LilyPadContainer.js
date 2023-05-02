@@ -91,6 +91,7 @@ const LilyPadContainer = () => {
 
   return (
     <>
+    <PageBreaker>
       <StyledHeader>Lilypad</StyledHeader>
       <Router>
         <NavBar loggedFrog={loggedFrog} />
@@ -142,6 +143,7 @@ const LilyPadContainer = () => {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Router>
+      </PageBreaker>
     </>
   );
 };
@@ -173,5 +175,13 @@ const StyledHeader = styled.div`
     cursor: pointer;
     }
 `;
+
+const PageBreaker = styled.div`
+  margin: 0px;
+
+  @media (max-width: 300px) {
+  display: none;
+  }
+`
 
 export default LilyPadContainer;

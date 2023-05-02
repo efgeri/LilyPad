@@ -6,6 +6,7 @@ import {
   Route,
   HashRouter,
   Link,
+  useNavigate
 } from "react-router-dom";
 import FrogList from "../components/FrogList/FrogList";
 import PostList from "../components/Posts/PostList";
@@ -14,13 +15,14 @@ import { getPosts } from "../services/PostServices";
 import PostForm from "../components/PostForm/PostForm";
 import FrogForm from "../components/FrogForm/FrogForm";
 import { createPost } from "../services/PostServices";
-import { createFrog } from "../services/FrogServices";
+import { createFrog, deleteFrog } from "../services/FrogServices";
 import HomePage from "../components/FrogHome/HomePage";
 import SignLog from "../components/SignLog/SignLog";
 import NavBar from "../components/NavBar/NavBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FrogProfile from "../components/FrogProfile/FrogProfile";
 import PageNotFound from "../components/PageNotFound/PageNotFound";
+import ProfileDeleted from "../components/ProfileDeleted/ProfileDeleted";
 import dayjs from "dayjs";
 
 const LilyPadContainer = () => {
@@ -33,6 +35,7 @@ const LilyPadContainer = () => {
     fetchData()
   }, []);
 
+  
   const fetchData = () =>{
     Promise.all([getFrogs(), getPosts()]).then(([frogsData, postsData]) => {
       setFrogs(frogsData);
@@ -68,6 +71,22 @@ const LilyPadContainer = () => {
 
   const logOut = () => {
     setLoggedFrog(null)
+  }
+
+  // const navigate = useNavigate()
+
+  const deleteFrogAccount = async (id) => {
+    const deletionResult = await deleteFrog(id)
+    if (deletionResult.acknowledged) {
+      const newfrogArray = frogs.filter((frog) => frog._id !== id)
+      setFrogs(newfrogArray)
+      setLoggedFrog(null)
+      setSelectedFrog(null)
+      // navigate('/profile-deleted')
+    } else {
+      alert("Failed to delete your profile. Please try again.");
+    }
+
   }
 
   return (
@@ -115,9 +134,11 @@ const LilyPadContainer = () => {
                 addPost={addPost}
                 posts={posts}
                 frogs={frogs}
+                deleteFrogAccount={deleteFrogAccount}
               />
             }
           />
+          <Route path="/profile-deleted" element={<ProfileDeleted />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Router>

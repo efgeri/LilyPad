@@ -48,7 +48,7 @@ const PostElement = ({ post, frogs }) => {
           <div className="div4">
             <Link to={`${receiverFilter[0]._id}/profile`}>
               {" "}
-              <PosterImage src={receiverPicture} alt="" />
+              <ReceiverImage src={receiverPicture} alt="" />
             </Link>
           </div>
         </>
@@ -128,12 +128,29 @@ const PosterCard = styled.div`
 const PosterImage = styled.img`
   width: 40px;
   height: 40px;
+  
 
   border: 2px double white;
   border-radius: 50%; // Set border-radius to 50% to create a circle
   object-fit: cover; // Add object-fit to maintain the aspect ratio
   object-position: center; // Add object-position to position the image correctly
   align-items: left;
+`;
+
+const ReceiverImage = styled.img`
+  width: 40px;
+  height: 40px;
+  margin-left: -10px;
+
+  border: 2px double white;
+  border-radius: 50%; // Set border-radius to 50% to create a circle
+  object-fit: cover; // Add object-fit to maintain the aspect ratio
+  object-position: center; // Add object-position to position the image correctly
+  align-items: left;
+
+    @media (max-width: 768px) {
+    margin-left: 10px;
+  }
 `;
 
 const PosterName = styled.p`

@@ -36,6 +36,10 @@ const BodyContainer = styled.section`
 
 const WidthController = styled.div`
 width: 60%;
+
+@media screen and (max-width: 768px) {
+    width: 90%;
+  }
 `
 
 const FormTerneryStyler = styled.div`

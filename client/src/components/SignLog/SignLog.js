@@ -24,6 +24,7 @@ const StyledDiv = styled.div`
     margin-top: 2%;
     margin-left: auto;
     margin-right: auto;
+    align-items: center;
 
     @media screen and (max-width: 768px) {
     /* width: 90%; */
@@ -33,7 +34,6 @@ const StyledDiv = styled.div`
 const StyledButton = styled.button`
     background: #84db2c;
     font-family: "Bungee", cursive;
-    color: black;
     border: 3px double black;
     border-radius: 4px;
     height: 5rem;

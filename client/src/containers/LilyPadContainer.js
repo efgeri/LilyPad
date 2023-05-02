@@ -113,7 +113,7 @@ const LilyPadContainer = () => {
       </HeaderContainer>
       <Router>
         <NavBar handleProfileClick={handleProfileClick} loggedFrog={loggedFrog} />
-        <Aligner>
+        {/* <Aligner> */}
         <Routes>
           <Route
             path="/"
@@ -162,7 +162,7 @@ const LilyPadContainer = () => {
           <Route path="/profile-deleted" element={<ProfileDeleted />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
-        </Aligner>
+        {/* </Aligner> */}
       </Router>
       </PageBreaker>
     </>

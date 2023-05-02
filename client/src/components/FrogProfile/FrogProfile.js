@@ -31,10 +31,8 @@ const FrogProfile = ({
       return <p>We could not find this hopper</p>;
     } else {
       return (
-        <StyledSection><StyledCard>
-          <p>
-            <strong>{selectedFrog.name}</strong>
-          </p>
+        <StyledSection>
+        <StyledCard>
         <StyledImageDiv>
           <StyledImage
             src={`${selectedFrog.image_url}`}
@@ -51,10 +49,10 @@ const FrogProfile = ({
   const editProfileDirector = () => {
     if (loggedFrog && selectedFrog && loggedFrog._id === selectedFrog._id) {
       return (
-        <>
+        <EditForm>
         <EditFrog loggedFrog={loggedFrog} updateFrogProfile={updateFrogProfile} />
         <DeleteFrog loggedFrog={loggedFrog} deleteFrogAccount={deleteFrogAccount} />
-        </>
+        </EditForm>
       )
     } else {
       return null;
@@ -67,34 +65,90 @@ const FrogProfile = ({
 
   return (
     <>
-      {editProfileDirector()}
+    <ProfileSection>
+    {selectedFrog ? <Title>{selectedFrog.name}</Title> : "No such frog"}
+    <TopSection>
       {styleCardDirector}
-      <FrogPostList posts={relevantPosts} frogs={frogs} />
-
+      {editProfileDirector()}
+      </TopSection>
+      <PostFormController>
       <PostForm
         selectedFrog={selectedFrog}
         loggedFrog={loggedFrog}
         addPost={addPost}
       />
+      </PostFormController>
+      <FrogPostList posts={relevantPosts} frogs={frogs} />
+      </ProfileSection>
     </>
   );
 };
 
+const ProfileSection = styled.section`
+font-family: "Bungee", cursive;
+`
+
+const Title = styled.h1`
+text-align: center;
+font-size: 3rem;
+color: red;
+  -webkit-text-stroke-width: 0.75px;
+  -webkit-text-stroke-color: black;
+
+  &:hover {
+    color: #84db2c;
+    cursor: pointer;
+  }
+`
+
+const TopSection = styled.section`
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+align-items: center;
+margin-inline: 10rem;
+
+@media (max-width: 778px) {
+    flex-direction: column;
+    margin-inline: 0px;
+  }
+`
+
 const StyledSection = styled.section`
 display: flex;
-justify-content: center;
+justify-content: row;
+`
+
+const EditForm = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+background: #84db2c;
+padding: 1%;
+border: 5px double white;
+border-radius: 5px;
+
+@media (max-width: 778px) {
+    width: 60%;
+  }
 `
 
 const StyledImage = styled.img`
-  border-radius: 5px;
-  border: 2px double white;
   max-width: 25rem;
   display: flex;
-justify-content: center;
-width: 80%;
+  justify-content: center;
+  border-radius: 50%;
+  width: 20rem;
+  height: 20rem;
+  border: 5px double #84db2c;
+  border-radius: 50%;
 
+  transition: 0.3s;
   @media (max-width: 778px) {
-    width: 80%;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -103,6 +157,11 @@ const StyledImageDiv = styled.div`
   justify-content: center;
   padding-bottom: 5%;
 `
+
+const PostFormController = styled.div`
+max-width: 60%;
+margin-inline: auto;
+`;
 
 const StyledCard = styled.section`
   font-family: "Bungee", cursive;
@@ -114,10 +173,9 @@ const StyledCard = styled.section`
   border: 2px double white;
   border-radius: 5px;
   margin-top: 1%;
-  background-color: #84db2c;
   display: flex;
   flex-direction: column;
-  width: 35%;
+  /* width: 35%; */
   padding-bottom: 1%;
 
   @media (max-width: 768px) {
@@ -129,7 +187,6 @@ const StyledCard = styled.section`
   }
   transition: 0.3s;
   &:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     color: red;
     cursor: pointer;
   }

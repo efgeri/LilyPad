@@ -18,6 +18,7 @@ const FrogProfile = ({
   updateFrogProfile
 }) => {
   useEffect(() => {
+    console.log("I'm here")
     getSelectedFrog(id).then((data) => {
       return handleProfileRender(data);
     });
@@ -60,11 +61,16 @@ const FrogProfile = ({
     }
   }
 
+  const relevantPosts = posts.filter(
+    (post) =>  post.receiver === id
+  );
+
   return (
     <>
       {editProfileDirector()}
       {styleCardDirector}
-      <FrogPostList posts={posts} frogs={frogs} />
+      <FrogPostList posts={relevantPosts} frogs={frogs} />
+
       <PostForm
         selectedFrog={selectedFrog}
         loggedFrog={loggedFrog}

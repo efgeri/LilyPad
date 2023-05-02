@@ -1,32 +1,43 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faLeaf, faClover, faFrog, faImagePortrait, faRightToBracket } from '@fortawesome/free-solid-svg-icons';
-import HomeNavElement from './HomeNavElement';
-import FrogsNavElement from './FrogsNavElement';
-import ProfileNavElement from './ProfileNavElement';
-import SignLogNavElement from './SignLogNavElement';
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faLeaf,
+  faClover,
+  faFrog,
+  faImagePortrait,
+  faRightToBracket,
+} from "@fortawesome/free-solid-svg-icons";
+import HomeNavElement from "./HomeNavElement";
+import FrogsNavElement from "./FrogsNavElement";
+import ProfileNavElement from "./ProfileNavElement";
+import SignLogNavElement from "./SignLogNavElement";
 
-const NavBar = ({loggedFrog}) => {
-
-  return ( 
+const NavBar = ({ loggedFrog, handleProfileClick }) => {
+  return (
     <NavigationBar>
-          <div className="div1">
-          <HomeNavElement />
-          </div>
-          <div className="div2">
-          <FrogsNavElement />
-          </div>
-          <div className="div3">
-          <ProfileNavElement loggedFrog={loggedFrog}/>
-          </div>
-          <div className="div4">
-          <SignLogNavElement />
-          </div>
-        </NavigationBar>
-   );
-}
+      <div className="div1">
+        <HomeNavElement />
+      </div>
+      <div className="div2">
+        <FrogsNavElement />
+      </div>
+      <div className="div3">
+        <div onClick={handleProfileClick}>
+          <ProfileNavElement
+            handleProfileClick={handleProfileClick}
+            loggedFrog={loggedFrog}
+          />
+        </div>
+      </div>
+      <div className="div4">
+        <SignLogNavElement />
+      </div>
+    </NavigationBar>
+  );
+};
 
 const NavigationBar = styled.div`
   display: grid;
@@ -48,7 +59,6 @@ const NavigationBar = styled.div`
     text-decoration: none;
     color: inherit;
   }
-  
 
   /* Comment */
   // Add this media query for mobile devices
@@ -75,7 +85,7 @@ const NavigationBar = styled.div`
 //   grid-column-gap: 0px;
 //   grid-row-gap: 0px;
 //   }
-  
+
 //   .div1 { grid-area: 1 / 1 / 2 / 2; }
 //   .div2 { grid-area: 1 / 2 / 2 / 3; }
 //   .div3 { grid-area: 1 / 3 / 2 / 4; }

@@ -18,6 +18,7 @@ const FrogProfile = ({
   updateFrogProfile
 }) => {
   useEffect(() => {
+    console.log("I'm here")
     getSelectedFrog(id).then((data) => {
       return handleProfileRender(data);
     });

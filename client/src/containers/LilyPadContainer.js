@@ -65,6 +65,11 @@ const LilyPadContainer = () => {
     setSelectedFrog(fgro);
   };
 
+  const handleProfileClick = () => {
+    setSelectedFrog(loggedFrog);
+  };
+
+
   const postsReversed = [...posts].sort((a, b) => dayjs(b.date).valueOf() - dayjs(a.date).valueOf());
   
 
@@ -105,7 +110,7 @@ const LilyPadContainer = () => {
     <PageBreaker>
       <StyledHeader>Lilypad</StyledHeader>
       <Router>
-        <NavBar loggedFrog={loggedFrog} />
+        <NavBar handleProfileClick={handleProfileClick} loggedFrog={loggedFrog} />
         <Routes>
           <Route
             path="/"

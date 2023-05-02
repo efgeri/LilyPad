@@ -1,32 +1,43 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faLeaf, faClover, faFrog, faImagePortrait, faRightToBracket } from '@fortawesome/free-solid-svg-icons';
-import HomeNavElement from './HomeNavElement';
-import FrogsNavElement from './FrogsNavElement';
-import ProfileNavElement from './ProfileNavElement';
-import SignLogNavElement from './SignLogNavElement';
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faLeaf,
+  faClover,
+  faFrog,
+  faImagePortrait,
+  faRightToBracket,
+} from "@fortawesome/free-solid-svg-icons";
+import HomeNavElement from "./HomeNavElement";
+import FrogsNavElement from "./FrogsNavElement";
+import ProfileNavElement from "./ProfileNavElement";
+import SignLogNavElement from "./SignLogNavElement";
 
-const NavBar = ({loggedFrog}) => {
-
-  return ( 
+const NavBar = ({ loggedFrog, handleProfileClick }) => {
+  return (
     <NavigationBar>
           <div className="div1">
-          <HomeNavElement />
+      <HomeNavElement />
           </div>
           <div className="div2">
-          <FrogsNavElement />
+      <FrogsNavElement />
           </div>
           <div className="div3">
-          <ProfileNavElement loggedFrog={loggedFrog}/>
+      <div onClick={handleProfileClick}>
+        <ProfileNavElement
+          handleProfileClick={handleProfileClick}
+          loggedFrog={loggedFrog}
+        />
           </div>
           <div className="div4">
-          <SignLogNavElement />
+      </div>
+      <SignLogNavElement />
           </div>
-        </NavigationBar>
-   );
-}
+    </NavigationBar>
+  );
+};
 
 const NavigationBar = styled.div`
   display: grid;
@@ -48,7 +59,6 @@ const NavigationBar = styled.div`
     text-decoration: none;
     color: inherit;
   }
-  
 
   /* Comment */
   // Add this media query for mobile devices

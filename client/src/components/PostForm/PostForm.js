@@ -22,7 +22,7 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
             receiver: selectedFrog._id,
             image_url: postPicture,
             comment: {
-                original: postComment
+                original: postComment 
             },
             "date": dayjs().format()
         })

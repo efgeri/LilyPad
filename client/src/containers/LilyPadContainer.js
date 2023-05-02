@@ -66,7 +66,7 @@ const LilyPadContainer = () => {
   };
 
   const postsReversed = [...posts].sort((a, b) => dayjs(b.date).valueOf() - dayjs(a.date).valueOf());
-  console.log([postsReversed])
+  
 
 
   const logOut = () => {
@@ -144,7 +144,7 @@ const LilyPadContainer = () => {
                 selectedFrog={selectedFrog}
                 handleProfileRender={handleProfileRender}
                 addPost={addPost}
-                posts={posts}
+                posts={postsReversed}
                 frogs={frogs}
                 deleteFrogAccount={deleteFrogAccount}
                 updateFrogProfile={updateFrogProfile}

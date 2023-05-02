@@ -120,7 +120,6 @@ const PostCard = styled.section`
 `;
 
 const PosterCard = styled.div`
-  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between; // Add this line
@@ -174,6 +173,7 @@ const PostImage = styled.img`
   object-fit: cover;
   object-position: center;
   align-items: center;
+  margin-bottom: 1%;
 `;
 
 const PostText = styled.p`

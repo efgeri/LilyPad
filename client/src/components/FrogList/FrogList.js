@@ -44,10 +44,13 @@ const FrogList = ({ frogs, selectFrog }) => {
 };
 
 const StyledList = styled.ul`
-  display: flex;
-  list-style: none;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    
   @media screen and (max-width: 800px) {
     flex-direction: column;
     justify-content: center;
@@ -59,12 +62,14 @@ const StyledSection = styled.section`
 display: flex;
 flex-direction: column;
 align-items: center;
+margin-top: 0.5%;
 form {
   width: 50%;
   padding: 10px;
   margin: 10px;
+  border: 2px double white;
   border-radius: 5px;
-  background-color: #C0FFBB;
+  background-color: #84db2c;
   padding: 20px;
 }
 input {
@@ -72,8 +77,9 @@ input {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 2px solid black;
+  border-radius: 2.5px;
+  font-family: "Bungee", cursive;
 }
 `
 

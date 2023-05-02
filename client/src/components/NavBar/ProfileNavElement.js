@@ -61,6 +61,7 @@ const NavigationBarElement = styled.div`
   &:hover {
       color: white;
       animation: ${bounce} 1s;
+      cursor: pointer;
     }
 `;
 

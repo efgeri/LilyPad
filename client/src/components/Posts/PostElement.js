@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRightLong } from '@fortawesome/free-solid-svg-icons';
 
 const PostElement = ({post, frogs}) => {
 
@@ -7,8 +9,15 @@ const PostElement = ({post, frogs}) => {
     return posterFrog
   })
 
+  const receiverFilter = frogs.filter((receiverFrog) => {
+    if (post.receiver === receiverFrog._id)
+    return receiverFrog
+  })
+
   const posterName = posterFilter.length ? posterFilter[0].name : null
   const posterPicture = posterFilter[0].image_url
+  const receiverName = receiverFilter.length ? receiverFilter[0].name : null
+  const receiverPicture = receiverFilter[0].image_url
 
   return (
     <> 
@@ -16,8 +25,13 @@ const PostElement = ({post, frogs}) => {
         {post.image_url ? 
           <PostImage src={post.image_url} alt=""/> : null}
           <PosterCard>
+          <PosterReceiver>
           <PosterImage src={posterPicture} alt=""/>
           {posterName ? <PosterName>{posterName}</PosterName> : <PosterName>They played Frogger, and lost</PosterName>}
+          <FontAwesomeIcon icon={faRightLong} size="2xl"/>
+          <PosterImage src={receiverPicture} alt=""/>
+          {receiverName ? <PosterName>{receiverName}</PosterName> : <PosterName>User has hopped off for good</PosterName>}
+          </PosterReceiver>
         </PosterCard>
         <PostText>{post.comment.original}</PostText>
       </PostCard>
@@ -28,7 +42,7 @@ const PostElement = ({post, frogs}) => {
 // #84db2d
 
 const PostCard = styled.section`
-  background-color: #84db2d;
+  background-color: #84db2c;
   justify-content: center;
   align-items: center;
   color: white;
@@ -40,11 +54,10 @@ const PostCard = styled.section`
   -webkit-text-stroke-color: black;
   padding: 1rem;
   border: 2px double white;
-  width: 100%; // Set the initial width to 100%
-  max-width: 800px; // Limit the maximum width
+  /* min-width: 60%;  */
 
   @media (max-width: 768px) {
-    width: 90%; // Set the width to 90% for smaller screens
+    width: 100%; 
   }
 `;
 
@@ -53,11 +66,14 @@ const PosterCard = styled.div`
   display: flex;
   align-items: center;
   align-self: flex-start;
+  padding-left: 0.25%;
 `
+
 
 const PosterImage = styled.img`
   width: 40px;
   height: 40px;
+  
   border: 2px double white;
   border-radius: 50%; // Set border-radius to 50% to create a circle
   object-fit: cover; // Add object-fit to maintain the aspect ratio
@@ -67,13 +83,11 @@ const PosterImage = styled.img`
 
 const PosterName = styled.p`
   margin: 0 1rem; // Add some horizontal margin for spacing
-  font-size: 20px;
+  font-size: 100%;
 `;
 
 const PostImage = styled.img`
   width: 100%; // Set the initial width to 100%
-  max-width: 500px; // Limit the maximum width
-  max-height: 500px;
   border-radius: 4px;
   border: 2px double white;
   object-fit: cover;
@@ -84,6 +98,13 @@ const PostImage = styled.img`
 const PostText = styled.p`
   align-items: center;
   align-self: flex-start;
+  padding-left: 0.25%;
+`
+
+const PosterReceiver = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
 `
 
  

@@ -7,7 +7,7 @@ const HomePage = ({selectedFrog, loggedFrog, addPost, posts, frogs}) => {
 
   const displayPostFormGuard = () => {
     if (loggedFrog === null) {
-      return <Link to="/signlog">Sign in to add your ribbits!</Link>
+      return <FormTerneryStyler><Link to="/signlog"><h3>Sign in to add your ribbits!</h3></Link></FormTerneryStyler>
     } else {
       return <PostForm selectedFrog={selectedFrog} loggedFrog={loggedFrog} addPost={addPost}/>
     }
@@ -17,8 +17,10 @@ const HomePage = ({selectedFrog, loggedFrog, addPost, posts, frogs}) => {
 
   return ( 
     <BodyContainer>
-      {postFormDisplay}
+    <WidthController>
+    {postFormDisplay}
       {posts.length ? <PostList posts={posts} frogs={frogs}/> : <p>Oh, oh! We are having issues retrieving post information. Please try again later.</p>}
+      </WidthController>
     </BodyContainer>
    );
 }
@@ -26,9 +28,35 @@ const HomePage = ({selectedFrog, loggedFrog, addPost, posts, frogs}) => {
 const BodyContainer = styled.section`
   justify-content: center;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   flex-direction: column;
   font-family: "Bungee", cursive;
 `;
+
+const WidthController = styled.div`
+width: 60%;
+`
+
+const FormTerneryStyler = styled.div`
+  display: flex;
+  max-width: 95%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+h3 {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  color: red;
+  text-align: center;
+  width: 100%;
+}  
+`
 
 export default HomePage;

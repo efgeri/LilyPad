@@ -13,8 +13,8 @@ const PostList = ({posts, frogs}) => {
 
   return ( 
     <>
-    <h2>Post List</h2>
     <ListContainer>
+    <StyledTitle>Post List</StyledTitle>
     {allPosts} 
     </ListContainer>
     </>
@@ -22,13 +22,18 @@ const PostList = ({posts, frogs}) => {
 }
 
 const ListContainer = styled.section`
-  justify-content: center;
   display: flex;
   flex-direction: column;
-  color: red;
-  align-items: center;
   padding-bottom: 50px;
+  
 `;
+
+const StyledTitle = styled.h2`
+  text-align: center;
+  -webkit-text-stroke-width: 0.75px;
+  -webkit-text-stroke-color: black;
+  color: red;
+`
 
 
 export default PostList;

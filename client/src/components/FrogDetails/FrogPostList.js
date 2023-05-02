@@ -1,17 +1,17 @@
-import React from "react";
+
 import styled from "styled-components";
-import FrogPost from "./FrogPost";
+
+import PostElement from "../Posts/PostElement";
 
 const FrogPostList = ({ posts, frogs }) => {
-    return (
-      <PostListContainer>
-        {posts.map((post) => (
-          <FrogPost key={post._id} post={post} frogs={frogs} />
-        ))}
-      </PostListContainer>
-    );
-  };
-  
+  return (
+    <PostListContainer>
+      {posts.map((post) => (
+        <PostElement key={post._id} post={post} frogs={frogs} />
+      ))}
+    </PostListContainer>
+  );
+};
 
 const PostListContainer = styled.div`
   display: flex;

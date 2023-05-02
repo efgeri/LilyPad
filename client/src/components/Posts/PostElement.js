@@ -87,8 +87,10 @@ const PostElement = ({ post, frogs }) => {
           </CardPosterRecipientGrid>
         </PosterCard>
         <PostText>{post.comment.original}</PostText>
+        <DateText>
         <span>{dayjs(post.date).format("llll")}</span>
         <span>{dayjs(post.date).fromNow()}</span>
+        </DateText>
       </PostCard>
     </>
   );
@@ -99,7 +101,6 @@ const PostElement = ({ post, frogs }) => {
 const PostCard = styled.section`
   background-color: #84db2c;
   justify-content: center;
-  align-items: center;
   color: white;
   display: flex;
   flex-direction: column;
@@ -137,7 +138,7 @@ const PosterImage = styled.img`
 
 const PosterName = styled.p`
   margin: 0 1rem; // Add some horizontal margin for spacing
-  font-size: 100%;
+  margin-top: 1%;
 `;
 
 const ReceiverText = styled.p`
@@ -171,6 +172,14 @@ const PosterReceiver = styled.div`
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
   margin-right: 0.5rem; // Adjust the margin value to your desired spacing
 `;
+
+const DateText = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 75%;
+`
 
 const CardPosterRecipientGrid = styled.div`
   display: grid;

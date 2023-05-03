@@ -54,6 +54,8 @@ const NavigationBar = styled.div`
   font-family: "Bungee", cursive;
   text-transform: uppercase;
   z-index: 100;
+  justify-content: center;
+  align-items: end;
 
   a {
     text-decoration: none;
@@ -62,20 +64,41 @@ const NavigationBar = styled.div`
 
   /* Comment */
   // Add this media query for mobile devices
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
+    display: flex;
+    flex-direction: row;
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
     padding-top: 1.25rem;
+    margin-bottom: 6rem;
+    padding-block: 6rem;
     border-top: 2px solid white;
     border-bottom: none;
-  }
+    align-items: none;
+  } */
+
+  @media (max-width: 768px) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* padding-block: 5rem;
+  margin-bottom: 5rem; */
+  /* padding-top: 1.25rem;
+  padding-bottom: 1.25rem; */
+  border-top: 2px solid white;
+}
 
   // Add this media query for non-mobile devices
-  @media (min-width: 769px) {
+  /* @media (min-width: 769px) {
     position: static;
-  }
+  } */
 `;
 
 // .parent {
@@ -97,6 +120,8 @@ const NavigationBar = styled.div`
 //   flex-direction: column; // Add this line
 //   align-items: center; // Add this line
 //   font-size: 20px;
+//   align-self: end; // Add this line
+//   margin-bottom: 10px; // Add or adjust this line
 // `;
 
 export default NavBar;

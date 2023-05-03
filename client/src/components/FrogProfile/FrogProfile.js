@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { getSelectedFrog } from "../../services/FrogServices";
 import PostForm from "../PostForm/PostForm";
-import FrogPostList from "../FrogDetails/FrogPostList";
+import PostList from "../Posts/PostList";
 import EditFrog from "./EditFrog";
 import DeleteFrog from "./DeleteFrog";
 
@@ -16,10 +16,10 @@ const FrogProfile = ({
   frogs,
   deleteFrogAccount,
   updateFrogProfile,
+  updateSelectedFrogById,
   addResponse
 }) => {
   useEffect(() => {
-    console.log("I'm here")
     getSelectedFrog(id).then((data) => {
       return handleProfileRender(data);
     });
@@ -79,7 +79,18 @@ const FrogProfile = ({
         addPost={addPost}
       />
       </PostFormController>
-      <FrogPostList posts={relevantPosts} frogs={frogs} loggedFrog={loggedFrog} addResponse={addResponse}/>
+      {posts.length ? (
+          <PostList
+            posts={relevantPosts}
+            frogs={frogs}
+            updateSelectedFrogById={updateSelectedFrogById}
+          />
+        ) : (
+          <p>
+            Oh, oh! We are having issues retrieving post information. Please try
+            again later.
+          </p>
+        )}
       </ProfileSection>
     </>
   );

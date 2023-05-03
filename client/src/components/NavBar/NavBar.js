@@ -52,6 +52,7 @@ const NavigationBar = styled.div`
     right: 0;
     bottom: 0;
     border-top: 2px solid white;
+    border-bottom: none;
     /* padding: 50rem;
     margin: 50rem; */
   }

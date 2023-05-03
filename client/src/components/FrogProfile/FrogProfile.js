@@ -15,7 +15,8 @@ const FrogProfile = ({
   posts,
   frogs,
   deleteFrogAccount,
-  updateFrogProfile
+  updateFrogProfile,
+  addResponse
 }) => {
   useEffect(() => {
     console.log("I'm here")
@@ -78,7 +79,7 @@ const FrogProfile = ({
         addPost={addPost}
       />
       </PostFormController>
-      <FrogPostList posts={relevantPosts} frogs={frogs} />
+      <FrogPostList posts={relevantPosts} frogs={frogs} loggedFrog={loggedFrog} addResponse={addResponse}/>
       </ProfileSection>
     </>
   );

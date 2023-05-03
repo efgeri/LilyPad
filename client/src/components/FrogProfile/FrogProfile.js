@@ -73,11 +73,11 @@ const FrogProfile = ({
       {editProfileDirector()}
       </TopSection>
       <PostFormController>
-      <PostForm
+      {loggedFrog ? <PostForm
         selectedFrog={selectedFrog}
         loggedFrog={loggedFrog}
         addPost={addPost}
-      />
+      /> : null}
       </PostFormController>
       {posts.length ? (
           <PostList

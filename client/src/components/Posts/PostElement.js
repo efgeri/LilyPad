@@ -9,74 +9,82 @@ var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 
 const PostElement = ({ post, frogs }) => {
-
   const posterFilter = frogs.filter((posterFrog) => {
     if (post.poster === posterFrog._id) return posterFrog;
   });
-  const postPoster = posterFilter[0];
+  const postPoster = posterFilter.length ? posterFilter[0] : null
 
   const receiverFilter = frogs.filter((receiverFrog) => {
     if (post.receiver === receiverFrog._id) return receiverFrog;
   });
-  const postReceiver = receiverFilter[0];
-
+  const postReceiver = receiverFilter.length ? receiverFilter[0] : null
+  
   const [posterName, posterPicture, posterId] = postPoster
-    ? [postPoster.name, postPoster.image_url, postPoster._id]
-    : null;
+  ? [postPoster.name, postPoster.image_url, postPoster._id]
+  : [null, null, null];
+  console.log(posterName);
+
   const [receiverName, receiverPicture, receiverId] = postReceiver
     ? [postReceiver.name, postReceiver.image_url, postReceiver._id]
-    : null;
+    : [null, null, null];
 
-  const displayPosterPicture = postPoster
-    ? (
-      <Link to={`${posterId}/profile`}>
-        <PosterImage src={posterPicture} alt={`${posterName}'s picture`} />
-      </Link>
-    )
-    : <PosterImage src="" alt="deleted user picture placeholder" />
+  const displayPosterPicture = postPoster ? (
+    <Link to={`/${posterId}/profile`}>
+      <PosterImage src={posterPicture} alt={`${posterName}'s picture`} />
+    </Link>
+  ) : (
+    <PosterImage src="" alt="deleted user picture placeholder" />
+  );
 
-  const displayPosterName = postPoster
-    ? (
-        <PosterName>
-          {" "}
-          <Link to={`${posterId}/profile`}>
-            {posterName}
-          </Link>
-        </PosterName>
-      ) 
-    : <PosterName>They played Frogger, and lost</PosterName>
-
-
-
+  const displayPosterName = postPoster ? (
+    <PosterName>
+      {" "}
+      <Link to={`/${posterId}/profile`}>{posterName}</Link>
+    </PosterName>
+  ) : (
+    <PosterName>They played Frogger, and lost</PosterName>
+  );
 
   const handleImageError = (e) => {
     e.target.style.border = "none";
   };
 
   const hideReceiver = () => {
-    if (posterFilter[0]._id === receiverFilter[0]._id) {
+    if (posterId === receiverId) {
       return "";
     } else {
       return (
         <>
           <div className="div3">
-            {receiverName ? (
+            {postReceiver ? (
               <ReceiverText>
                 {" "}
-                <Link to={`${receiverFilter[0]._id}/profile`}>
-                  {receiverName}{" "}
-                </Link>
+                <Link to={`/${receiverId}/profile`}>{receiverName} </Link>
                 <StyledFontAwesomeIcon icon={faRightLong} />{" "}
               </ReceiverText>
             ) : (
-              <PosterName>User has hopped off for good</PosterName>
+              <div>{" "}
+                <PosterName>User has hopped off for good</PosterName>
+                <StyledFontAwesomeIcon icon={faRightLong} />{" "}
+              </div>
             )}
           </div>
           <div className="div4">
-            <Link to={`${receiverFilter[0]._id}/profile`}>
-              {" "}
-              <ReceiverImage src={receiverPicture} alt="" />
-            </Link>
+            {postReceiver ? (
+              <Link to={`/${receiverId}/profile`}>
+                {" "}
+                <ReceiverImage
+                  src={receiverPicture}
+                  alt={`${receiverName}'s picture`}
+                />
+              </Link>
+            ) : (
+              <ReceiverImage
+                src=""
+                alt="deleted user picture placeholder"
+              />
+            )
+            }
           </div>
         </>
       );
@@ -94,12 +102,8 @@ const PostElement = ({ post, frogs }) => {
         <PosterCard>
           <div>
             <CardPosterRecipientGrid>
-              <div className="div1">
-                {displayPosterPicture}
-              </div>
-              <div className="div2">
-                {displayPosterName}
-              </div>
+              <div className="div1">{displayPosterPicture}</div>
+              <div className="div2">{displayPosterName}</div>
               {hideReceiver()}
             </CardPosterRecipientGrid>
           </div>

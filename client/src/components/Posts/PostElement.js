@@ -141,7 +141,7 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
         </PosterCard>
         <PostText>{post.comment.original}</PostText>
         {responses}
-         <PostResponse loggedFrog={loggedFrog} addResponse={addResponse} post={post}/>       
+          {loggedFrog ? <PostResponse loggedFrog={loggedFrog} addResponse={addResponse} post={post}/> : null}
       </PostCard>
     </>
   );

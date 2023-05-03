@@ -12,17 +12,16 @@ const PostElement = ({ post, frogs }) => {
   const posterFilter = frogs.filter((posterFrog) => {
     if (post.poster === posterFrog._id) return posterFrog;
   });
-  const postPoster = posterFilter.length ? posterFilter[0] : null
+  const postPoster = posterFilter.length ? posterFilter[0] : null;
 
   const receiverFilter = frogs.filter((receiverFrog) => {
     if (post.receiver === receiverFrog._id) return receiverFrog;
   });
-  const postReceiver = receiverFilter.length ? receiverFilter[0] : null
-  
+  const postReceiver = receiverFilter.length ? receiverFilter[0] : null;
+
   const [posterName, posterPicture, posterId] = postPoster
-  ? [postPoster.name, postPoster.image_url, postPoster._id]
-  : [null, null, null];
-  console.log(posterName);
+    ? [postPoster.name, postPoster.image_url, postPoster._id]
+    : [null, null, null];
 
   const [receiverName, receiverPicture, receiverId] = postReceiver
     ? [postReceiver.name, postReceiver.image_url, postReceiver._id]
@@ -63,7 +62,8 @@ const PostElement = ({ post, frogs }) => {
                 <StyledFontAwesomeIcon icon={faRightLong} />{" "}
               </ReceiverText>
             ) : (
-              <div>{" "}
+              <div>
+                {" "}
                 <PosterName>User has hopped off for good</PosterName>
                 <StyledFontAwesomeIcon icon={faRightLong} />{" "}
               </div>
@@ -79,12 +79,8 @@ const PostElement = ({ post, frogs }) => {
                 />
               </Link>
             ) : (
-              <ReceiverImage
-                src=""
-                alt="deleted user picture placeholder"
-              />
-            )
-            }
+              <ReceiverImage src="" alt="deleted user picture placeholder" />
+            )}
           </div>
         </>
       );

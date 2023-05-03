@@ -81,9 +81,11 @@ const FrogProfile = ({
       </PostFormController>
       {posts.length ? (
           <PostList
+          loggedFrog={loggedFrog}
             posts={relevantPosts}
             frogs={frogs}
             updateSelectedFrogById={updateSelectedFrogById}
+            addResponse={addResponse}
           />
         ) : (
           <p>

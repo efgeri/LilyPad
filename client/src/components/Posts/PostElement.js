@@ -18,6 +18,7 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
   const receiverFilter = frogs.filter((receiverFrog) => {
     if (post.receiver === receiverFrog._id) return receiverFrog;
   });
+  
   const postReceiver = receiverFilter.length ? receiverFilter[0] : null;
 
   const [posterName, posterPicture, posterId] = postPoster
@@ -62,7 +63,16 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
   };
 
   const responses = post.responses.map((response) => {
-    return <PostText>{response.comment}</PostText>
+    const commenterFilter = frogs.filter((commenterFrog) => {
+      if (commenterFrog._id !== null && response.poster === commenterFrog._id) return commenterFrog;      
+    });
+    return (
+      <>
+    <CommentField>{response.comment}
+     {commenterFilter[0] ? <ReceiverImage src={commenterFilter[0].image_url} alt="" onError={handleImageError} /> : <ReceiverImage src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Red_X.svg" alt="" />}
+     </CommentField>
+     </>
+    )
   })
 
   const hideReceiver = () => {
@@ -273,5 +283,11 @@ const CardPosterRecipientGrid = styled.div`
     }
   }
 `;
+
+const CommentField = styled.div`
+display: flex;
+justify-content: space-between;
+align-items: center;
+`
 
 export default PostElement;

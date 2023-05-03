@@ -4,14 +4,17 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 
-const SignLogNavElement = () => {
+const SignLogNavElement = ({loggedFrog}) => {
+
+  const frogInOut = loggedFrog ? "Frog-Out" : "Frog-In"
+
   return (
     <Link to="/signlog">
       <NavigationBarElement>
         <SignLogWrapper>
           <FontAwesomeIcon icon={faRightToBracket} />
         </SignLogWrapper>
-        <SignLogText>Frog-In</SignLogText>
+        <SignLogText>{frogInOut}</SignLogText>
       </NavigationBarElement>
     </Link>
   );

@@ -1,7 +1,7 @@
 import PostElement from "./PostElement";
 import styled from "styled-components";
 
-const PostList = ({posts, frogs, updateSelectedFrogById}) => {
+const PostList = ({posts, frogs, updateSelectedFrogById, loggedFrog, addResponse}) => {
   const limitedPosts = [...posts].slice(0, 7)
   const allPosts = limitedPosts.map((post) => {
     return <PostElement
@@ -9,6 +9,8 @@ const PostList = ({posts, frogs, updateSelectedFrogById}) => {
       key={post._id}
       frogs={frogs}
       updateSelectedFrogById={updateSelectedFrogById}
+      loggedFrog={loggedFrog}
+      addResponse={addResponse}
       />
   })
 

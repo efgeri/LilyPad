@@ -86,6 +86,18 @@ const posts = [
     "comment": {
         "original": "This is a comment"
     },
+    "responses":[
+      {
+        "comment":"This is a response",
+        "poster": hotToadyId,
+        "date": "2023-05-02T15:33:32+01:00"
+      },
+      {
+        "comment":"This is a second response",
+        "poster": bogarielId,
+        "date": "2023-05-03T09:33:32+01:00"
+      }
+    ],
     "date": "2022-03-02T12:33:32+01:00"
   },
   {
@@ -95,6 +107,18 @@ const posts = [
     "comment": {
         "original": "This is not a comment"
     },
+    "responses":[
+      {
+        "comment":"This is a response",
+        "poster": hotToadyId,
+        "date": "2023-05-02T15:33:32+01:00"
+      },
+      {
+        "comment":"This is a second response",
+        "poster": bogarielId,
+        "date": "2023-05-03T09:33:32+01:00"
+      }
+    ],
     "date": "2007-03-02T12:33:32+01:00"
   },
   {
@@ -104,6 +128,18 @@ const posts = [
     "comment": {
         "original": "This could be a comment, but without an image"
     },
+    "responses":[
+      {
+        "comment":"This is a response",
+        "poster": hotToadyId,
+        "date": "2023-05-02T15:33:32+01:00"
+      },
+      {
+        "comment":"This is a second response",
+        "poster": bogarielId,
+        "date": "2023-05-03T09:33:32+01:00"
+      }
+    ],
     "date": "2022-01-17T07:33:32+01:00"
   },
   {
@@ -113,6 +149,18 @@ const posts = [
     "comment": {
         "original": "This could be a comment, but without an image"
     },
+    "responses":[
+      {
+        "comment":"This is a response",
+        "poster": hotToadyId,
+        "date": "2023-05-02T15:33:32+01:00"
+      },
+      {
+        "comment":"This is a second response",
+        "poster": bogarielId,
+        "date": "2023-05-03T09:33:32+01:00"
+      }
+    ],
     "date": "2023-02-17T09:33:32+01:00"
   },
   {
@@ -122,6 +170,18 @@ const posts = [
     "comment": {
         "original": "This could be a comment, but without an image"
     },
+    "responses":[
+      {
+        "comment":"This is a response",
+        "poster": hotToadyId,
+        "date": "2023-05-02T15:33:32+01:00"
+      },
+      {
+        "comment":"This is a second response",
+        "poster": bogarielId,
+        "date": "2023-05-03T09:33:32+01:00"
+      }
+    ],
     "date": "2019-09-17T07:33:32+01:00"
   },
   {
@@ -131,6 +191,18 @@ const posts = [
     "comment": {
         "original": "This could be a comment, but without an image"
     },
+    "responses":[
+      {
+        "comment":"This is a response",
+        "poster": hotToadyId,
+        "date": "2023-05-02T15:33:32+01:00"
+      },
+      {
+        "comment":"This is a second response",
+        "poster": bogarielId,
+        "date": "2023-05-03T09:33:32+01:00"
+      }
+    ],
     "date": "2022-01-17T16:33:32+01:00"
   },
   {
@@ -140,6 +212,18 @@ const posts = [
     "comment": {
         "original": "This could be a comment, but without an image"
     },
+    "responses":[
+      {
+        "comment":"This is a response",
+        "poster": hotToadyId,
+        "date": "2023-05-02T15:33:32+01:00"
+      },
+      {
+        "comment":"This is a second response",
+        "poster": bogarielId,
+        "date": "2023-05-03T09:33:32+01:00"
+      }
+    ],
     "date": "2022-03-02T11:33:32+01:00"
   },
   {
@@ -149,6 +233,18 @@ const posts = [
     "comment": {
         "original": "This could be a comment, but without an image"
     },
+    "responses":[
+      {
+        "comment":"This is a response",
+        "poster": hotToadyId,
+        "date": "2023-05-02T15:33:32+01:00"
+      },
+      {
+        "comment":"This is a second response",
+        "poster": bogarielId,
+        "date": "2023-05-03T09:33:32+01:00"
+      }
+    ],
     "date": "2022-05-02T11:33:32+01:00"
   },
   {
@@ -158,6 +254,18 @@ const posts = [
     "comment": {
         "original": "This could be a comment, but without an image"
     },
+    "responses":[
+      {
+        "comment":"This is a response",
+        "poster": hotToadyId,
+        "date": "2023-05-02T15:33:32+01:00"
+      },
+      {
+        "comment":"This is a second response",
+        "poster": bogarielId,
+        "date": "2023-05-03T09:33:32+01:00"
+      }
+    ],
     "date": "2022-05-02T10:33:32+01:00"
   },
   {
@@ -167,6 +275,18 @@ const posts = [
     "comment": {
         "original": "This could be a comment, but without an image"
     },
+    "responses":[
+      {
+        "comment":"This is a response",
+        "poster": hotToadyId,
+        "date": "2023-05-02T15:33:32+01:00"
+      },
+      {
+        "comment":"This is a second response",
+        "poster": bogarielId,
+        "date": "2023-05-03T09:33:32+01:00"
+      }
+    ],
     "date": "2022-05-02T09:33:32+01:00"
   },
   {
@@ -176,6 +296,18 @@ const posts = [
     "comment": {
         "original": "This could be a comment, but without an image"
     },
+    "responses":[
+      {
+        "comment":"This is a response",
+        "poster": hotToadyId,
+        "date": "2023-05-02T15:33:32+01:00"
+      },
+      {
+        "comment":"This is a second response",
+        "poster": bogarielId,
+        "date": "2023-05-03T09:33:32+01:00"
+      }
+    ],
     "date": "2022-05-02T11:59:32+01:00"
   },
   {
@@ -185,6 +317,18 @@ const posts = [
     "comment": {
         "original": "This could be a comment, but without an image"
     },
+    "responses":[
+      {
+        "comment":"This is a response",
+        "poster": hotToadyId,
+        "date": "2023-05-02T15:33:32+01:00"
+      },
+      {
+        "comment":"This is a second response",
+        "poster": bogarielId,
+        "date": "2023-05-03T09:33:32+01:00"
+      }
+    ],
     "date": "0700-05-02T12:10:32+01:00"
   },
 ]

@@ -14,7 +14,7 @@ import { getFrogs } from "../services/FrogServices";
 import { getPosts } from "../services/PostServices";
 import PostForm from "../components/PostForm/PostForm";
 import FrogForm from "../components/FrogForm/FrogForm";
-import { createPost } from "../services/PostServices";
+import { createPost, updatePost } from "../services/PostServices";
 import { createFrog, deleteFrog, updateFrog } from "../services/FrogServices";
 import HomePage from "../components/FrogHome/HomePage";
 import SignLog from "../components/SignLog/SignLog";
@@ -47,6 +47,15 @@ const LilyPadContainer = () => {
     createPost(originalPost).then((savedPost) =>
       setPosts([...posts, savedPost])
     );
+  };
+  const addResponse = (updatedPost) => {
+    const copyPosts = [...posts];
+    const index = posts.findIndex(
+      (post) => post._id === updatedPost._id
+    );
+    copyPosts[index] = updatedPost;
+    setPosts(copyPosts);
+      fetchData()
   };
 
   const addFrog = (newFrog) => {
@@ -130,6 +139,7 @@ const LilyPadContainer = () => {
                 posts={postsReversed}
                 frogs={frogs}
                 updateSelectedFrogById={updateSelectedFrogById}
+                addResponse={addResponse}
               />
             }
           />
@@ -160,6 +170,7 @@ const LilyPadContainer = () => {
                 addPost={addPost}
                 posts={postsReversed}
                 frogs={frogs}
+                addResponse={addResponse}
                 deleteFrogAccount={deleteFrogAccount}
                 updateFrogProfile={updateFrogProfile}
                 updateSelectedFrogById={updateSelectedFrogById}

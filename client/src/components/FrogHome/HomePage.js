@@ -10,7 +10,7 @@ const HomePage = ({
   posts,
   frogs,
   updateSelectedFrogById,
-}) => {
+ addResponse}) => {
   const displayPostFormGuard = () => {
     if (loggedFrog === null) {
       return (
@@ -39,7 +39,7 @@ const HomePage = ({
         {postFormDisplay}
         {posts.length ? (
           <PostList
-            posts={posts}
+            loggedFrog={loggedFrog} addResponse={addResponse} posts={posts}
             frogs={frogs}
             updateSelectedFrogById={updateSelectedFrogById}
           />

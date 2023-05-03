@@ -3,12 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightLong } from "@fortawesome/free-solid-svg-icons";
 import dayjs from "dayjs";
 import { Link } from "react-router-dom";
+import PostResponse from "../PostForm/PostResponse";
 const localizedFormat = require("dayjs/plugin/localizedFormat");
 dayjs.extend(localizedFormat);
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 
-const PostElement = ({ post, frogs, updateSelectedFrogById }) => {
+const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addResponse }) => {
   const posterFilter = frogs.filter((posterFrog) => {
     if (post.poster === posterFrog._id) return posterFrog;
   });
@@ -17,6 +18,7 @@ const PostElement = ({ post, frogs, updateSelectedFrogById }) => {
   const receiverFilter = frogs.filter((receiverFrog) => {
     if (post.receiver === receiverFrog._id) return receiverFrog;
   });
+  
   const postReceiver = receiverFilter.length ? receiverFilter[0] : null;
 
   const [posterName, posterPicture, posterId] = postPoster
@@ -59,6 +61,19 @@ const PostElement = ({ post, frogs, updateSelectedFrogById }) => {
   const handleImageError = (e) => {
     e.target.style.border = "none";
   };
+
+  const responses = post.responses.map((response) => {
+    const commenterFilter = frogs.filter((commenterFrog) => {
+      if (commenterFrog._id !== null && response.poster === commenterFrog._id) return commenterFrog;      
+    });
+    return (
+      <>
+    <CommentField>{response.comment}
+     {commenterFilter[0] ? <ReceiverImage src={commenterFilter[0].image_url} alt="" onError={handleImageError} /> : <ReceiverImage src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Red_X.svg" alt="" />}
+     </CommentField>
+     </>
+    )
+  })
 
   const hideReceiver = () => {
     if (posterId === receiverId) {
@@ -125,6 +140,8 @@ const PostElement = ({ post, frogs, updateSelectedFrogById }) => {
           </DateText>
         </PosterCard>
         <PostText>{post.comment.original}</PostText>
+        {responses}
+         <PostResponse loggedFrog={loggedFrog} addResponse={addResponse} post={post}/>       
       </PostCard>
     </>
   );
@@ -266,5 +283,11 @@ const CardPosterRecipientGrid = styled.div`
     }
   }
 `;
+
+const CommentField = styled.div`
+display: flex;
+justify-content: space-between;
+align-items: center;
+`
 
 export default PostElement;

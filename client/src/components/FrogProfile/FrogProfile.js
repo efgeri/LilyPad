@@ -16,7 +16,8 @@ const FrogProfile = ({
   frogs,
   deleteFrogAccount,
   updateFrogProfile,
-  updateSelectedFrogById
+  updateSelectedFrogById,
+  addResponse
 }) => {
   useEffect(() => {
     getSelectedFrog(id).then((data) => {
@@ -80,9 +81,11 @@ const FrogProfile = ({
       </PostFormController>
       {posts.length ? (
           <PostList
+          loggedFrog={loggedFrog}
             posts={relevantPosts}
             frogs={frogs}
             updateSelectedFrogById={updateSelectedFrogById}
+            addResponse={addResponse}
           />
         ) : (
           <p>

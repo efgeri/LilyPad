@@ -120,7 +120,7 @@ display: flex;
 flex-direction: row;
 justify-content: space-evenly;
 align-items: center;
-margin-inline: 10rem;
+/* margin-inline: auto; */
 
 @media (max-width: 778px) {
     flex-direction: column;

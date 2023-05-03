@@ -1,102 +1,69 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHome,
-  faLeaf,
-  faClover,
-  faFrog,
-  faImagePortrait,
-  faRightToBracket,
-} from "@fortawesome/free-solid-svg-icons";
 import HomeNavElement from "./HomeNavElement";
 import FrogsNavElement from "./FrogsNavElement";
 import ProfileNavElement from "./ProfileNavElement";
 import SignLogNavElement from "./SignLogNavElement";
 
-const NavBar = ({ loggedFrog, handleProfileClick }) => {
-  return (
-    <NavigationBar>
-      <div className="div1">
-        <HomeNavElement />
+const NavBar = ({ loggedFrog, handleProfileClick }) => (
+  <NavigationBar>
+    <NavElementWrapper className="div1">
+      <HomeNavElement />
+    </NavElementWrapper>
+    <NavElementWrapper className="div2">
+      <FrogsNavElement />
+    </NavElementWrapper>
+    <NavElementWrapper className="div3">
+    <div onClick={handleProfileClick}>
+      <ProfileNavElement loggedFrog={loggedFrog} />
       </div>
-      <div className="div2">
-        <FrogsNavElement />
-      </div>
-      <div className="div3">
-        <div onClick={handleProfileClick}>
-          <ProfileNavElement
-            handleProfileClick={handleProfileClick}
-            loggedFrog={loggedFrog}
-          />
-        </div>
-      </div>
-      <div className="div4">
-        <SignLogNavElement loggedFrog={loggedFrog}/>
-      </div>
-    </NavigationBar>
-  );
-};
+    </NavElementWrapper>
+    <NavElementWrapper className="div4">
+      <SignLogNavElement />
+    </NavElementWrapper>
+  </NavigationBar>
+);
 
 const NavigationBar = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
   border-bottom: 4px double white;
   background-color: #84db2c;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
+  padding: 1rem 0;
   font-size: 20px;
   text-align: center;
   font-family: "Bungee", cursive;
   text-transform: uppercase;
   z-index: 100;
+  justify-content: center;
+  align-items: end;
 
   a {
     text-decoration: none;
     color: inherit;
   }
 
-  /* Comment */
-  // Add this media query for mobile devices
   @media (max-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
-    padding-top: 1.25rem;
     border-top: 2px solid white;
     border-bottom: none;
-  }
-
-  // Add this media query for non-mobile devices
-  @media (min-width: 769px) {
-    position: static;
+    /* padding: 50rem;
+    margin: 50rem; */
   }
 `;
 
-// .parent {
-//   display: grid;
-//   grid-template-columns: repeat(5, 1fr);
-//   grid-template-rows: repeat(5, 1fr);
-//   grid-column-gap: 0px;
-//   grid-row-gap: 0px;
-//   }
-
-//   .div1 { grid-area: 1 / 1 / 2 / 2; }
-//   .div2 { grid-area: 1 / 2 / 2 / 3; }
-//   .div3 { grid-area: 1 / 3 / 2 / 4; }
-//   .div4 { grid-area: 1 / 4 / 2 / 5; }
-
-// const NavigationBarElement = styled.div`
-//   color: #fc0000;
-//   display: flex; // Add this line
-//   flex-direction: column; // Add this line
-//   align-items: center; // Add this line
-//   font-size: 20px;
-// `;
+const NavElementWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default NavBar;

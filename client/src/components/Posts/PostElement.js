@@ -12,44 +12,79 @@ const PostElement = ({ post, frogs }) => {
   const posterFilter = frogs.filter((posterFrog) => {
     if (post.poster === posterFrog._id) return posterFrog;
   });
+  const postPoster = posterFilter.length ? posterFilter[0] : null
 
   const receiverFilter = frogs.filter((receiverFrog) => {
     if (post.receiver === receiverFrog._id) return receiverFrog;
   });
+  const postReceiver = receiverFilter.length ? receiverFilter[0] : null
+  
+  const [posterName, posterPicture, posterId] = postPoster
+  ? [postPoster.name, postPoster.image_url, postPoster._id]
+  : [null, null, null];
+  console.log(posterName);
 
-  const posterName = posterFilter.length ? posterFilter[0].name : null;
-  const posterPicture = posterFilter[0].image_url;
-  const receiverName = receiverFilter.length ? receiverFilter[0].name : null;
-  const receiverPicture = receiverFilter[0].image_url;
+  const [receiverName, receiverPicture, receiverId] = postReceiver
+    ? [postReceiver.name, postReceiver.image_url, postReceiver._id]
+    : [null, null, null];
+
+  const displayPosterPicture = postPoster ? (
+    <Link to={`/${posterId}/profile`}>
+      <PosterImage src={posterPicture} alt={`${posterName}'s picture`} />
+    </Link>
+  ) : (
+    <PosterImage src="" alt="deleted user picture placeholder" />
+  );
+
+  const displayPosterName = postPoster ? (
+    <PosterName>
+      {" "}
+      <Link to={`/${posterId}/profile`}>{posterName}</Link>
+    </PosterName>
+  ) : (
+    <PosterName>They played Frogger, and lost</PosterName>
+  );
 
   const handleImageError = (e) => {
     e.target.style.border = "none";
   };
 
   const hideReceiver = () => {
-    if (posterFilter[0]._id === receiverFilter[0]._id) {
+    if (posterId === receiverId) {
       return "";
     } else {
       return (
         <>
           <div className="div3">
-            {receiverName ? (
+            {postReceiver ? (
               <ReceiverText>
                 {" "}
-                <Link to={`${receiverFilter[0]._id}/profile`}>
-                  {receiverName}{" "}
-                </Link>
+                <Link to={`/${receiverId}/profile`}>{receiverName} </Link>
                 <StyledFontAwesomeIcon icon={faRightLong} />{" "}
               </ReceiverText>
             ) : (
-              <PosterName>User has hopped off for good</PosterName>
+              <div>{" "}
+                <PosterName>User has hopped off for good</PosterName>
+                <StyledFontAwesomeIcon icon={faRightLong} />{" "}
+              </div>
             )}
           </div>
           <div className="div4">
-            <Link to={`${receiverFilter[0]._id}/profile`}>
-              {" "}
-              <ReceiverImage src={receiverPicture} alt="" />
-            </Link>
+            {postReceiver ? (
+              <Link to={`/${receiverId}/profile`}>
+                {" "}
+                <ReceiverImage
+                  src={receiverPicture}
+                  alt={`${receiverName}'s picture`}
+                />
+              </Link>
+            ) : (
+              <ReceiverImage
+                src=""
+                alt="deleted user picture placeholder"
+              />
+            )
+            }
           </div>
         </>
       );
@@ -65,32 +100,17 @@ const PostElement = ({ post, frogs }) => {
           <></>
         )}
         <PosterCard>
-        <div>
-          <CardPosterRecipientGrid>
-            <div className="div1">
-              <Link to={`${posterFilter[0]._id}/profile`}>
-                <PosterImage src={posterPicture} alt="" />
-              </Link>
-            </div>
-            <div className="div2">
-              {posterName ? (
-                <PosterName>
-                  {" "}
-                  <Link to={`${posterFilter[0]._id}/profile`}>
-                    {posterName}
-                  </Link>
-                </PosterName>
-              ) : (
-                <PosterName>They played Frogger, and lost</PosterName>
-              )}
-            </div>
-            {hideReceiver()}
-          </CardPosterRecipientGrid>
+          <div>
+            <CardPosterRecipientGrid>
+              <div className="div1">{displayPosterPicture}</div>
+              <div className="div2">{displayPosterName}</div>
+              {hideReceiver()}
+            </CardPosterRecipientGrid>
           </div>
           <DateText>
-        <span>{dayjs(post.date).format("llll")}</span>
-        <span>{dayjs(post.date).fromNow()}</span>
-        </DateText>
+            <span>{dayjs(post.date).format("llll")}</span>
+            <span>{dayjs(post.date).fromNow()}</span>
+          </DateText>
         </PosterCard>
         <PostText>{post.comment.original}</PostText>
       </PostCard>
@@ -129,7 +149,6 @@ const PosterCard = styled.div`
 const PosterImage = styled.img`
   width: 40px;
   height: 40px;
-  
 
   border: 2px double white;
   border-radius: 50%; // Set border-radius to 50% to create a circle
@@ -149,7 +168,7 @@ const ReceiverImage = styled.img`
   object-position: center; // Add object-position to position the image correctly
   align-items: left;
 
-    @media (max-width: 768px) {
+  @media (max-width: 768px) {
     margin-left: 10px;
   }
 `;
@@ -193,13 +212,13 @@ const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 `;
 
 const DateText = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-end;
-    font-size: 75%;
-`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  font-size: 75%;
+`;
 
 const CardPosterRecipientGrid = styled.div`
   display: grid;

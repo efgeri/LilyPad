@@ -105,6 +105,11 @@ const LilyPadContainer = () => {
     setSelectedFrog(frogToEdit)
   }
 
+  const updateSelectedFrogById = (id) => {
+    const newSelectedFrog = frogs.find(frog => frog._id === id)
+    setSelectedFrog(newSelectedFrog)
+  }
+
   return (
     <>
     <PageBreaker>
@@ -124,6 +129,7 @@ const LilyPadContainer = () => {
                 addPost={addPost}
                 posts={postsReversed}
                 frogs={frogs}
+                updateSelectedFrogById={updateSelectedFrogById}
               />
             }
           />
@@ -156,6 +162,7 @@ const LilyPadContainer = () => {
                 frogs={frogs}
                 deleteFrogAccount={deleteFrogAccount}
                 updateFrogProfile={updateFrogProfile}
+                updateSelectedFrogById={updateSelectedFrogById}
               />
             }
           />

@@ -33,7 +33,7 @@ const NavBar = ({ loggedFrog, handleProfileClick }) => {
         </div>
       </div>
       <div className="div4">
-        <SignLogNavElement />
+        <SignLogNavElement loggedFrog={loggedFrog}/>
       </div>
     </NavigationBar>
   );

@@ -2,7 +2,10 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const SignLogNavElement = () => {
+const SignLogNavElement = ({loggedFrog}) => {
+
+  const frogInOut = loggedFrog ? "Frog-Out" : "Frog-In"
+
   return (
     <Link to="/signlog">
       <NavigationBarElement>
@@ -20,7 +23,7 @@ const SignLogNavElement = () => {
             </div>
           </ParentGrid>
         </SignLogWrapper>
-        <SignLogText>Frog-In</SignLogText>
+        <SignLogText>{frogInOut}</SignLogText>
       </NavigationBarElement>
     </Link>
   );

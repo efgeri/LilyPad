@@ -14,8 +14,10 @@ const NavBar = ({ loggedFrog, handleProfileClick }) => (
     <NavElementWrapper className="div2">
       <FrogsNavElement />
     </NavElementWrapper>
-    <NavElementWrapper className="div3" onClick={handleProfileClick}>
+    <NavElementWrapper className="div3">
+    <div onClick={handleProfileClick}>
       <ProfileNavElement loggedFrog={loggedFrog} />
+      </div>
     </NavElementWrapper>
     <NavElementWrapper className="div4">
       <SignLogNavElement />

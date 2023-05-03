@@ -1,10 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
-import { faCircle } from '@fortawesome/free-regular-svg-icons';
-import { faFrog } from '@fortawesome/free-solid-svg-icons';
 
 const SignLogNavElement = () => {
   return (
@@ -13,14 +9,14 @@ const SignLogNavElement = () => {
         <SignLogWrapper>
           <ParentGrid>
             <div className="div1">
-                      <StyledCircleIcon>
-        <path d={CircleSVGUrl}/>
-          </StyledCircleIcon>
+              <StyledCircleIcon>
+                <path d={CircleSVGUrl} />
+              </StyledCircleIcon>
             </div>
             <div className="div2">
-                      <StyledFrogIcon>
-        <path d={FrogSVGUrl}/>
-          </StyledFrogIcon>
+              <StyledFrogIcon>
+                <path d={FrogSVGUrl} />
+              </StyledFrogIcon>
             </div>
           </ParentGrid>
         </SignLogWrapper>
@@ -52,21 +48,13 @@ const NavigationBarElement = styled.div`
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 
-  @media (max-width: 768px) {
-  }
-
-  // Add this media query for non-mobile devices
-  @media (min-width: 769px) {
-  }
-
   &:hover {
     color: white;
     animation: ${bounce} 1s;
   }
 `;
 
-const SignLogWrapper = styled.div`
-`;
+const SignLogWrapper = styled.div``;
 
 const SignLogText = styled.span`
   display: inline;
@@ -78,8 +66,6 @@ const SignLogText = styled.span`
 
 const ParentGrid = styled.div`
   display: grid;
-  /* grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr); */
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 
@@ -102,9 +88,8 @@ const StyledCircleIcon = styled.svg.attrs({
   viewBox: '-20 -20 552 552',
   xmlns: 'http://www.w3.org/2000/svg',
 })`
-  margin-top: -5px; */
-  width: 2.5em;
-  height: 1.5em;
+  width: 3.5em;
+  height: 2em;
   fill: currentColor;
   stroke: black;
   stroke-width: 15px;
@@ -112,21 +97,16 @@ const StyledCircleIcon = styled.svg.attrs({
   &:hover {
     fill: white;
   }
-
-  /* @media (max-width: 768px) {
-  width: 50%;
-  height: 50%;
-  } */
 `;
 
 const StyledFrogIcon = styled.svg.attrs({
   viewBox: '-20 -20 552 552',
   xmlns: 'http://www.w3.org/2000/svg',
 })`
-  margin-top: -5px;
+  margin-top: -1px;
   margin-right: 2.5px;
   width: 1.25em;
-  height: 1em; 
+  height: 1em;
   fill: currentColor;
   stroke: black;
   stroke-width: 23.5px;
@@ -134,11 +114,6 @@ const StyledFrogIcon = styled.svg.attrs({
   &:hover {
     fill: white;
   }
-
-  /* @media (max-width: 768px) {
-    width: 1.5rem;
-  height: 0.85rem;
-  } */
 `;
 
 const CircleSVGUrl = "M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"

@@ -8,39 +8,50 @@ dayjs.extend(localizedFormat);
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 
-const PostElement = ({ post, frogs }) => {
+const PostElement = ({ post, frogs, updateSelectedFrogById }) => {
   const posterFilter = frogs.filter((posterFrog) => {
     if (post.poster === posterFrog._id) return posterFrog;
   });
-  const postPoster = posterFilter.length ? posterFilter[0] : null
+  const postPoster = posterFilter.length ? posterFilter[0] : null;
 
   const receiverFilter = frogs.filter((receiverFrog) => {
     if (post.receiver === receiverFrog._id) return receiverFrog;
   });
-  const postReceiver = receiverFilter.length ? receiverFilter[0] : null
-  
+  const postReceiver = receiverFilter.length ? receiverFilter[0] : null;
+
   const [posterName, posterPicture, posterId] = postPoster
-  ? [postPoster.name, postPoster.image_url, postPoster._id]
-  : [null, null, null];
-  console.log(posterName);
+    ? [postPoster.name, postPoster.image_url, postPoster._id]
+    : [null, null, null];
 
   const [receiverName, receiverPicture, receiverId] = postReceiver
     ? [postReceiver.name, postReceiver.image_url, postReceiver._id]
     : [null, null, null];
 
+  const handlePosterClick = () => {
+    updateSelectedFrogById(posterId);
+  };
+
+  const handleReceiverClick = () => {
+    updateSelectedFrogById(receiverId);
+  };
+
   const displayPosterPicture = postPoster ? (
-    <Link to={`/${posterId}/profile`}>
-      <PosterImage src={posterPicture} alt={`${posterName}'s picture`} />
-    </Link>
+    <div onClick={handlePosterClick}>
+      <Link to={`/${posterId}/profile`}>
+        <PosterImage src={posterPicture} alt={`${posterName}'s picture`} />
+      </Link>
+    </div>
   ) : (
     <PosterImage src="" alt="deleted user picture placeholder" />
   );
 
   const displayPosterName = postPoster ? (
-    <PosterName>
-      {" "}
-      <Link to={`/${posterId}/profile`}>{posterName}</Link>
-    </PosterName>
+    <div onClick={handlePosterClick}>
+      <PosterName>
+        {" "}
+        <Link to={`/${posterId}/profile`}>{posterName}</Link>
+      </PosterName>
+    </div>
   ) : (
     <PosterName>They played Frogger, and lost</PosterName>
   );
@@ -57,13 +68,16 @@ const PostElement = ({ post, frogs }) => {
         <>
           <div className="div3">
             {postReceiver ? (
-              <ReceiverText>
-                {" "}
-                <Link to={`/${receiverId}/profile`}>{receiverName} </Link>
-                <StyledFontAwesomeIcon icon={faRightLong} />{" "}
-              </ReceiverText>
+              <div onClick={handleReceiverClick}>
+                <ReceiverText>
+                  {" "}
+                  <Link to={`/${receiverId}/profile`}>{receiverName} </Link>
+                  <StyledFontAwesomeIcon icon={faRightLong} />{" "}
+                </ReceiverText>
+              </div>
             ) : (
-              <div>{" "}
+              <div>
+                {" "}
                 <PosterName>User has hopped off for good</PosterName>
                 <StyledFontAwesomeIcon icon={faRightLong} />{" "}
               </div>
@@ -71,20 +85,18 @@ const PostElement = ({ post, frogs }) => {
           </div>
           <div className="div4">
             {postReceiver ? (
-              <Link to={`/${receiverId}/profile`}>
-                {" "}
-                <ReceiverImage
-                  src={receiverPicture}
-                  alt={`${receiverName}'s picture`}
-                />
-              </Link>
+              <div onClick={handleReceiverClick}>
+                <Link to={`/${receiverId}/profile`}>
+                  {" "}
+                  <ReceiverImage
+                    src={receiverPicture}
+                    alt={`${receiverName}'s picture`}
+                  />
+                </Link>
+              </div>
             ) : (
-              <ReceiverImage
-                src=""
-                alt="deleted user picture placeholder"
-              />
-            )
-            }
+              <ReceiverImage src="" alt="deleted user picture placeholder" />
+            )}
           </div>
         </>
       );

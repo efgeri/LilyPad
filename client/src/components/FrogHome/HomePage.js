@@ -3,28 +3,57 @@ import { Link } from "react-router-dom";
 import PostForm from "../PostForm/PostForm";
 import PostList from "../Posts/PostList";
 
-const HomePage = ({selectedFrog, loggedFrog, addPost, posts, frogs}) => {
-
+const HomePage = ({
+  selectedFrog,
+  loggedFrog,
+  addPost,
+  posts,
+  frogs,
+  updateSelectedFrogById,
+}) => {
   const displayPostFormGuard = () => {
     if (loggedFrog === null) {
-      return <FormTerneryStyler><Link to="/signlog"><h3>Sign in to add your ribbits!</h3></Link></FormTerneryStyler>
+      return (
+        <FormTerneryStyler>
+          <Link to="/signlog">
+            <h3>Sign in to add your ribbits!</h3>
+          </Link>
+        </FormTerneryStyler>
+      );
     } else {
-      return <PostForm selectedFrog={selectedFrog} loggedFrog={loggedFrog} addPost={addPost}/>
+      return (
+        <PostForm
+          selectedFrog={selectedFrog}
+          loggedFrog={loggedFrog}
+          addPost={addPost}
+        />
+      );
     }
-  }
+  };
 
-  const postFormDisplay = displayPostFormGuard()
+  const postFormDisplay = displayPostFormGuard();
 
-  return ( 
+  return (
     <BodyContainer>
-    <WidthController>
-    {postFormDisplay}
-      {posts.length ? <PostList posts={posts} frogs={frogs}/> : <p>Oh, oh! We are having issues retrieving post information. Please try again later.</p>}
+      <WidthController>
+        {postFormDisplay}
+        {posts.length ? (
+          <PostList
+            posts={posts}
+            frogs={frogs}
+            updateSelectedFrogById={updateSelectedFrogById}
+          />
+        ) : (
+          <p>
+            Oh, oh! We are having issues retrieving post information. Please try
+            again later.
+          </p>
+        )}
       </WidthController>
     </BodyContainer>
-   );
-}
- 
+  );
+};
+
 const BodyContainer = styled.section`
   justify-content: center;
   display: flex;
@@ -35,12 +64,12 @@ const BodyContainer = styled.section`
 `;
 
 const WidthController = styled.div`
-width: 60%;
+  width: 60%;
 
-@media screen and (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     width: 90%;
   }
-`
+`;
 
 const FormTerneryStyler = styled.div`
   display: flex;
@@ -48,18 +77,18 @@ const FormTerneryStyler = styled.div`
   justify-content: center;
   align-items: center;
 
-a {
+  a {
     text-decoration: none;
     color: inherit;
   }
 
-h3 {
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
-  color: red;
-  text-align: center;
-  width: 100%;
-}  
-`
+  h3 {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    color: red;
+    text-align: center;
+    width: 100%;
+  }
+`;
 
 export default HomePage;

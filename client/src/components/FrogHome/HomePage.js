@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PostForm from "../PostForm/PostForm";
 import PostList from "../Posts/PostList";
 
-const HomePage = ({selectedFrog, loggedFrog, addPost, posts, frogs}) => {
+const HomePage = ({selectedFrog, loggedFrog, addPost, posts, frogs, addResponse}) => {
 
   const displayPostFormGuard = () => {
     if (loggedFrog === null) {
@@ -19,7 +19,7 @@ const HomePage = ({selectedFrog, loggedFrog, addPost, posts, frogs}) => {
     <BodyContainer>
     <WidthController>
     {postFormDisplay}
-      {posts.length ? <PostList posts={posts} frogs={frogs}/> : <p>Oh, oh! We are having issues retrieving post information. Please try again later.</p>}
+      {posts.length ? <PostList loggedFrog={loggedFrog} addResponse={addResponse} posts={posts} frogs={frogs}/> : <p>Oh, oh! We are having issues retrieving post information. Please try again later.</p>}
       </WidthController>
     </BodyContainer>
    );

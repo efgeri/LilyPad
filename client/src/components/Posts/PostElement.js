@@ -3,12 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightLong } from "@fortawesome/free-solid-svg-icons";
 import dayjs from "dayjs";
 import { Link } from "react-router-dom";
+import PostResponse from "../PostForm/PostResponse";
 const localizedFormat = require("dayjs/plugin/localizedFormat");
 dayjs.extend(localizedFormat);
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 
-const PostElement = ({ post, frogs }) => {
+const PostElement = ({ post, frogs, loggedFrog, addResponse }) => {
   const posterFilter = frogs.filter((posterFrog) => {
     if (post.poster === posterFrog._id) return posterFrog;
   });
@@ -25,6 +26,10 @@ const PostElement = ({ post, frogs }) => {
   const handleImageError = (e) => {
     e.target.style.border = "none";
   };
+
+  const responses = post.responses.map((response) => {
+    return <PostText>{response.comment}</PostText>
+  })
 
   const hideReceiver = () => {
     if (posterFilter[0]._id === receiverFilter[0]._id) {
@@ -93,6 +98,8 @@ const PostElement = ({ post, frogs }) => {
         </DateText>
         </PosterCard>
         <PostText>{post.comment.original}</PostText>
+        {responses}
+         <PostResponse loggedFrog={loggedFrog} addResponse={addResponse} post={post}/>       
       </PostCard>
     </>
   );

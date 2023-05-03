@@ -24,6 +24,7 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
             comment: {
                 original: postComment 
             },
+            "responses":[],
             "date": dayjs().format()
         })
         setPostPicture("")

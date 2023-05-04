@@ -30,8 +30,8 @@ const PostImage = styled.img`
   max-height: 400px;
   border-radius: 4px;
   border: 2px double white;
-  object-fit: cover; // Add object-fit to maintain the aspect ratio
-  object-position: center; // Add object-position to position the image correctly
+  object-fit: cover; 
+  object-position: center; 
 `;
 
 const PostComment = styled.p`

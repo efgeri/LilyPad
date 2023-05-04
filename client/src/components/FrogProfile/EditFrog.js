@@ -43,16 +43,16 @@ const EditFrog = ({ loggedFrog, updateFrogProfile }) => {
 };
 
 const StyledForm = styled.form`
-display: flex;
-justify-content: center;
-flex-direction: column;
-align-items: center;
-font-family: "Bungee", cursive;
-text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Bungee", cursive;
+  text-align: center;
 `
 
 const StyledInput = styled.input`
-font-family: "Bungee", cursive;
+  font-family: "Bungee", cursive;
 `
 
 const StyledButton = styled.button`

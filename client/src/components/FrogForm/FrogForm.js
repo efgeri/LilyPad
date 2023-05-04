@@ -55,9 +55,8 @@ const FrogForm = ({addFrog, fetchData}) => {
         value={image}
         onChange={handleImageChange}
         required
-  />
-</div>
-
+          />
+        </div>
       <StyledBtn type="submit">Create Account</StyledBtn>
       </StyledFields>
     </StyledForm>
@@ -86,13 +85,11 @@ border-radius: 5px;
 margin-top: 2.5%;
 padding-bottom: 1.75%;
 
-
   h2{
     color: red;
     -webkit-text-stroke-width: 0.75px;
     -webkit-text-stroke-color: black;
   }
-
 `;
 
 const StyledInput = styled.input`

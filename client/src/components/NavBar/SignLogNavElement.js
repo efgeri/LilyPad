@@ -91,8 +91,8 @@ const StyledCircleIcon = styled.svg.attrs({
   viewBox: '-20 -20 552 552',
   xmlns: 'http://www.w3.org/2000/svg',
 })`
-  width: 3.5em;
-  height: 2em;
+  width: 4em;
+  height: 2.25em;
   fill: currentColor;
   stroke: black;
   stroke-width: 15px;

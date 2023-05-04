@@ -68,11 +68,9 @@ const StyledList = styled.ul`
 
 const SearchContainer = styled.div`
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
   margin-top: 0.5%;
-  /* width: 60%; */
   margin-inline: auto;
 
   @media screen and (max-width: 768px) {

@@ -32,12 +32,12 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
     }
 
     return ( 
-        <>
-        <PostAreaDiv>
-        <PostTextAreaDiv>
-             <StyledTitle>What are you ribbiting on about?</StyledTitle>
-             </PostTextAreaDiv>
-             <PostFormStyled onSubmit={handleSubmitPost}>
+  <>
+  <PostAreaDiv>
+  <PostTextAreaDiv>
+        <StyledTitle>What are you ribbiting on about?</StyledTitle>
+        </PostTextAreaDiv>
+        <PostFormStyled onSubmit={handleSubmitPost}>
   <label htmlFor="comment">Croak into the void</label>
   <br />
   <PostTextAreaDiv>
@@ -64,9 +64,9 @@ const PostForm = ({selectedFrog, loggedFrog, addPost}) => {
     />
   </InputWrapper>
   <br />
-  <StyledButton disabled={!postPicture && !postComment}>Ribbit</StyledButton>
-</PostFormStyled>
-        </PostAreaDiv>
+    <StyledButton disabled={!postPicture && !postComment}>Ribbit</StyledButton>
+  </PostFormStyled>
+</PostAreaDiv>
         </>
      );
 }
@@ -81,8 +81,6 @@ const PostAreaDiv = styled.div`
   display: flex;
   flex-direction: column;
   background: #84db2c;
-  /* width: 90%; // Set the width to 90% of the parent container
-  max-width: 100%; // Make sure it doesn't exceed 100% width */
 `
 
 const PostTextAreaDiv = styled.div`
@@ -93,9 +91,7 @@ const PostTextAreaDiv = styled.div`
 
     @media (max-width: 768px) {
     margin-top: 5.5%;
-}
-
-`
+}`
 
 const StyledTitle = styled.h2`
   text-align: center;
@@ -117,7 +113,6 @@ const InputWrapper = styled.div`
   @media (max-width: 768px) {
     margin-top: 3.5%;
 }
-
 `;
 
 const PostTextArea = styled.textarea`

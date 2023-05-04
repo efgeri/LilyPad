@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { getSelectedFrog } from "../../services/FrogServices";
@@ -32,7 +32,6 @@ const FrogProfile = ({
       return <p>We could not find this hopper</p>;
     } else {
       return (
-        <StyledSection>
         <StyledCard>
         <StyledImageDiv>
           <StyledImage
@@ -41,10 +40,10 @@ const FrogProfile = ({
           />
         </StyledImageDiv>
         </StyledCard>
-      </StyledSection>
       );
     }
   };
+
   const styleCardDirector = displayStyleCard();
 
   const editProfileDirector = () => {
@@ -66,19 +65,23 @@ const FrogProfile = ({
 
   return (
     <>
+    <Aligner>
+    <div className="parent">
+      <div className="div1"></div>
+        <div className="div2">
     <ProfileSection>
     {selectedFrog ? <Title>{selectedFrog.name}</Title> : "No such frog"}
-    <TopSection>
-      {styleCardDirector}
+    {styleCardDirector}
+
       {editProfileDirector()}
-      </TopSection>
-      <PostFormController>
+
       {loggedFrog ? <PostForm
         selectedFrog={selectedFrog}
         loggedFrog={loggedFrog}
         addPost={addPost}
       /> : null}
-      </PostFormController>
+
+
       {posts.length ? (
           <PostList
           loggedFrog={loggedFrog}
@@ -93,19 +96,23 @@ const FrogProfile = ({
             again later.
           </p>
         )}
-      </ProfileSection>
+              </ProfileSection>
+        </div>
+        <div className="div3"></div>
+        </div>
+      </Aligner>
     </>
   );
 };
 
 const ProfileSection = styled.section`
-font-family: "Bungee", cursive;
+  font-family: "Bungee", cursive;
 `
 
 const Title = styled.h1`
-text-align: center;
-font-size: 3rem;
-color: red;
+  text-align: center;
+  font-size: 3rem;
+  color: red;
   -webkit-text-stroke-width: 0.75px;
   -webkit-text-stroke-color: black;
 
@@ -115,48 +122,24 @@ color: red;
   }
 `
 
-const TopSection = styled.section`
-display: flex;
-flex-direction: row;
-justify-content: space-evenly;
-align-items: center;
-/* margin-inline: auto; */
-
-@media (max-width: 778px) {
-    flex-direction: column;
-    margin-inline: 0px;
-  }
-`
-
-const StyledSection = styled.section`
-display: flex;
-justify-content: row;
-`
-
 const EditForm = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: space-evenly;
-align-items: center;
-background: #84db2c;
-padding: 1%;
-border: 5px double white;
-border-radius: 5px;
-
-@media (max-width: 778px) {
-    width: 60%;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background: #84db2c;
+  padding: 1%;
+  border: 2px double white;
+  border-radius: 5px;
 `
 
 const StyledImage = styled.img`
   max-width: 25rem;
   display: flex;
-  justify-content: center;
   border-radius: 50%;
   width: 20rem;
   height: 20rem;
   border: 5px double #84db2c;
-  border-radius: 50%;
 
   transition: 0.3s;
   @media (max-width: 778px) {
@@ -172,11 +155,6 @@ const StyledImageDiv = styled.div`
   padding-bottom: 5%;
 `
 
-const PostFormController = styled.div`
-max-width: 60%;
-margin-inline: auto;
-`;
-
 const StyledCard = styled.section`
   font-family: "Bungee", cursive;
   color: white;
@@ -189,7 +167,6 @@ const StyledCard = styled.section`
   margin-top: 1%;
   display: flex;
   flex-direction: column;
-  /* width: 35%; */
   padding-bottom: 1%;
 
   @media (max-width: 768px) {
@@ -206,5 +183,24 @@ const StyledCard = styled.section`
   }
 `;
 
+export const Aligner = styled.section`
+  .parent {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+
+  .div1 {
+    grid-area: 1 / 1 / 2 / 3;
+  }
+  .div2 {
+    grid-area: 1 / 3 / 2 / 9;
+  }
+  .div3 {
+    grid-area: 1 / 9 / 2 / 11;
+  }
+`;
 
 export default FrogProfile;

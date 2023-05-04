@@ -4,6 +4,7 @@ import { faRightLong } from "@fortawesome/free-solid-svg-icons";
 import dayjs from "dayjs";
 import { Link } from "react-router-dom";
 import PostResponse from "../PostForm/PostResponse";
+
 const localizedFormat = require("dayjs/plugin/localizedFormat");
 dayjs.extend(localizedFormat);
 var relativeTime = require("dayjs/plugin/relativeTime");
@@ -44,18 +45,7 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
       </Link>
     </div>
   ) : (
-    <PosterImage src="" alt="deleted user picture placeholder" />
-  );
-
-  const displayPosterName = postPoster ? (
-    <div onClick={handlePosterClick}>
-      <PosterName>
-        {" "}
-        <Link to={`/${posterId}/profile`}>{posterName}</Link>
-      </PosterName>
-    </div>
-  ) : (
-    <PosterName>They played Frogger, and lost</PosterName>
+    <ExPosterImage src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Red_X.svg" alt="deleted user picture placeholder" />
   );
 
   const handleImageError = (e) => {
@@ -69,7 +59,7 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
     return (
       <>
     <CommentField>{response.comment}
-     {commenterFilter[0] ? <ReceiverImage src={commenterFilter[0].image_url} alt="" onError={handleImageError} /> : <ReceiverImage src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Red_X.svg" alt="" />}
+     {commenterFilter[0] ? <CommentImage src={commenterFilter[0].image_url} alt="" onError={handleImageError} /> : <CommentImage src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Red_X.svg" alt="Red cross to indicate deletion" />}
      </CommentField>
      </>
     )
@@ -81,24 +71,22 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
     } else {
       return (
         <>
-          <div className="div3">
+          <div className="div2">
             {postReceiver ? (
               <div onClick={handleReceiverClick}>
                 <ReceiverText>
                   {" "}
-                  <Link to={`/${receiverId}/profile`}>{receiverName} </Link>
                   <StyledFontAwesomeIcon icon={faRightLong} />{" "}
                 </ReceiverText>
               </div>
             ) : (
               <div>
                 {" "}
-                <PosterName>User has hopped off for good</PosterName>
                 <StyledFontAwesomeIcon icon={faRightLong} />{" "}
               </div>
             )}
           </div>
-          <div className="div4">
+          <div className="div3">
             {postReceiver ? (
               <div onClick={handleReceiverClick}>
                 <Link to={`/${receiverId}/profile`}>
@@ -110,7 +98,7 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
                 </Link>
               </div>
             ) : (
-              <ReceiverImage src="" alt="deleted user picture placeholder" />
+              <ExRecipientImage src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Red_X.svg" alt="" />
             )}
           </div>
         </>
@@ -127,13 +115,10 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
           <></>
         )}
         <PosterCard>
-          <div>
-            <CardPosterRecipientGrid>
-              <div className="div1">{displayPosterPicture}</div>
-              <div className="div2">{displayPosterName}</div>
-              {hideReceiver()}
-            </CardPosterRecipientGrid>
-          </div>
+          <CardPosterRecipientGrid>
+            <div className="div1">{displayPosterPicture}</div>
+            {hideReceiver()}
+          </CardPosterRecipientGrid>
           <DateText>
             <span>{dayjs(post.date).format("llll")}</span>
             <span>{dayjs(post.date).fromNow()}</span>
@@ -141,13 +126,11 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
         </PosterCard>
         <PostText>{post.comment.original}</PostText>
         {responses}
-          {loggedFrog ? <PostResponse loggedFrog={loggedFrog} addResponse={addResponse} post={post}/> : null}
+        {loggedFrog ? <PostResponse loggedFrog={loggedFrog} addResponse={addResponse} post={post}/> : null}
       </PostCard>
     </>
   );
 };
-
-// #84db2c
 
 const PostCard = styled.section`
   background-color: #84db2c;
@@ -161,7 +144,6 @@ const PostCard = styled.section`
   -webkit-text-stroke-color: black;
   padding: 1rem;
   border: 2px double white;
-  /* min-width: 60%;  */
 
   @media (max-width: 768px) {
     width: 100%;
@@ -171,73 +153,60 @@ const PostCard = styled.section`
 const PosterCard = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between; // Add this line
+  justify-content: space-between; 
   padding-left: 0.25%;
 `;
 
 const PosterImage = styled.img`
   width: 40px;
   height: 40px;
-
   border: 2px double white;
-  border-radius: 50%; // Set border-radius to 50% to create a circle
-  object-fit: cover; // Add object-fit to maintain the aspect ratio
-  object-position: center; // Add object-position to position the image correctly
+  border-radius: 50%; 
+  object-fit: cover; 
+  object-position: center; 
   align-items: left;
 `;
 
 const ReceiverImage = styled.img`
   width: 40px;
   height: 40px;
-  margin-left: -10px;
-
   border: 2px double white;
-  border-radius: 50%; // Set border-radius to 50% to create a circle
-  object-fit: cover; // Add object-fit to maintain the aspect ratio
-  object-position: center; // Add object-position to position the image correctly
+  border-radius: 50%; 
+  object-fit: cover; 
+  object-position: center; 
   align-items: left;
-
-  @media (max-width: 768px) {
-    margin-left: 10px;
-  }
-`;
-
-const PosterName = styled.p`
-  margin: 0 1rem; // Add some horizontal margin for spacing
-  margin-top: 1%;
 `;
 
 const ReceiverText = styled.p`
-  margin: 0 1rem; // Add some horizontal margin for spacing
-  font-size: 75%;
-  display: flex;
-  flex-direction: row-reverse;
+  font-size: 100%;
 `;
 
 const PostImage = styled.img`
-  width: 100%; // Set the initial width to 100%
+  width: 100%; 
   border-radius: 4px;
   border: 2px double white;
   object-fit: cover;
   object-position: center;
   align-items: center;
   margin-bottom: 1%;
+
+  @media (max-width: 768px) {
+    margin-bottom: 5%;
+  }
 `;
 
 const PostText = styled.p`
   align-items: center;
   align-self: flex-start;
-  padding-left: 0.25%;
-`;
+  margin-left: 0.5%;
 
-const PosterReceiver = styled.div`
-  display: flex;
-  width: 100%;
-  align-items: center;
+  @media (max-width: 768px) {
+    margin-left: 2.5%;
+  }
 `;
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-  margin-right: 0.5rem; // Adjust the margin value to your desired spacing
+  font-size: 25px;
 `;
 
 const DateText = styled.div`
@@ -247,10 +216,20 @@ const DateText = styled.div`
   align-items: flex-end;
   justify-content: flex-end;
   font-size: 75%;
+
+  @media (max-width: 768px) {
+      display: none;
+  }
 `;
 
 const CardPosterRecipientGrid = styled.div`
   display: grid;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 5px;
+  grid-row-gap: 0px;
+  margin-left: 0.5%;
+  margin-top: 0.5%;
+  align-items: center;
 
   a {
     color: inherit;
@@ -261,33 +240,52 @@ const CardPosterRecipientGrid = styled.div`
     }
   }
 
-  .div1 {
-    grid-area: 1 / 1 / 3 / 2;
-  }
-  .div2 {
-    grid-area: 1 / 2 / 2 / 3;
-  }
-  .div3 {
-    grid-area: 2 / 2 / 3 / 3;
-  }
-  .div4 {
-    grid-area: 1 / 3 / 3 / 4;
-  }
-
   @media (max-width: 768px) {
-    .div2 {
-      display: none;
-    }
-    .div3 {
-      display: none;
-    }
+    margin-left: 2.5%;
   }
 `;
 
 const CommentField = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: flex-end;
+    background: white;
+    margin-block: 0.5%;
+    border: 2px double #84db2c;
+    border-radius: 5px;
+    padding-block: 5px;
+    color: black;
+    -webkit-text-stroke-width: 0px;
+
+    @media (max-width: 768px) {
+    padding-left: 5%;
+  }
+`
+
+const CommentImage = styled.img`
+  width: 40px;
+  height: 40px;
+  border: 2px double #84db2c;
+  border-radius: 50%; 
+  margin-left: 10px;
+  margin-right: 5px;
+`;
+
+const ExPosterImage = styled.img`
+  width: 40px;
+  height: 40px;
+  border: 2px double white;
+  border-radius: 50%; 
+`
+
+const ExRecipientImage = styled.img`
+  width: 40px;
+  height: 40px;
+  padding-right: -200px;
+  border: 2px double white;
+  border-radius: 50%; 
 `
 
 export default PostElement;

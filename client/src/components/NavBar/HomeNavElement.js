@@ -59,7 +59,7 @@ const StyledCloverIcon = styled.svg.attrs({
   xmlns: 'http://www.w3.org/2000/svg',
 })`
   width: 3rem;
-  height: 1.75rem;
+  height: 2.25rem;
   fill: currentColor;
   stroke: black;
   stroke-width: 23.5px;

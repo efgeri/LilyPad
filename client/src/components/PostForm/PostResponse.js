@@ -83,6 +83,7 @@ const StyledTitle = styled.h2`
 `;
 
 const PostFormStyled = styled.form``;
+
 const InputWrapper = styled.div`
   width: 100%;
   padding: 0 5%;
@@ -105,6 +106,7 @@ font-size: 10px;
   margin-top: 1%;
   border: 2px solid black;
   border-radius: 2.5px;
+  -webkit-text-stroke-width: 0px;
 `;
 
 const StyledInput = styled.input`
@@ -122,6 +124,7 @@ const StyledButton = styled.button`
   border: 2px solid black;
   border-radius: 2.5px;
   margin: 5px;
+  -webkit-text-stroke-width: 0px;
 
   &:hover {
     background: red;

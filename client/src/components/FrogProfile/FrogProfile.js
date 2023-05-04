@@ -6,6 +6,7 @@ import PostForm from "../PostForm/PostForm";
 import PostList from "../Posts/PostList";
 import EditFrog from "./EditFrog";
 import DeleteFrog from "./DeleteFrog";
+// import { Aligner } from "../../containers/LilyPadContainer";
 
 const FrogProfile = ({
   loggedFrog,
@@ -32,7 +33,7 @@ const FrogProfile = ({
       return <p>We could not find this hopper</p>;
     } else {
       return (
-        <StyledSection>
+
         <StyledCard>
         <StyledImageDiv>
           <StyledImage
@@ -41,7 +42,7 @@ const FrogProfile = ({
           />
         </StyledImageDiv>
         </StyledCard>
-      </StyledSection>
+
       );
     }
   };
@@ -66,19 +67,23 @@ const FrogProfile = ({
 
   return (
     <>
+    <Aligner>
+    <div className="parent">
+      <div className="div1"></div>
+        <div className="div2">
     <ProfileSection>
     {selectedFrog ? <Title>{selectedFrog.name}</Title> : "No such frog"}
-    <TopSection>
-      {styleCardDirector}
+    {styleCardDirector}
+
       {editProfileDirector()}
-      </TopSection>
-      <PostFormController>
+
       {loggedFrog ? <PostForm
         selectedFrog={selectedFrog}
         loggedFrog={loggedFrog}
         addPost={addPost}
       /> : null}
-      </PostFormController>
+
+
       {posts.length ? (
           <PostList
           loggedFrog={loggedFrog}
@@ -93,7 +98,11 @@ const FrogProfile = ({
             again later.
           </p>
         )}
-      </ProfileSection>
+              </ProfileSection>
+        </div>
+        <div className="div3"></div>
+        </div>
+      </Aligner>
     </>
   );
 };
@@ -128,11 +137,6 @@ align-items: center;
   }
 `
 
-const StyledSection = styled.section`
-display: flex;
-justify-content: row;
-`
-
 const EditForm = styled.div`
 display: flex;
 flex-direction: column;
@@ -140,23 +144,18 @@ justify-content: space-evenly;
 align-items: center;
 background: #84db2c;
 padding: 1%;
-border: 5px double white;
+border: 2px double white;
 border-radius: 5px;
 
-@media (max-width: 778px) {
-    width: 60%;
-  }
 `
 
 const StyledImage = styled.img`
   max-width: 25rem;
   display: flex;
-  justify-content: center;
   border-radius: 50%;
   width: 20rem;
   height: 20rem;
   border: 5px double #84db2c;
-  border-radius: 50%;
 
   transition: 0.3s;
   @media (max-width: 778px) {
@@ -172,10 +171,12 @@ const StyledImageDiv = styled.div`
   padding-bottom: 5%;
 `
 
-const PostFormController = styled.div`
-max-width: 60%;
-margin-inline: auto;
-`;
+
+// const StyledPostForm = styled(PostForm)`
+//   & .post-form-container {
+//     background-color: blue;
+//   }
+// `
 
 const StyledCard = styled.section`
   font-family: "Bungee", cursive;
@@ -203,6 +204,26 @@ const StyledCard = styled.section`
   &:hover {
     color: red;
     cursor: pointer;
+  }
+`;
+
+export const Aligner = styled.section`
+  .parent {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+
+  .div1 {
+    grid-area: 1 / 1 / 2 / 3;
+  }
+  .div2 {
+    grid-area: 1 / 3 / 2 / 9;
+  }
+  .div3 {
+    grid-area: 1 / 9 / 2 / 11;
   }
 `;
 

@@ -127,13 +127,11 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
           <></>
         )}
         <PosterCard>
-          <div>
           <CardPosterRecipientGrid>
-            <div className="container">{displayPosterPicture}</div>
-            <div className="container">{displayPosterName}</div>
+            <div className="div1">{displayPosterPicture}</div>
+            <div className="div2">{displayPosterName}</div>
             {hideReceiver()}
           </CardPosterRecipientGrid>
-          </div>
           <DateText>
             <span>{dayjs(post.date).format("llll")}</span>
             <span>{dayjs(post.date).fromNow()}</span>
@@ -141,7 +139,7 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
         </PosterCard>
         <PostText>{post.comment.original}</PostText>
         {responses}
-          {loggedFrog ? <PostResponse loggedFrog={loggedFrog} addResponse={addResponse} post={post}/> : null}
+        {loggedFrog ? <PostResponse loggedFrog={loggedFrog} addResponse={addResponse} post={post}/> : null}
       </PostCard>
     </>
   );
@@ -221,12 +219,20 @@ const PostImage = styled.img`
   object-position: center;
   align-items: center;
   margin-bottom: 1%;
+
+  @media (max-width: 768px) {
+    margin-bottom: 5%;
+  }
 `;
 
 const PostText = styled.p`
   align-items: center;
   align-self: flex-start;
-  padding-left: 0.25%;
+  margin-left: 0.5%;
+
+  @media (max-width: 768px) {
+    margin-left: 2.5%;
+  }
 `;
 
 
@@ -241,14 +247,26 @@ const DateText = styled.div`
   align-items: flex-end;
   justify-content: flex-end;
   font-size: 75%;
+
+  @media (max-width: 768px) {
+      display: none;
+  }
 `;
 
 const CardPosterRecipientGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, auto);
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  margin-left: 0.5%;
+  margin-top: 0.5%;
+
+  .div1 { grid-area: 1 / 1 / 3 / 2; } // Poster Image
+  .div2 { grid-area: 1 / 2 / 2 / 3; } // Poster Name
+  .div3 { grid-area: 2 / 2 / 3 / 3; } // Receiver Text
+  .div4 { grid-area: 1 / 3 / 3 / 4; } // Receiver Image
+  /* .div5 { grid-area: 1 / 4 / 3 / 5; } // Date Text */
 
   a {
     color: inherit;
@@ -266,6 +284,7 @@ const CardPosterRecipientGrid = styled.div`
     .div3 {
       display: none;
     }
+    margin-left: 2.5%;
   }
 `;
 
@@ -280,6 +299,10 @@ const CommentField = styled.div`
     border: 2px double #84db2c;
     border-radius: 5px;
     padding-block: 5px;
+
+    @media (max-width: 768px) {
+    padding-left: 5%;
+  }
 
 `
 

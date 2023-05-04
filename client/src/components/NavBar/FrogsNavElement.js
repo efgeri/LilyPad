@@ -56,7 +56,6 @@ const NavigationBarElement = styled.div`
     color: white;
     animation: ${bounce} 1s;
   }
-
 `;
 
 const FrogsIconWrapper = styled.div`

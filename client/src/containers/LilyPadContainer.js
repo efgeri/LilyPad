@@ -1,25 +1,18 @@
 import { useState, useEffect } from "react";
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  HashRouter,
-  Link,
-  useNavigate
 } from "react-router-dom";
 import FrogList from "../components/FrogList/FrogList";
-import PostList from "../components/Posts/PostList";
 import { getFrogs } from "../services/FrogServices";
 import { getPosts } from "../services/PostServices";
-import PostForm from "../components/PostForm/PostForm";
-import FrogForm from "../components/FrogForm/FrogForm";
-import { createPost, updatePost } from "../services/PostServices";
+import { createPost } from "../services/PostServices";
 import { createFrog, deleteFrog, updateFrog } from "../services/FrogServices";
 import HomePage from "../components/FrogHome/HomePage";
 import SignLog from "../components/SignLog/SignLog";
 import NavBar from "../components/NavBar/NavBar";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FrogProfile from "../components/FrogProfile/FrogProfile";
 import PageNotFound from "../components/PageNotFound/PageNotFound";
 import ProfileDeleted from "../components/ProfileDeleted/ProfileDeleted";
@@ -35,7 +28,6 @@ const LilyPadContainer = () => {
     fetchData()
   }, []);
 
-  
   const fetchData = () =>{
     Promise.all([getFrogs(), getPosts()]).then(([frogsData, postsData]) => {
       setFrogs(frogsData);
@@ -48,6 +40,7 @@ const LilyPadContainer = () => {
       setPosts([...posts, savedPost])
     );
   };
+
   const addResponse = (updatedPost) => {
     const copyPosts = [...posts];
     const index = posts.findIndex(
@@ -78,11 +71,8 @@ const LilyPadContainer = () => {
     setSelectedFrog(loggedFrog);
   };
 
-
   const postsReversed = [...posts].sort((a, b) => dayjs(b.date).valueOf() - dayjs(a.date).valueOf());
   
-
-
   const logOut = () => {
     setLoggedFrog(null)
   }
@@ -180,18 +170,6 @@ const LilyPadContainer = () => {
   );
 };
 
-const bounce = keyframes`
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(5px);
-  }
-  60% {
-    transform: translateY(3px);
-  }
-`;
-
 const HeaderContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -236,4 +214,5 @@ export const Aligner = styled.section`
     grid-area: 1 / 9 / 2 / 11;
   }
 `;
+
 export default LilyPadContainer;

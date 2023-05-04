@@ -4,6 +4,7 @@ import { faRightLong } from "@fortawesome/free-solid-svg-icons";
 import dayjs from "dayjs";
 import { Link } from "react-router-dom";
 import PostResponse from "../PostForm/PostResponse";
+
 const localizedFormat = require("dayjs/plugin/localizedFormat");
 dayjs.extend(localizedFormat);
 var relativeTime = require("dayjs/plugin/relativeTime");
@@ -44,18 +45,7 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
       </Link>
     </div>
   ) : (
-    <ExUserImage src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Red_X.svg" alt="deleted user picture placeholder" />
-  );
-
-  const displayPosterName = postPoster ? (
-    <div onClick={handlePosterClick}>
-      <PosterName>
-        {" "}
-        <Link to={`/${posterId}/profile`}>{posterName}</Link>
-      </PosterName>
-    </div>
-  ) : (
-    <PosterName>They played Frogger, and lost</PosterName>
+    <ExPosterImage src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Red_X.svg" alt="deleted user picture placeholder" />
   );
 
   const handleImageError = (e) => {
@@ -69,7 +59,7 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
     return (
       <>
     <CommentField>{response.comment}
-     {commenterFilter[0] ? <CommentImage src={commenterFilter[0].image_url} alt="" onError={handleImageError} /> : <CommentImage src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Red_X.svg" alt="" />}
+     {commenterFilter[0] ? <CommentImage src={commenterFilter[0].image_url} alt="" onError={handleImageError} /> : <CommentImage src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Red_X.svg" alt="Red cross to indicate deletion" />}
      </CommentField>
      </>
     )
@@ -87,7 +77,6 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
                 <ReceiverText>
                   {" "}
                   <StyledFontAwesomeIcon icon={faRightLong} />{" "}
-                  {/* <Link to={`/${receiverId}/profile`}>{receiverName} </Link> */}
                 </ReceiverText>
               </div>
             ) : (
@@ -109,7 +98,7 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
                 </Link>
               </div>
             ) : (
-              <ExUserImage src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Red_X.svg" alt="" />
+              <ExRecipientImage src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Red_X.svg" alt="" />
             )}
           </div>
         </>
@@ -128,7 +117,6 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
         <PosterCard>
           <CardPosterRecipientGrid>
             <div className="div1">{displayPosterPicture}</div>
-            {/* <div className="div2">{displayPosterName}</div> */}
             {hideReceiver()}
           </CardPosterRecipientGrid>
           <DateText>
@@ -143,8 +131,6 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
     </>
   );
 };
-
-// #84db2c
 
 const PostCard = styled.section`
   background-color: #84db2c;
@@ -174,7 +160,6 @@ const PosterCard = styled.div`
 const PosterImage = styled.img`
   width: 40px;
   height: 40px;
-
   border: 2px double white;
   border-radius: 50%; 
   object-fit: cover; 
@@ -185,27 +170,15 @@ const PosterImage = styled.img`
 const ReceiverImage = styled.img`
   width: 40px;
   height: 40px;
-  margin-left: -10px;
-
   border: 2px double white;
   border-radius: 50%; 
   object-fit: cover; 
   object-position: center; 
   align-items: left;
-
-  @media (max-width: 768px) {
-    margin-left: 10px;
-  }
-`;
-
-const PosterName = styled.p`
-  margin: 0 1rem; 
-  margin-top: 1%;
 `;
 
 const ReceiverText = styled.p`
   font-size: 100%;
-
 `;
 
 const PostImage = styled.img`
@@ -232,9 +205,8 @@ const PostText = styled.p`
   }
 `;
 
-
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-  margin-right: 0.5rem; 
+  font-size: 25px;
 `;
 
 const DateText = styled.div`
@@ -269,7 +241,6 @@ const CardPosterRecipientGrid = styled.div`
   }
 
   @media (max-width: 768px) {
-
     margin-left: 2.5%;
   }
 `;
@@ -291,7 +262,6 @@ const CommentField = styled.div`
     @media (max-width: 768px) {
     padding-left: 5%;
   }
-
 `
 
 const CommentImage = styled.img`
@@ -303,13 +273,19 @@ const CommentImage = styled.img`
   margin-right: 5px;
 `;
 
-const ExUserImage = styled.img`
+const ExPosterImage = styled.img`
   width: 40px;
   height: 40px;
   border: 2px double white;
   border-radius: 50%; 
-  margin-left: 10px;
-  margin-right: 5px;
+`
+
+const ExRecipientImage = styled.img`
+  width: 40px;
+  height: 40px;
+  padding-right: -200px;
+  border: 2px double white;
+  border-radius: 50%; 
 `
 
 export default PostElement;

@@ -47,7 +47,6 @@ const StyledList = styled.li`
   @media screen and (max-width: 768px) {
     width: 90%;
   }
-
 `;
 
 const Link = styled(RouterLink)`
@@ -70,10 +69,8 @@ const ImageContainer = styled.div`
   @media screen and (max-width: 768px) {
     width: 95%; 
     height: 95%;
-
   }
 `;
-
 
 const StyledImage = styled.img`
   width: 100%; 
@@ -84,7 +81,6 @@ const StyledImage = styled.img`
   @media screen and (max-width: 768px) {
     width: 100%; 
     height: 100%; 
-
   }
 `;
 

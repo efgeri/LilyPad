@@ -29,9 +29,7 @@ const PostResponse = ({ loggedFrog, addResponse, post }) => {
         <PostTextAreaDiv>
           <StyledTitle>What's your comment on this?</StyledTitle>
         </PostTextAreaDiv>
-        <PostFormStyled onSubmit={handleSubmitPost}>
-          
-          <br />
+        <PostFormStyled onSubmit={handleSubmitPost}>       
           <PostTextAreaDiv>
             <PostTextArea
               id="comment"
@@ -80,18 +78,7 @@ const StyledTitle = styled.h2`
   -webkit-text-stroke-color: black;
 `;
 
-const PostFormStyled = styled.form``;
-
-const InputWrapper = styled.div`
-  width: 100%;
-  padding: 0 5%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  @media (max-width: 768px) {
-    margin-top: 3.5%;
-  }
+const PostFormStyled = styled.form`
 `;
 
 const PostTextArea = styled.textarea`
@@ -105,14 +92,6 @@ const PostTextArea = styled.textarea`
   border: 2px solid black;
   border-radius: 2.5px;
   -webkit-text-stroke-width: 0px;
-`;
-
-const StyledInput = styled.input`
-  width: 100%;
-  font-family: "Bungee", cursive;
-  margin-top: 1%;
-  border: 2px solid black;
-  border-radius: 2.5px;
 `;
 
 const StyledButton = styled.button`

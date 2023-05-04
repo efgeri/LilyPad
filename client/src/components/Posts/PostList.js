@@ -28,7 +28,6 @@ const ListContainer = styled.section`
   display: flex;
   flex-direction: column;
   padding-bottom: 50px;
-  
 `;
 
 const StyledTitle = styled.h2`

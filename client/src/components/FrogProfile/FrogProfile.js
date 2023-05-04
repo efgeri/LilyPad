@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { getSelectedFrog } from "../../services/FrogServices";
@@ -6,7 +6,6 @@ import PostForm from "../PostForm/PostForm";
 import PostList from "../Posts/PostList";
 import EditFrog from "./EditFrog";
 import DeleteFrog from "./DeleteFrog";
-// import { Aligner } from "../../containers/LilyPadContainer";
 
 const FrogProfile = ({
   loggedFrog,
@@ -33,7 +32,6 @@ const FrogProfile = ({
       return <p>We could not find this hopper</p>;
     } else {
       return (
-
         <StyledCard>
         <StyledImageDiv>
           <StyledImage
@@ -42,10 +40,10 @@ const FrogProfile = ({
           />
         </StyledImageDiv>
         </StyledCard>
-
       );
     }
   };
+
   const styleCardDirector = displayStyleCard();
 
   const editProfileDirector = () => {
@@ -108,13 +106,13 @@ const FrogProfile = ({
 };
 
 const ProfileSection = styled.section`
-font-family: "Bungee", cursive;
+  font-family: "Bungee", cursive;
 `
 
 const Title = styled.h1`
-text-align: center;
-font-size: 3rem;
-color: red;
+  text-align: center;
+  font-size: 3rem;
+  color: red;
   -webkit-text-stroke-width: 0.75px;
   -webkit-text-stroke-color: black;
 
@@ -124,28 +122,15 @@ color: red;
   }
 `
 
-const TopSection = styled.section`
-display: flex;
-flex-direction: row;
-justify-content: space-evenly;
-align-items: center;
-/* margin-inline: auto; */
-
-@media (max-width: 778px) {
-    flex-direction: column;
-    margin-inline: 0px;
-  }
-`
-
 const EditForm = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: space-evenly;
-align-items: center;
-background: #84db2c;
-padding: 1%;
-border: 2px double white;
-border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background: #84db2c;
+  padding: 1%;
+  border: 2px double white;
+  border-radius: 5px;
 `
 
 const StyledImage = styled.img`
@@ -217,6 +202,5 @@ export const Aligner = styled.section`
     grid-area: 1 / 9 / 2 / 11;
   }
 `;
-
 
 export default FrogProfile;

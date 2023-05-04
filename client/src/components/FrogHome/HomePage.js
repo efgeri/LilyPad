@@ -11,7 +11,7 @@ const HomePage = ({
   posts,
   frogs,
   updateSelectedFrogById,
- addResponse}) => {
+  addResponse}) => {
   const displayPostFormGuard = () => {
     if (loggedFrog === null) {
       return (

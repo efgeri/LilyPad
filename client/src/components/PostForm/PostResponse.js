@@ -3,7 +3,7 @@ import styled from "styled-components";
 import dayjs from "dayjs";
 import { updatePost } from "../../services/PostServices";
 
-const PostResponse = ({loggedFrog, addResponse, post }) => {
+const PostResponse = ({ loggedFrog, addResponse, post }) => {
   const [postResponse, setPostResponse] = useState("");
 
   const handleResponseChange = (e) => {
@@ -17,7 +17,7 @@ const PostResponse = ({loggedFrog, addResponse, post }) => {
       poster: loggedFrog._id,
       date: dayjs().format(),
     };
-    const responses = [...post.responses, newResponse]
+    const responses = [...post.responses, newResponse];
     const payload = { responses };
     updatePost(post._id, payload).then(() => addResponse(post));
     setPostResponse("");
@@ -27,25 +27,23 @@ const PostResponse = ({loggedFrog, addResponse, post }) => {
     <>
       <PostAreaDiv>
         <PostTextAreaDiv>
-          <StyledTitle>What are you ribbiting on about?</StyledTitle>
+          <StyledTitle>What's your comment on this?</StyledTitle>
         </PostTextAreaDiv>
         <PostFormStyled onSubmit={handleSubmitPost}>
-          <label htmlFor="comment">Croak into the void</label>
+          
           <br />
           <PostTextAreaDiv>
             <PostTextArea
               id="comment"
               name="comment"
-              rows="4"
+              rows="2"
               cols="50"
               placeholder="Share your ribbits!"
               value={postResponse}
               onChange={handleResponseChange}
             />
           </PostTextAreaDiv>
-          <StyledButton disabled={!postResponse}>
-            Ribbit
-          </StyledButton>
+          <StyledButton disabled={!postResponse}>Ribbit</StyledButton>
         </PostFormStyled>
       </PostAreaDiv>
     </>
@@ -98,6 +96,7 @@ const InputWrapper = styled.div`
 `;
 
 const PostTextArea = styled.textarea`
+font-size: 10px;
   display: flex;
   flex-wrap: wrap;
   width: 90%;
@@ -122,6 +121,7 @@ const StyledButton = styled.button`
   color: black;
   border: 2px solid black;
   border-radius: 2.5px;
+  margin: 5px;
 
   &:hover {
     background: red;

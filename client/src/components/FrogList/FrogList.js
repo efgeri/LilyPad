@@ -36,7 +36,7 @@ const FrogList = ({ frogs, selectFrog }) => {
         onChange={changeSearchTerm}
         type="text"
         name="searchTerm"
-        placeholder="Filter Frogs"
+        placeholder="Search Frogs"
         value={searchTerm} />
     </StyledForm>
     </SearchContainer>

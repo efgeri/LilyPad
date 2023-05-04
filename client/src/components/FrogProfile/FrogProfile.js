@@ -146,7 +146,6 @@ background: #84db2c;
 padding: 1%;
 border: 2px double white;
 border-radius: 5px;
-
 `
 
 const StyledImage = styled.img`

@@ -81,13 +81,13 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
     } else {
       return (
         <>
-          <div className="div3">
+          <div className="div2">
             {postReceiver ? (
               <div onClick={handleReceiverClick}>
                 <ReceiverText>
                   {" "}
-                  <Link to={`/${receiverId}/profile`}>{receiverName} </Link>
                   <StyledFontAwesomeIcon icon={faRightLong} />{" "}
+                  {/* <Link to={`/${receiverId}/profile`}>{receiverName} </Link> */}
                 </ReceiverText>
               </div>
             ) : (
@@ -98,7 +98,7 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
               </div>
             )}
           </div>
-          <div className="div4">
+          <div className="div3">
             {postReceiver ? (
               <div onClick={handleReceiverClick}>
                 <Link to={`/${receiverId}/profile`}>
@@ -129,7 +129,7 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
         <PosterCard>
           <CardPosterRecipientGrid>
             <div className="div1">{displayPosterPicture}</div>
-            <div className="div2">{displayPosterName}</div>
+            {/* <div className="div2">{displayPosterName}</div> */}
             {hideReceiver()}
           </CardPosterRecipientGrid>
           <DateText>
@@ -205,10 +205,8 @@ const PosterName = styled.p`
 `;
 
 const ReceiverText = styled.p`
-  margin: 0 1rem; 
-  font-size: 75%;
-  display: flex;
-  flex-direction: row-reverse;
+  font-size: 100%;
+
 `;
 
 const PostImage = styled.img`
@@ -255,18 +253,12 @@ const DateText = styled.div`
 
 const CardPosterRecipientGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, auto);
-  grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 0px;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 5px;
   grid-row-gap: 0px;
   margin-left: 0.5%;
   margin-top: 0.5%;
-
-  .div1 { grid-area: 1 / 1 / 3 / 2; } // Poster Image
-  .div2 { grid-area: 1 / 2 / 2 / 3; } // Poster Name
-  .div3 { grid-area: 2 / 2 / 3 / 3; } // Receiver Text
-  .div4 { grid-area: 1 / 3 / 3 / 4; } // Receiver Image
-  /* .div5 { grid-area: 1 / 4 / 3 / 5; } // Date Text */
+  align-items: center;
 
   a {
     color: inherit;
@@ -278,12 +270,7 @@ const CardPosterRecipientGrid = styled.div`
   }
 
   @media (max-width: 768px) {
-    .div2 {
-      display: none;
-    }
-    .div3 {
-      display: none;
-    }
+
     margin-left: 2.5%;
   }
 `;

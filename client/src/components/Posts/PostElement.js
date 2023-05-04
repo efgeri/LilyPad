@@ -69,7 +69,7 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
     return (
       <>
     <CommentField>{response.comment}
-     {commenterFilter[0] ? <ReceiverImage src={commenterFilter[0].image_url} alt="" onError={handleImageError} /> : <ReceiverImage src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Red_X.svg" alt="" />}
+     {commenterFilter[0] ? <CommentImage src={commenterFilter[0].image_url} alt="" onError={handleImageError} /> : <CommentImage src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Red_X.svg" alt="" />}
      </CommentField>
      </>
     )
@@ -161,7 +161,6 @@ const PostCard = styled.section`
   -webkit-text-stroke-color: black;
   padding: 1rem;
   border: 2px double white;
-  /* min-width: 60%;  */
 
   @media (max-width: 768px) {
     width: 100%;
@@ -171,7 +170,7 @@ const PostCard = styled.section`
 const PosterCard = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between; // Add this line
+  justify-content: space-between; 
   padding-left: 0.25%;
 `;
 
@@ -180,9 +179,9 @@ const PosterImage = styled.img`
   height: 40px;
 
   border: 2px double white;
-  border-radius: 50%; // Set border-radius to 50% to create a circle
-  object-fit: cover; // Add object-fit to maintain the aspect ratio
-  object-position: center; // Add object-position to position the image correctly
+  border-radius: 50%; 
+  object-fit: cover; 
+  object-position: center; 
   align-items: left;
 `;
 
@@ -192,9 +191,9 @@ const ReceiverImage = styled.img`
   margin-left: -10px;
 
   border: 2px double white;
-  border-radius: 50%; // Set border-radius to 50% to create a circle
-  object-fit: cover; // Add object-fit to maintain the aspect ratio
-  object-position: center; // Add object-position to position the image correctly
+  border-radius: 50%; 
+  object-fit: cover; 
+  object-position: center; 
   align-items: left;
 
   @media (max-width: 768px) {
@@ -203,19 +202,19 @@ const ReceiverImage = styled.img`
 `;
 
 const PosterName = styled.p`
-  margin: 0 1rem; // Add some horizontal margin for spacing
+  margin: 0 1rem; 
   margin-top: 1%;
 `;
 
 const ReceiverText = styled.p`
-  margin: 0 1rem; // Add some horizontal margin for spacing
+  margin: 0 1rem; 
   font-size: 75%;
   display: flex;
   flex-direction: row-reverse;
 `;
 
 const PostImage = styled.img`
-  width: 100%; // Set the initial width to 100%
+  width: 100%; 
   border-radius: 4px;
   border: 2px double white;
   object-fit: cover;
@@ -230,14 +229,9 @@ const PostText = styled.p`
   padding-left: 0.25%;
 `;
 
-const PosterReceiver = styled.div`
-  display: flex;
-  width: 100%;
-  align-items: center;
-`;
 
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-  margin-right: 0.5rem; // Adjust the margin value to your desired spacing
+  margin-right: 0.5rem; 
 `;
 
 const DateText = styled.div`
@@ -285,9 +279,26 @@ const CardPosterRecipientGrid = styled.div`
 `;
 
 const CommentField = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: flex-end;
+    background: white;
+    margin-block: 0.5%;
+    border: 2px double #84db2c;
+    border-radius: 5px;
+    padding-block: 5px;
+
 `
+
+const CommentImage = styled.img`
+  width: 40px;
+  height: 40px;
+  border: 2px double #84db2c;
+  border-radius: 50%; 
+  margin-left: 10px;
+  margin-right: 5px;
+`;
 
 export default PostElement;

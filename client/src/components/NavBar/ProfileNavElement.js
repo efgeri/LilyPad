@@ -41,8 +41,8 @@ const bounce = keyframes`
 
 const NavigationBarElement = styled.div`
   color: #fc0000;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   align-items: center;
   font-size: 20px;
   -webkit-text-stroke-width: 1px;

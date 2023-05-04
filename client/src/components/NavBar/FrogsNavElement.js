@@ -56,12 +56,13 @@ const NavigationBarElement = styled.div`
     color: white;
     animation: ${bounce} 1s;
   }
+
 `;
 
 const FrogsIconWrapper = styled.div`
   display: grid;
   grid-template-rows: 12px 20px;
-  grid-template-columns: 18px 18px 18px;
+  grid-template-columns: 16px 22px 18px;
   grid-template-areas:
     ". middle ."
     "left . right";
@@ -79,8 +80,8 @@ const FrogIcon = styled.div`
   margin-bottom: 1px;
 
   svg {
-    width: 1.5rem;
-    height: 0.85rem;
+    width: 2.5rem;
+    height: 1.25rem;
   }
 `;
 

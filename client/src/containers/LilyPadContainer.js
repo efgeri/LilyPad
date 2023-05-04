@@ -121,13 +121,11 @@ const LilyPadContainer = () => {
 
   return (
     <>
-    <PageBreaker>
     <HeaderContainer>
       <StyledHeader>Lilypad</StyledHeader>
       </HeaderContainer>
       <Router>
         <NavBar handleProfileClick={handleProfileClick} loggedFrog={loggedFrog} />
-        {/* <Aligner> */}
         <Routes>
           <Route
             path="/"
@@ -180,9 +178,7 @@ const LilyPadContainer = () => {
           <Route path="/profile-deleted" element={<ProfileDeleted />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
-        {/* </Aligner> */}
       </Router>
-      </PageBreaker>
     </>
   );
 };
@@ -224,23 +220,23 @@ const StyledHeader = styled.div`
   }
 `;
 
-const PageBreaker = styled.div`
-  /* margin: 0px; */
-
-  @media (max-width: 300px) {
-  /* display: none; */
+export const Aligner = styled.section`
+  .parent {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
   }
-`
 
-const Aligner = styled.section`
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  flex-wrap: wrap;
-
-`
-
+  .div1 {
+    grid-area: 1 / 1 / 2 / 3;
+  }
+  .div2 {
+    grid-area: 1 / 3 / 2 / 9;
+  }
+  .div3 {
+    grid-area: 1 / 9 / 2 / 11;
+  }
+`;
 export default LilyPadContainer;

@@ -128,11 +128,11 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
         )}
         <PosterCard>
           <div>
-            <CardPosterRecipientGrid>
-              <div className="div1">{displayPosterPicture}</div>
-              <div className="div2">{displayPosterName}</div>
-              {hideReceiver()}
-            </CardPosterRecipientGrid>
+          <CardPosterRecipientGrid>
+            <div className="container">{displayPosterPicture}</div>
+            <div className="container">{displayPosterName}</div>
+            {hideReceiver()}
+          </CardPosterRecipientGrid>
           </div>
           <DateText>
             <span>{dayjs(post.date).format("llll")}</span>
@@ -245,6 +245,10 @@ const DateText = styled.div`
 
 const CardPosterRecipientGrid = styled.div`
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 
   a {
     color: inherit;
@@ -253,19 +257,6 @@ const CardPosterRecipientGrid = styled.div`
       -webkit-text-stroke-width: 1px;
       -webkit-text-stroke-color: black;
     }
-  }
-
-  .div1 {
-    grid-area: 1 / 1 / 3 / 2;
-  }
-  .div2 {
-    grid-area: 1 / 2 / 2 / 3;
-  }
-  .div3 {
-    grid-area: 2 / 2 / 3 / 3;
-  }
-  .div4 {
-    grid-area: 1 / 3 / 3 / 4;
   }
 
   @media (max-width: 768px) {

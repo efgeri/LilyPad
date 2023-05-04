@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import PostForm from "../PostForm/PostForm";
 import PostList from "../Posts/PostList";
+import { Aligner } from "../../containers/LilyPadContainer";
 
 const HomePage = ({
   selectedFrog,
@@ -34,23 +35,31 @@ const HomePage = ({
   const postFormDisplay = displayPostFormGuard();
 
   return (
-    <BodyContainer>
-      <WidthController>
-        {postFormDisplay}
-        {posts.length ? (
-          <PostList
-            loggedFrog={loggedFrog} addResponse={addResponse} posts={posts}
-            frogs={frogs}
-            updateSelectedFrogById={updateSelectedFrogById}
-          />
-        ) : (
-          <p>
-            Oh, oh! We are having issues retrieving post information. Please try
-            again later.
-          </p>
-        )}
-      </WidthController>
-    </BodyContainer>
+    <Aligner>
+      <div className="parent">
+        <div className="div2">
+          <BodyContainer>
+            <WidthController>
+              {postFormDisplay}
+              {posts.length ? (
+                <PostList
+                  loggedFrog={loggedFrog}
+                  addResponse={addResponse}
+                  posts={posts}
+                  frogs={frogs}
+                  updateSelectedFrogById={updateSelectedFrogById}
+                />
+              ) : (
+                <p>
+                  Oh, oh! We are having issues retrieving post information. Please try
+                  again later.
+                </p>
+              )}
+            </WidthController>
+          </BodyContainer>
+        </div>
+      </div>
+    </Aligner>
   );
 };
 
@@ -64,7 +73,7 @@ const BodyContainer = styled.section`
 `;
 
 const WidthController = styled.div`
-  width: 60%;
+  width: 100%;
 
   @media screen and (max-width: 768px) {
     width: 90%;

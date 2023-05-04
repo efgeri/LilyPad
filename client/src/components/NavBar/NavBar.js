@@ -46,7 +46,6 @@ const NavigationBar = styled.div`
 
   @media (max-width: 768px) {
     justify-content: space-evenly;
-    /* align-items: center; */
     position: fixed;
     left: 0;
     right: 0;

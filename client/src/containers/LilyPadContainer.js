@@ -87,8 +87,6 @@ const LilyPadContainer = () => {
     setLoggedFrog(null)
   }
 
-  // const navigate = useNavigate()
-
   const deleteFrogAccount = async (id) => {
     const deletionResult = await deleteFrog(id)
     if (deletionResult.acknowledged) {
@@ -96,7 +94,6 @@ const LilyPadContainer = () => {
       setFrogs(newfrogArray)
       setLoggedFrog(null)
       setSelectedFrog(null)
-      // navigate('/profile-deleted')
     } else {
       alert("Failed to delete your profile. Please try again.");
     }

@@ -44,7 +44,7 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
       </Link>
     </div>
   ) : (
-    <PosterImage src="" alt="deleted user picture placeholder" />
+    <ExUserImage src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Red_X.svg" alt="deleted user picture placeholder" />
   );
 
   const displayPosterName = postPoster ? (
@@ -93,7 +93,6 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
             ) : (
               <div>
                 {" "}
-                <PosterName>User has hopped off for good</PosterName>
                 <StyledFontAwesomeIcon icon={faRightLong} />{" "}
               </div>
             )}
@@ -110,7 +109,7 @@ const PostElement = ({ post, frogs, updateSelectedFrogById, loggedFrog, addRespo
                 </Link>
               </div>
             ) : (
-              <ReceiverImage src="" alt="deleted user picture placeholder" />
+              <ExUserImage src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Red_X.svg" alt="" />
             )}
           </div>
         </>
@@ -286,6 +285,8 @@ const CommentField = styled.div`
     border: 2px double #84db2c;
     border-radius: 5px;
     padding-block: 5px;
+    color: black;
+    -webkit-text-stroke-width: 0px;
 
     @media (max-width: 768px) {
     padding-left: 5%;
@@ -301,5 +302,14 @@ const CommentImage = styled.img`
   margin-left: 10px;
   margin-right: 5px;
 `;
+
+const ExUserImage = styled.img`
+  width: 40px;
+  height: 40px;
+  border: 2px double white;
+  border-radius: 50%; 
+  margin-left: 10px;
+  margin-right: 5px;
+`
 
 export default PostElement;

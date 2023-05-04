@@ -60,8 +60,6 @@ const PostAreaDiv = styled.div`
   display: flex;
   flex-direction: column;
   background: #84db2c;
-  /* width: 90%; // Set the width to 90% of the parent container
-  max-width: 100%; // Make sure it doesn't exceed 100% width */
 `;
 
 const PostTextAreaDiv = styled.div`
@@ -97,7 +95,7 @@ const InputWrapper = styled.div`
 `;
 
 const PostTextArea = styled.textarea`
-font-size: 10px;
+  font-size: 10px;
   display: flex;
   flex-wrap: wrap;
   width: 90%;

@@ -55,37 +55,35 @@ const Link = styled(RouterLink)`
 `;
 
 const ImageContainer = styled.div`
-  height: 10rem; // add this line
-  width: 20rem; // add this line
+  height: 10rem; 
+  width: 20rem; 
   max-height: 10rem;
   max-width: 20rem;
-  /* min-width: 20rem; */
   border-radius: 5px;
   border: 2px double white;
   overflow: hidden;
   margin: 0.5rem;
-  display: flex; // add this line
-  justify-content: center; // add this line
-  align-items: center; // add this line
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
 
   @media screen and (max-width: 768px) {
-    width: 95%; // change this line
-    height: 95%; // change this line
-    /* border: none; */
+    width: 95%; 
+    height: 95%;
+
   }
 `;
 
 
 const StyledImage = styled.img`
-  width: 100%; // change this line
-  height: 100%; // change this line
+  width: 100%; 
+  height: 100%; 
   box-sizing: border-box;
   display: inline-block;
-  /* object-fit: cover; */
 
   @media screen and (max-width: 768px) {
-    width: 100%; // change this line
-    height: 100%; // change this line
+    width: 100%; 
+    height: 100%; 
 
   }
 `;

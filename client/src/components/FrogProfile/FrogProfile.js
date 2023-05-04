@@ -170,13 +170,6 @@ const StyledImageDiv = styled.div`
   padding-bottom: 5%;
 `
 
-
-// const StyledPostForm = styled(PostForm)`
-//   & .post-form-container {
-//     background-color: blue;
-//   }
-// `
-
 const StyledCard = styled.section`
   font-family: "Bungee", cursive;
   color: white;
@@ -189,7 +182,6 @@ const StyledCard = styled.section`
   margin-top: 1%;
   display: flex;
   flex-direction: column;
-  /* width: 35%; */
   padding-bottom: 1%;
 
   @media (max-width: 768px) {

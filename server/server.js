@@ -9,9 +9,8 @@ const mongoose = require('mongoose')
 app.use(express.json());
 app.use(cors())
 
-mongoose.connect(process.env.DATABASE_URL || 'mongodb://127.0.0.1:27017');
-
-MongoClient.connect('mongodb://127.0.0.1:27017', {useUnifiedTopology: true})
+// MongoClient.connect('mongodb://127.0.0.1:27017', {useUnifiedTopology: true})
+mongoose.connect(process.env.DATABASE_URL || 'mongodb://127.0.0.1:27017')
   .then(client => {
     const db = client.db('LilyPad');
     const frogsCollection = db.collection('frogs')
@@ -20,7 +19,8 @@ MongoClient.connect('mongodb://127.0.0.1:27017', {useUnifiedTopology: true})
   })
   .catch(console.error)
 
-  MongoClient.connect('mongodb://127.0.0.1:27017', {useUnifiedTopology: true})
+  // MongoClient.connect('mongodb://127.0.0.1:27017', {useUnifiedTopology: true})
+  mongoose.connect(process.env.DATABASE_URL || 'mongodb://127.0.0.1:27017')
   .then(client => {
     const db = client.db('LilyPad');
     const postsCollection = db.collection('posts')

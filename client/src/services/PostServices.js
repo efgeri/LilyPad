@@ -1,4 +1,4 @@
-const baseURL = "http://localhost:9000/api/posts/";
+const baseURL = "https://lilypad-server.onrender.com/api/posts";
 
 export const getPosts = () => {
   return fetch(baseURL).then((res) => res.json());

@@ -3,7 +3,7 @@ const app = express();
 const MongoClient = require('mongodb').MongoClient;
 const createRouter = require('./helpers/create_router');
 const cors = require('cors')
-import mongoose from 'mongoose';
+const mongoose = require('mongoose')
 
 // middleware
 app.use(express.json());

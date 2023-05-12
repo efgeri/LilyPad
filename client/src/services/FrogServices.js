@@ -1,4 +1,4 @@
-const baseURL = "https://lilypad-server.onrender.com/api/frogs";
+const baseURL = "https://lilypad-server.onrender.com/api/frogs/";
 
 export const getFrogs = () => {
   return fetch(baseURL).then((res) => res.json());
